@@ -1,0 +1,181 @@
+\section{Доказательства теорем главы 3}\label{sec36} 
+
+\subsection{Доказательство Теоремы \ref{th:stab_with_great_n}} 
+Начнем доказательство с замечания, что неравенство  
+\begin{equation}\label{coneenequality}
+ u_1+ u_3 \geqslant 0                                    
+\end{equation}
+верно на поверхности конуса устойчивости~\eqref{cone},~\eqref{preimage}
+(см.~определение~\ref{defin_cone}) и внутри него.  
+Из  \eqref{curvemain1} и  $a+b>1$  получим   
+$u_{1}^{'}(\pi) + u_{3}^{'}(\pi) = -\tau (b+a-1)<0$. 
+Последнее неравенство показывает, что точка $M^{'}(\pi)$ находится вне конуса
+устойчивости (см. \eqref{coneenequality}), поэтому  при $a+b>1$ система
+\eqref{matrixP}, \eqref{mainmatrix1} неустойчива, если $n$ достаточно велико.   
+ 
+Преобразование $t\rightarrow t+\pi, a\rightarrow -a, b\rightarrow -b$ переводит
+кривую  \eqref{curvemain1}  в себя, поэтому область устойчивости системы
+\eqref{matrixP}, \eqref{mainmatrix1} центрально-симметрична.   
+Следовательно, и  неравенство $a+b<-1$ обеспечивает неустойчивость  системы
+\eqref{matrixP}, \eqref{mainmatrix1}  при  достаточно больших  $n$.  
+Аналогично, положив в \eqref{curvemain2} $t=\pi/2$, докажем неустойчивость
+\eqref{matrixP},  \eqref{mainmatrix2}   при  достаточно больших  $n$ и
+$|a+b|>1$. 
+Теорема \ref{th:stab_with_great_n} доказана.
+
+\subsection{Доказательство Теоремы \ref{th:asymptotics_of_simm} }
+
+1. Для выяснения асимптотики $a_1(\tau)$ требуется вычислить точки касания в
+$\mathbb{R}^3$ конуса устойчивости  с кривой \eqref{curvemain1} при
+$a=a_1(\tau)$, $b=-a_1(\tau)$, $t=\pi/2$.   
+На кривой \eqref{curvemain1} 
+\begin{equation}\label{curvearg}
+\arg( u_{1}^{'}(\frac{\pi}{2})+iu_2^{'}(\frac{\pi}{2})) -\frac{\pi}{2} = \tau a_1(\tau). 
+\end{equation}
+Когда $\tau\rightarrow 0$  и $h=u_3(\pi/2)=\tau$, на конусе \eqref{cone}, \eqref{preimage}    
+\begin{equation}\label{conearg}
+\arg( u_{1}+iu_2) -\frac{\pi}{2}= -\omega  +\arg(i\omega-\tau)-  
+\frac{\pi}{2} \sim  \frac{\tau}{\omega} -\omega. 
+\end{equation}
+Здесь  $\alpha\sim \beta$ означает, что    $(\alpha/\beta)\rightarrow 1$. 
+Касание кривой и конуса влечет равенство аргументов  \eqref{curvearg},
+\eqref{conearg}, а также равенство  
+$|u_1+iu_2|=|u_1^{'}(\pi/2)+iu_2^{'}(\pi/2)|$.  
+Поэтому
+\begin{equation}\label{coneargequal}
+	\tau a_1(\tau) \sim   \frac{\tau}{\omega} -\omega, \quad 
+	\tau a_1(\tau) =\sqrt{\omega^2+\tau^2}\sim \omega. 
+\end{equation}
+Из \eqref{coneargequal} получим $\omega \sim  \sqrt{\tau/2}$, что дает требуемую
+оценку $ a_1(\tau) \sim   1/\sqrt{2\tau}$. 
+2. Для выяснения асимптотики $a_2(\tau)$ положим  $a=a_2(\tau)$, $b=-a_2(\tau)$ 
+в \eqref{curvemain2}. 
+Получим сегмент
+\begin{equation}\label{linemain2}
+ u_{1}^{''}(t)=0, \quad u_{2}^{''}(t)=2 \tau a_2(\tau) \sin t,  \quad 
+ u_3^{''}(t)=0, \quad    0\leqslant t \leqslant 2\pi.          
+\end{equation}
+На конусе \eqref{cone}, \eqref{preimage} положим $u_3=\tau$, $u_1=0$. 
+Получим $\omega^2\sim \tau$, поэтому  
+  \begin{equation}\label{asymmain2}
+ u_{2}=\omega \cos \omega + \tau \sin \omega \sim \sqrt{\tau}.                                  
+\end{equation}
+Из  \eqref{asymmain2} и  \eqref{linemain2} при $t=\pi/2$   
+получим $a_2(\tau)\sim 1/(2\sqrt{\tau})$. 
+Теорема \ref{th:asymptotics_of_simm}  доказана.
+
+ 
+\subsection{Доказательство   Теоремы \ref{th:stab_linear}}
+
+Начнем доказательство Теоремы \ref{th:stab_linear} с леммы.
+
+\begin{lemm}\label{lemm:chebyshev}
+Для любого натурального $n$ собственные числа $n\times n$ матрицы $D$ 
+(см. \eqref{matrixbroken}) суть 
+\begin{eqnarray}\label{mubroken}
+	\mu_{jn}= 2\sqrt{ ab}\cos \frac{\pi j }{n+1}, \quad 1\leqslant j \leqslant n.  
+\end{eqnarray}
+\end{lemm}
+
+\begin{proof} 
+Характеристический многочлен матрицы $D$ (см.  \eqref{matrixbroken}) 
+$D_n(\mu)=|\mu\,I-D|$  удовлетворяет 
+%рекуррентным 
+соотно\-шениям $( n=1,2,\ldots )$
+\begin{equation}\label{charpol}
+	D_1(\mu)=\mu,\quad D_2(\mu)=\mu^2 - ab,\quad  
+	D_{n+2}(\mu)=\mu D_{n+1}(\mu)-ab \,D_{n}(\mu).
+\end{equation}
+При $ab=0$ заключение леммы очевидно. Пусть $ab\neq 0$. 
+Сделаем замену переменной и построим новую последовательность функций $ U_n(y)$:
+\begin{equation}\label{Un}
+\mu=2y\sqrt{ab},    \quad  D_n(2y\sqrt{ab})= (\sqrt{ab})^n U_n(y) .
+\end{equation}
+Из \eqref{charpol} и \eqref{Un} выведем 
+\begin{equation}\label{Urecur}
+	U_1(y)=2y,  \quad U_2(y)=4y^2 - 1,   
+	\quad U_{n+2}(y)=2y U_{n+1}(y)-U_{n}(y), 
+	\quad n=1,2,\ldots
+\end{equation}
+Равенства \eqref{Urecur} описывают многочлены Чебышева второго рода $U_{n}(y)$, 
+нули которых таковы:
+\begin{eqnarray}\label{muchebishev}
+	y_{jn}= \cos \frac{\pi j }{n+1}, \quad 1\leqslant j \leqslant n.  
+\end{eqnarray}
+Из \eqref{muchebishev} и \eqref{Un} получим требуемое.
+Лемма \ref{lemm:chebyshev} доказана.
+\end{proof}
+ 
+
+Продолжим доказательство Теоремы \ref{th:stab_linear}. 
+Собственные числа $n\times n$ матрицы  $E$ равны $\lambda_{jn}=1$. 
+Поэтому из \eqref{mubroken} получим при $|ab|<1/4$
+\begin{equation}\label{delayindbroken}
+	\frac{|\mu_{jn}|}{ {\rm{Re}} \, \lambda_{jn}} =   
+	2\sqrt{ ab} \,|\cos \frac{\pi j }{n+1}| <1,   
+\end{equation}
+что достаточно для асимптотической устойчивости, независимой от запаздывания  
+(см. Теорему \ref{th:delayindependentstab}). 
+Пункт 1 Теоремы \ref{th:stab_linear} доказан.
+
+
+Для доказательства пунктов 2-4 Теоремы \ref{th:stab_linear} построим точки  
+$M_{jn}= (u_{1jn}, u_{2jn}, u_{3jn})  \in {\mathbb{R}}^3$  $(1\leqslant j \leqslant  n)$, 
+такие что (cм. \eqref{mubroken})
+\begin{equation}\label{mjbroken} 
+	u_{1jn}+iu_{2jn}  =\tau \mu_{jn} \exp(i\tau \Im \, \lambda_{jn})= 
+	2\tau \sqrt {ab} \cos \frac{\pi j}{n+1}, \quad
+	u_{3jn}= \tau \Re\lambda_{jn}        =\tau.                                             
+\end{equation}
+Пусть $ab>1/4$. 
+Тогда по \eqref{mjbroken}  найдется такое $n_0$, что для любого $n>n_0$ 
+ \begin{equation}\label{u2j} 
+u_{1nn}  =2 \tau \sqrt {ab} \cos \frac{\pi n}{n+1} <-\tau.                                       
+\end{equation} 
+При этом $u_{2nn}=0$,  $u_{3nn}=\tau$. 
+Но на поверхности и внутри конуса устойчивости \eqref{cone}, \eqref{preimage} 
+на высоте $u_3=\tau$  имеем 
+\begin{equation}\label{u2con} 
+	u_{1} \geqslant - u_3 = - \tau.                                       
+\end{equation} 
+Сравнивая \eqref{u2con} с  \eqref{u2j}, выясняем, что точка $M_{nn}$ при $n>n_0$ 
+лежит вне конуса устойчивости. 
+Поэтому система  \eqref{matrixbrokenequ}, \eqref{matrixbroken} неустойчива при
+достаточно больших $n$.
+Пункт 2 Теоремы \ref{th:stab_linear} доказан.
+
+Из \eqref{mjbroken} и Леммы  \ref{lemm:chebyshev}    при $ab<0$ получим
+\begin{equation}\label{mjbrokenpoints} 
+	u_{1jn} =0, \quad u_{2jn}  = 2 \tau \sqrt {|ab|}\cos \frac{\pi j}{n+1}, \quad
+	u_{3jn}=\tau.
+\end{equation}
+В то же время на поверхности конуса устойчивости  на высоте $u_{3}=\tau$ при $u_{1}=0$ 
+\begin{equation}\label{u2conebroken} 
+|u_{2}| = \frac{\omega}{\cos\omega} ,                                              
+\end{equation}
+где параметр $\omega$ ввиду $u_1=0$ удовлетворяет условию  \eqref{omegaboundary}.
+Теперь из  \eqref{mjbrokenpoints}, \eqref{Ftau} и  \eqref{omegaboundary} получим 
+\begin{equation}\label{solutionbroken} 
+	u_{2jn} =   \tau  \cos \frac{\pi j}{n+1}  \sqrt{\frac{|ab|}{F(\tau)}}
+	\frac{1}{\sin\omega}  ,
+\end{equation} 
+ 
+Если $|ab|<F(\tau)$, то из \eqref{solutionbroken} и неравенства $\mu_{jn}<2$
+(см. Лемму  \ref{lemm:chebyshev}) вытекает $|u_{2jn}|<|u_2|$ при любых  $j,n$,  
+поэтому все точки  $M_{jn}$ лежат внутри конуса устойчивости, следовательно,
+система \eqref{matrixbrokenequ}, \eqref{matrixbroken} асимптотически устойчива
+при любых  $n$. Пункт 3 Теоремы \ref{th:stab_linear} доказан.  
+  
+ Пусть $|ab|>F(\tau)$. 
+  Тогда  найдется такое значение $n_{0}$, что 
+  $\cos \frac{\pi}{n+1} > \sqrt{\frac{F(\tau)}{|ab|}}$   при любом $n>n_0$. 
+ Ввиду \eqref{mjbrokenpoints} отсюда следует, что  
+  \begin{equation}\label{u2F} 
+u_{21n} > 2\tau  \sqrt{F(\tau)}.
+ \end{equation} 
+  Из \eqref{u2F},    \eqref{Ftau}  и  \eqref{omegaboundary} получим
+$u_{21n} > \frac{\omega}{\cos \omega}$, 
+что ввиду \eqref{u2conebroken}  дает $u_{21n}>u_2$. 
+Поэтому точка $M_{nn}$ находится вне конуса устойчивости, что влечет 
+неустойчивость системы \eqref{matrixbrokenequ}, \eqref{matrixbroken} при всех  $n>n_0$.
+Теорема \ref{th:stab_linear} доказана.

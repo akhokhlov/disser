@@ -1,0 +1,159 @@
+\section {Конус устойчивости для скалярного уравнения с~комплексными коэффициентами} 
+\label{sec13}
+
+Поначалу рассмотрим уравнение~\eqref{scalar} с~действительными коэффициентами~$a$ 
+и комплексными~$b$. Для исследования его устойчивости, 
+%при действительных $a$ и комплексных $b$,  
+а в дальнейшем также и для матричного уравнения~\eqref{maineqmatrix} 
+определим в~$\mathbb{R}^3$ некоторую поверхность, которую назовём конусом устойчивости.
+
+\begin{determine}\label{defin_cone}
+Конусом устойчивости для уравнений \eqref{scalar}, \eqref{maineqmatrix} 
+назовём множество точек $M=(u_1,u_2,u_3)\in \mathbb{R}^3$, таких, что
+\begin{equation}\label{cone}
+    \left\{
+        \begin{array}{l}
+            u_1=-h \cos{\omega} + \omega \sin{\omega},\\
+            u_2=h \sin{\omega} + \omega \cos{\omega},\\
+            u_3 = h,
+        \end{array}
+    \right.
+\end{equation}
+где действительные параметры~$h, \omega$ подчинены ограничениям
+\begin{equation}\label{preimage}
+    \left\{
+        \begin{array}{l}
+            h\geqslant -\dfrac{\omega}{\tg{\omega}},\\[2mm]
+            -\pi<\omega<\pi .\\
+        \end{array}
+    \right.
+\end{equation}
+\end{determine}
+
+\begin{remark}\label{rem:cone}
+Единственный конус устойчивости~\eqref{cone}, \eqref{preimage} строится 
+для класса всех уравнений вида~\eqref{scalar} и \eqref{maineqmatrix}.
+
+Ключевым свойством конуса устойчивости является следующее. Сечение конуса 
+устойчивости плоскостью~$u_3=a$ таково, что:
+
+1) При $a<-1$ сечение является пустым множеством, при $a=-1$ единственная точка 
+сечения $(1,0,-1)$~--- вершина конуса. 
+
+2) При $a>-1$ сечение является овалом устойчивости для данного~$a$ 
+для~уравнения~\eqref{scalar} при~$\tau=1$.
+\end{remark}
+
+Чтобы записать теорему~\ref{theorem_scalar} в терминах конуса устойчивости, 
+сделаем в~уравнении~\eqref{scalar} замену $t=\theta\,\tau$. Получим
+\begin{equation}\label{5.1} 
+    \frac{dx\,(\theta\tau)}{d(\theta\tau)}+a\,x\,(\theta\tau) +  b\,x\,((\theta-1)\tau)=0.
+\end{equation}
+Обозначим $x\,(\theta\tau)=y\,(\theta)$. Отметим, что
+\begin{equation}\label{6.1} 
+    \frac{dy\,(\theta)}{d\,\theta}=
+        \frac{dx\,(\theta\tau)}{d\,\theta}= 
+        \frac{dx\,(\theta\tau)}{d(\theta\tau)}\,\tau,
+\end{equation}
+откуда
+\begin{equation}\label{7.1} 
+    \frac{\dot y_{\theta}(\theta)}{\tau}+a\,y\,(\theta) +  b\,y\,(\theta-1)=0.
+\end{equation}
+Переобозначив $\theta=t$, получим
+\begin{equation}\label{8.1} 
+    \dot y\left(t\right)+a\tau\, y(t) +  b\tau\, y(t-1)=0.
+\end{equation}
+При условии $\tau>0$ уравнение~\eqref{8.1} устойчиво тогда и только тогда, 
+когда устойчиво уравнение~\eqref{scalar}. Прямое применение теоремы~\ref{theorem_scalar}   
+к~уравнению~\eqref{8.1} доказывает следующую теорему.
+
+\begin {theorem} \label{th:scalar_cone_ab}
+Пусть в~уравнении~\eqref{scalar} 
+$a\in\mathbb{R}$, $b\in\mathbb{C}$, $\tau>0$. 
+Построим точку $M=(\Re b\tau,\, \Im b\tau,\, a\tau) \in\mathbb{R}^3$.  
+Тогда имеют место следующие утверждения.
+\begin{enumerate}
+    \item Уравнение~\eqref{scalar} асимптотически устойчиво тогда и только тогда, 
+        когда точка~$M$ находится внутри конуса устойчивости.
+    \item Если точка~$M$ находится на~поверхности конуса устойчивости (но не 
+        в~его вершине), то уравнение~\eqref{scalar} устойчиво (не~асимптотически).
+    \item Если точка~$M$ находится вне~конуса устойчивости или на~его вершине, то 
+        уравнение~\eqref{scalar} неустойчиво.
+\end{enumerate}
+\end{theorem}
+
+\begin{example}\label{example:scalar131}
+Пусть дано уравнение~\eqref{scalar}, для которого
+\begin{equation}
+    \label{ex_scalar} a=0.8,\, b=1+0.5\,i.
+\end{equation}
+Требуется определить, при~каких значениях~$\tau$ это уравнение устойчиво, 
+а при~каких неустойчиво.
+
+Для асимптотической устойчивости согласно теореме~\ref{th:scalar_cone_ab} 
+необходимо и достаточно, чтобы точка $(\Re b\tau,\, \Im b\tau,\, a\tau)$
+находилась внутри конуса устойчивости. Построим конус устойчивости и 
+точки $(\Re b\tau,\, \Im b\tau,\, a\tau)$ при $\tau \hm{\in} [0, +\infty)$, 
+образующие некоторую прямую. Конус устойчивости и данная прямая изображены 
+на~рисунке~\eqref{example_scalar_fig}.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=8cm]{ex_new3}
+    \caption{
+        Конус устойчивости и точки  $(\Re b\tau,\, \Im b\tau,\, a\tau)$ 
+        при~$\tau\in[0, 5]$}
+    \label{example_scalar_fig}
+\end{figure}
+
+Прямая пересекает конус устойчивости при~$\tau=0$, что соответствует 
+точке $(0, 0, 0)$, и при~$\tau \hm{=} \tau_{0}\approx2.4$. 
+При $\tau\in(0, \tau_{0})$ точка $(\Re b\tau,\, \Im b\tau,\, a\tau)$ 
+лежит внутри конуса устойчивости, поэтому уравнение~\eqref{scalar}, \eqref{ex_scalar} 
+асимптотически устойчиво. При $\tau>\tau_{0}$ точка находится вне~конуса устойчивости, 
+поэтому уравнение неустойчиво. При $\tau=\tau_{0}$ уравнение устойчиво (не~асимптотически).
+\end{example}
+
+Перейдём к~уравнению~\eqref{scalar} с~двумя  комплексными  коэффициентами.
+Рассмотрим уравнение
+\begin{equation}\label{scalar_complex_lambda_mu} 
+    \dot x\left(t\right)+\lambda \, x(t) +  \mu \, x(t-\tau)=0,
+\end{equation}
+где $\lambda, \mu \in\mathbb{C}$.
+
+Для исследования устойчивости уравнения~\eqref{scalar_complex_lambda_mu} 
+сделаем замену
+\begin{equation}\label{change_lambda_mu}
+    x(t) = y(t)\, \exp({-i t   \Im \lambda}).
+\end{equation}
+В~результате замены~\eqref{change_lambda_mu} и сокращений получим уравнение
+\begin{equation}\label{after_change_lambda_mu} 
+    \dot y\left(t\right)+(\Re\lambda)\, y(t) +  \mu \,\exp({i\tau \Im \lambda})\, y(t-\tau)=0.
+\end{equation}
+Так~как $|\exp(-i t \Im \lambda)|=1$,  уравнение~\eqref{scalar_complex_lambda_mu} 
+(асимптотически) устойчиво тогда и только тогда, когда 
+уравнение~\eqref{after_change_lambda_mu} (асимптотически) устойчиво.
+
+Ввиду того, что коэффициент при~$y(t)$ в~\eqref{after_change_lambda_mu} 
+является действительным, задачу устойчивости уравнения~\eqref{after_change_lambda_mu} 
+мы можем решить с~помощью теоремы~\eqref{th:scalar_cone_ab}.
+Таким образом, мы доказали следующую  теорему.
+\begin {theorem}\label{theorem:scalar_complex}
+    Пусть в уравнении~\eqref{scalar_complex_lambda_mu} $\lambda,\mu\in\mathbb{C}$.
+    Построим точку $M \hm{=} (u_{1},u_{2},u_{3})$ так, что
+    \begin{equation}\label{pointM}
+        \begin{array}{l}
+            u_{1} = \tau \Re ( \mu \, \exp(i\tau \Im \lambda)),  \\
+            u_{2} = \tau \Im ( \mu \, \exp(i\tau \Im \lambda)),  \\
+            u_{3} = \tau \Re \lambda.
+        \end{array}
+    \end{equation}
+    Тогда имеют место следующие утверждения.
+    \begin{enumerate}
+      \item Уравнение~\eqref{scalar_complex_lambda_mu} асимптотически устойчиво тогда 
+    и только тогда, когда точка~$M$ находится внутри конуса устойчивости.
+      \item Если точка~$M$ находится на~поверхности конуса устойчивости (но не в~его вершине), 
+    то уравнение~\eqref{scalar_complex_lambda_mu} устойчиво (не~асимптотически).
+      \item Если точка~$M$ находится вне~конуса устойчивости или на~его вершине, 
+    то уравнение~\eqref{scalar_complex_lambda_mu} неустойчиво.
+    \end{enumerate}
+\end{theorem}

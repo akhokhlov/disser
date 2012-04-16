@@ -1,0 +1,230 @@
+\section{Овал устойчивости }\label{sec12}
+
+Рассмотрим  уравнение
+\begin{equation}\label{scalar} 
+    \dot x\left(t\right) + a\, x(t) +  b\, x(t-\tau) = 0,\quad
+\tau > 0.
+\end{equation}
+Вначале напомним известные результаты об~устойчивости уравнения~\eqref{scalar} 
+при~$a, b\in\mathbb{R}$.
+Уравнение~\eqref{scalar} считаем (асимптотически) устойчивым, если его нулевое
+решение является (асимптотически)  устойчивым. Будем рассматривать
+уравнение~\eqref{scalar} с~начальными условиями 
+\begin{equation}
+    \label{condition}  x(t)=\varphi(t),\qquad t\in[-\tau,0],
+\end{equation}
+где~$\tau > 0$~--- запаздывание,
+$\varphi(t)$~--- начальная функция.
+
+Будем считать, что начальная функция~$\varphi(t)$ кусочно"=непрерывна на
+промежутке $[-\tau,0]$.
+Решением уравнения~\eqref{scalar} назовём функцию~$x(t):[-\tau,\infty)
+\hm{\rightarrow} \mathbb{R}$, удовлетворяющую уравнению~\eqref{scalar} и
+условию~\eqref{condition}.
+Сформулируем известное утверждение  об~области устойчивости этого уравнения.
+\begin {prop} \label{prop:realab}
+    Следующие утверждения верны.
+    \begin{enumerate}
+    \item Если $a\leqslant -\frac{1}{\tau}$, то уравнение~\eqref{scalar} неустойчиво.
+    \item Если $a> -\frac{1}{\tau}$, то уравнение~\eqref{scalar} асимптотически устойчиво 
+        тогда и только тогда, когда
+        \begin{equation}
+            \label{3}  \quad -a<b< S(a),
+        \end{equation}
+        где кривая~$b=S(a)$ задаётся следующим образом:
+        \begin{equation}\label{4} 
+            \left\{
+                \begin{array}{l}
+                    a(\omega)=-\dfrac{\omega}{\tg{\omega\tau}}\,,
+                    \medskip\\
+                    b(\omega)=\dfrac{\omega}{\sin{\omega\tau}}\,,
+                    \medskip\\
+                    0<\omega<\dfrac{\pi}{\tau}\,.
+                \end{array}
+            \right.
+        \end{equation}
+    \item Если $a> -\frac{1}{\tau}$ и, кроме того, либо $b=-a$, либо $b=S(a)$, 
+    то уравнение~\eqref{scalar} устойчиво (не~асимптотически).
+    \item Если $a> -\frac{1}{\tau}$ и, кроме того, либо $b<-a$, либо $b>S(a)$, 
+    то уравнение~\eqref{scalar} неустойчиво.
+    \end{enumerate}
+\end {prop}
+
+На рисунке~\ref{theorem_plane_fig} изображена область устойчивости 
+уравнения~\eqref{scalar} в~плоскости параметров уравнения~$(b, a)$.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=3.6in,height=2.8in]{simple1}
+    \hangindent=8mm \noindent
+    \caption{
+        Область устойчивости уравнения \eqref{scalar}, указанная 
+        в~предложении~\eqref{prop:realab}}
+    \label{theorem_plane_fig}
+\end{figure}
+
+Заметим, что кривая $b=S(a)$ имеет наклонную асимптоту $a=b$ 
+(при~$\omega \hm{\rightarrow} \dfrac{\pi}{\tau}$ данная кривая неограниченно
+приближается к~прямой $a=b$, отмеченной на~графике пунктиром).
+
+Теперь рассмотрим уравнение~\eqref{scalar} при~$a\in\mathbb{R}$,  $b\in\mathbb{C}$.
+Дадим определение овала устойчивости.
+
+\begin{determine}\label{def:stability_oval}
+Овалом устойчивости для уравнения~\eqref{scalar} с~данным $a\in\mathbb{R}$, 
+$a> -\frac{1}{\tau}$ называется кривая $b=b(\omega)$ на~комплексной плоскости 
+переменного~$b$, заданная уравнением
+\begin{equation}\label{oval}
+    \left\{
+        \begin{array}{l}
+            \Re b(\omega)=-a \cos{\omega\tau} + \omega \sin{\omega\tau},\\
+            \Im b(\omega)=-a \sin{\omega\tau} - \omega \cos{\omega\tau},\\
+            -\omega_{1} \leq \omega \leq \omega_{1},
+        \end{array}
+    \right.
+\end{equation}
+где $\omega_{1}$~--- наименьший положительный корень уравнения 
+$a\sin{\omega\tau} + \omega \cos{\omega\tau} \hm{=} 0$.
+\end{determine}
+
+Следующая теорема упомянута в~некоторой другой форме в~виде недоказанного 
+и небрежно сформулированного утверждения в~одной из~статей Мори с~соавторами 
+(см.~\cite{Mori&Fukuma&Kuwahara_1981}, Appendix~B).
+
+\begin{theorem} \label{theorem_scalar}
+    Пусть в~уравнении~\eqref{scalar} $a\in\mathbb{R}$. Тогда верны следующие утверждения.
+    \begin{enumerate}
+      \item Если $a\,\leqslant -\frac{1}{\tau}$, то уравнение~\eqref{scalar}
+    неустойчиво при~любых комплексных~$b$.
+    \item Если  $a> -\frac{1}{\tau}$ и точка $(\Re b,\, \Im b)$
+    находится внутри овала устойчивости для~данного~$a$ 
+    (см.~определение~\ref{def:stability_oval}), то уравнение~\eqref{scalar}
+    асимптотически устойчиво.
+    \item Если  $a> -\frac{1}{\tau}$ и точка $(\Re b,\, \Im b)$
+    находится на~границе овала устойчивости для данного~$a$, то уравнение~\eqref{scalar}
+    устойчиво (не~асимптотически).
+    \item Если  $a> -\frac{1}{\tau}$ и точка $(\Re b,\, \Im b)$
+    находится вне~овала устойчивости для данного~$a$, то уравнение~\eqref{scalar}
+    неустойчиво.
+    \end{enumerate}
+\end {theorem}
+
+\begin{proof} Для определения границ области устойчивости уравнения \eqref{scalar} 
+на~комплексной плоскости параметра~$b$ будем использовать метод 
+${D}$\,-раз\-бие\-ний~\cite{Gryazina&Polyak_2006}, при~этом полагаем, что $a\in\mathbb{R}$ 
+фиксированная величина. Характеристический квазимногочлен уравнения~\eqref{scalar} 
+имеет вид
+\begin{equation}\label{char_pol}
+    F(\lambda)=\lambda+a+b\,e^{-\lambda\tau}.
+\end{equation}
+Согласно методу ${D}$\,-раз\-бие\-ний, если точка $(\Re b,\, \Im b)$ 
+принадлежит границе области  устойчивости, то 
+$\exists \omega \quad F(i\omega)=0, \quad \omega\in(-\infty,\infty)$.
+Получим
+\begin{equation}\label{6}
+    F(i\omega)=i\omega+a+b\,e^{-i\omega\tau}=
+        i\omega+a+(\Re b+i \Im b)\,(\cos{\omega\tau}-i\sin{\omega\tau})=0 .
+\end{equation}
+Выделим действительную и мнимую части:
+\begin{equation} \label{20}
+    \left\{
+        \begin{array}{l}
+            \Re F(i\omega)=a + \Re b\cdot\cos{\omega\tau} + \Im b\cdot\sin{\omega\tau}=0,\\
+            \Im F(i\omega)=\omega - \Re b\cdot\sin{\omega\tau}+ \Im b\cdot\cos{\omega\tau}=0.
+        \end{array}
+    \right.
+\end{equation}
+
+Отсюда получаем кривую ${D}$\,-раз\-бие\-ния на~комплексной плоскости переменного~$b$:
+\begin{equation}\label{curvedecomp}
+    \begin{array}{l}
+        \Re b=-a \cos{\omega\tau} + \omega \sin{\omega\tau},\\
+        \Im b = -a \sin{\omega\tau} - \omega \cos{\omega\tau}.
+    \end{array}
+\end{equation}
+Кривая~\eqref{curvedecomp} при~$\omega\in(-\infty,\infty)$ разбивает 
+комплексную плоскость параметра~$b$ на~бесконечное множество областей, 
+соответствующих либо устойчивости, либо неустойчивости уравнения~\eqref{scalar}. 
+Проверить каждую область на~устойчивость можно, проверив какую"=либо 
+внутреннюю точку (тестовую точку) этой области.
+
+На рисунке~\ref{D-curves} изображены кривые ${D}$\,-раз\-бие\-ния комплексной 
+плоскости параметра~$b$ при~$\omega\in(-2.7\,\pi,\; 2.7\,\pi),\; a=1, \tau=1$.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=3.6in,height=2.8in]{d_decomp}
+    \caption{Кривые ${D}$\,-разбиения комплексной плоскости параметра $b$}
+    \label{D-curves}
+\end{figure}
+
+В~качестве тестовых будем рассматривать точки на~прямой $\Im b=0$, так~как 
+эта прямая проходит через все области.
+
+Перейдём к перечислению случаев различного расположения числа~$a$
+относительно~$-\frac{1}{\tau}$. 
+
+1) Пусть $a\leqslant -\frac{1}{\tau}$. Тогда в~каждой области ${D}$\,-раз\-бие\-ния 
+плоскости комплексного переменного~$b$ возьмём в~качестве тестовой именно точку 
+с~$\Im b \hm{=} 0$. По части 1 предложения~\ref{prop:realab} в~этой точке 
+имеется неустойчивость. Поэтому и во~всей рассматриваемой области имеется неустойчивость. 
+Пункт 1 теоремы~\ref{theorem_scalar} доказан.
+
+2) Пусть $a> -\frac{1}{\tau}$ и  точка $(\Re b,\, \Im b)$
+находится внутри овала устойчивости для данного~$a$. Рассмотрим в~качестве тестовых 
+точки точки внутри овала устойчивости, такие что 
+$b\in \mathbb{R}$,  $b\in(b(0),\, b(\omega_{1})$. 
+Овал изображен на рисунке~\ref{oval_fig}, а~точки  
+$b\in \mathbb{R}$, $b\in(b(0),\, b(\omega_{1}))$ отмечены пунктиром.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=3.6in,height=2.8in]{oval1}
+    \caption{Овал устойчивости уравнения~\eqref{scalar}}
+    \label{oval_fig}
+\end{figure}
+
+На~овале устойчивости $b(0)=-a$, $b(\omega_1)=\frac{\omega_1}{\sin \omega_1\tau}=S(a)$,  
+поэтому неравенство  $b(0)<b<b(\omega_1)$ равносильно неравенству $-a<b<S(a)$, 
+что в~силу части~2 предложения~\ref{prop:realab} влечёт асимптотическую устойчивость 
+уравнения~\eqref{scalar}.
+Пункт 2 теоремы \ref{theorem_scalar} доказан.
+
+3) Пусть $a>-\dfrac{1}{\tau}$  и точка~$b$ лежит на~границе овала устойчивости 
+для данного~$a$.  Нам следует доказать, что корень~$\lambda$ характеристического 
+уравнения, такой что $\Re \lambda=0$, является некратным. 
+Действительно, из~\eqref{6} получим
+\begin{equation}\label{deriv}
+    \frac{d F}{d\lambda}= 1-b\tau \, e^{-i\omega\tau}.
+\end{equation}
+Обращение в нуль функции~$F(\lambda)$ и её~производной в~силу~\eqref{6}, \eqref{deriv} 
+даёт $\lambda +a+\dfrac{1}{\tau}=0$, что влечёт $\lambda\in \mathbb{R}$, $\lambda<0$. 
+Пункт~3 теоремы доказан.
+
+4) Пусть $a\,> -\frac{1}{\tau}$ и точка $(\Re b,\, \Im b)$ находится вне~овала 
+устойчивости. Тогда точка~$b$ находится в~одной из областей ${D}$\,-раз\-бие\-ния, 
+и для проверки устойчивости достаточно рассмотреть действительные значения~$b$. 
+Для таких~$b$ либо $b<b(0)=-a$, либо $b>b(\omega_1)=S(a)$. В~обоих случаях 
+по~части~4 предложения~\ref{prop:realab}  уравнение~\eqref{scalar} неустойчиво.
+Теорема доказана.
+\end{proof}
+
+\begin{remark}\label{rem:positionofoval}
+Положение овала устойчивости на плоскости параметра~$b$ зависит от~значения~$a$. 
+На рисунке~\ref{fig:oval_different_a} на~комплексной плоскости  параметра~$b$ 
+изображены овалы устойчивости при~различных значениях параметра~$a$. 
+При $a\leqslant -\frac{1}{\tau}$ овал устойчивости вообще не~существует. 
+При $0>a>-\frac{1}{\tau}$ овал полностью расположен в~полуплоскости $\Re b>0$. 
+При $a=0$ крайняя левая точка  овала лежит в~начале координат, а~остальные 
+точки овала находится в~полуплоскости $\Re b>0$. При $a>0$ граница овала 
+находится в~обеих полуплоскостях.
+\end{remark}
+
+\begin{figure}[!ht] 
+    \centering
+    \subfloat[][]{\label{fig:oval_a}\includegraphics[width=5cm]{negative_a}}\quad 
+    \subfloat[][]{\label{fig:oval_b}\includegraphics[width=5cm]{zero_a}}\quad 
+    \subfloat[][]{\label{fig:oval_c}\includegraphics[width=5cm]{positive_a}}\quad 
+    \caption[]{
+        Овал  устойчивости: (а) $-\frac{1}{\tau}<a<0$, (б) $a=0$, (в) $a>0$}
+    \label{fig:oval_different_a}
+\end{figure}

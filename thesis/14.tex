@@ -1,0 +1,252 @@
+\section{Конус устойчивости для матричного уравнения} 
+\label{sec14} 
+
+Возвратимся к~рассмотрению матричного уравнения~\eqref{maineqmatrix}. 
+Для удобства ссылок выпишем его заново:
+\begin{equation}\label{maineqmatrix_copy}
+    \dot{x}(t)+A x(t)+B x(t-\tau)=0. 
+\end{equation}
+
+Следующая теорема является основой для алгоритмов диагностирования устойчивости 
+стационарных состояний нейронных сетей. Теорема пригодна только для~случая, 
+когда матрицы~$A,B$ могут быть приведены одним преобразованием к~треугольному виду. 
+Но, как показывает практика изучения устойчивости нейронных сетей, 
+этого достаточно для~анализа многих типичных сетей.    
+
+\begin{theorem}\label{th:stab1}
+Пусть $A, B, S\in \mathbb{R}^{m\times m}$ и $S^{-1}AS=A_{T}$ и $S^{-1}BS=B_{T}$,
+где $A_{T}$ и $B_{T}$~--- нижние треугольные матрицы с~элементами соответственно 
+$\lambda_{j\,s}, \mu_{j\,s}\,(1 \leqslant  j,\, s \leqslant  m)$. 
+Построим систему точек 
+$M_j=(u_{1j},u_{2j},u_{3j})$, $(1\leqslant j \leqslant m)$,
+так, что
+\begin{equation}\label{pointsM}
+    \begin{array}{l}
+        u_{1j} = \tau \Re ( \mu_{jj} \, \exp({i\tau \Im \lambda_{jj}})),  \\
+        u_{2j} = \tau \Im ( \mu_{jj} \, \exp({i\tau \Im \lambda_{jj}})),  \\
+        u_{3j} = \tau \Re \lambda_{jj}.
+    \end{array}
+\end{equation}
+Уравнение~\eqref{maineqmatrix_copy} асимптотически устойчиво тогда и только тогда, 
+когда все точки $M_j$ $(1\leqslant j \leqslant m)$ находятся внутри конуса
+устойчивости (см.~определение~\ref{defin_cone}). Если хотя бы одна точка 
+$M_j$  $(1\leqslant j \leqslant m)$ лежит вне~конуса устойчивости, то
+уравнение~\eqref{maineqmatrix_copy} неустойчиво.
+\end{theorem}
+
+\begin{proof}
+Введём новую функцию $y=(y_1,\ldots,y_m)^T$ равенством $x=Cy$ и умножим 
+уравнение~\eqref{maineqmatrix_copy} на~$C^{-1}$ слева. Получим 
+\begin{equation}\label{triangle}
+    \dot{y}(t)+A_{T}y(t)+B_{T}y(t-\tau)=0.
+\end{equation}
+
+Уравнение~\eqref{maineqmatrix_copy} (асимптотически) устойчиво тогда и только 
+тогда, когда (асимптотически) устойчиво~\eqref{triangle}. Рассмотрим
+диагональную систему 
+ \begin{equation}\label{diag}
+        \dot{y}_j(t)+\lambda_{jj}\,y_j(t)+\mu_{jj}\,y_j(t-\tau)=0,  \quad 
+        1\leqslant j\leqslant m.
+    \end{equation}
+Системы~\eqref{triangle} и \eqref{diag} имеют одинаковые характеристические
+уравнения  
+\begin{equation}\label{diagcharpol}
+   \prod_{j=1}^{m} (\lambda + \lambda_{jj} + \mu_{jj} \exp(-\lambda \tau) )= 0.    
+\end{equation}
+Поэтому асимптотическая устойчивость системы~\eqref{triangle} равносильна 
+асимптотической устойчивости системы~\eqref{diag}. 
+Неустойчивость~\eqref{triangle} также равносильна неустойчивости~\eqref{diag}. 
+Применение теоремы~\ref{theorem:scalar_complex} к~каждому из $n$ скалярных 
+уравнений системы~\eqref{diag} завершает доказательство теоремы. 
+\end{proof}
+
+\begin{remark}
+Формулы~\eqref{cone} в~определении конуса устойчивости \linebreak 
+можно записать компактнее:
+\begin{equation}\label{conecomplex}
+    \begin{array}{l}
+        u_{1}+i\, u_{2} =(i\, \omega-h) \exp(-i\, \omega ), \quad  u_{3} =h .
+    \end{array}
+\end{equation}
+Взамен~\eqref{pointsM} точки~$M_j$ можно определить равенствами
+\begin{equation}\label{otherpointsM}
+    u_{1j}+i\,u_{2j} = \tau  \mu_{jj}\exp(i \tau \Im\, \lambda_{j j}), \quad 
+    u_{3j} = \tau \Re\, \lambda_{jj}.
+\end{equation}
+\end{remark}
+
+\begin{example}\label{ex_4}
+С~помощью геометрического метода теоремы~\ref{th:stab1} найдём значения 
+запаздывания $\tau$, обеспечивающие асимптотическую 
+устойчивость уравнения~\eqref{maineqmatrix_copy} с~матрицами
+\begin{equation}\label{matr5}
+    A=
+    \begin{pmatrix}
+        0.72&-0.96\\
+        4.08&-0.60
+    \end{pmatrix},  \qquad
+    B= 
+    \begin{pmatrix}
+        0.08&-0.08\\
+        0.34&-0.03
+    \end{pmatrix}.
+\end{equation}
+Поскольку $A=12B-0.24I$, матрицы~$A,B$ коммутируют и, следовательно, могут быть
+совместно приведены к~диагональной форме~\cite{Horn&Johnson_1986}. 
+Собственные числа матриц~$A,B$ суть соответственно
+\begin{equation}\label{eigenvalues4}
+    \lambda_{11, 22}=    0.0600 \pm 1.8658i, \quad \mu_{11, 22}=0.0250
+    \pm 0.1555i.
+\end{equation}
+
+Вследствие симметрии изучим расположение конической винтовой 
+линии~\eqref{pointsM} относительно конуса
+устойчивости~\eqref{cone}, \eqref{preimage} только при~$j=1$. Кривая имеет вид
+(см.~рис.~\ref{fig:cone1})
+\begin{equation}\label{pointsMex1}
+    \begin{array}{l}
+        u_{11} = 0.1575\tau \cos( 1.4114+ 1.8658\tau), \\
+        u_{21} = 0.1575\tau \sin( 1.4114+ 1.8658\tau), \\
+        u_{31} =  0.06 \tau .
+    \end{array}
+\end{equation}
+
+\begin{figure}[!ht] 
+    \centering
+    \subfloat[][]{\label{fig1a}\includegraphics[width=8cm]{corrections14}}\quad 
+    \subfloat[][]{\label{fig2a}\includegraphics[width=8cm]{corrections_7}}
+    \caption[]{Конус устойчивости и кривая~\eqref{pointsMex1} в разных
+        проекциях}
+    \label{fig:cone1}
+\end{figure}
+
+Точки кривой находятся внутри конуса устойчивости при~следующих значениях 
+запаздывания: 
+$\tau\in(0, 0.2729) \hm{\cup} (1.6893, 3.3978) \hm{\cup} (5.3439, 6.5218) 
+\hm{\cup} (8.9955, 9.6457) \hm{\cup} (12.6502, 12.7675)$, 
+поэтому уравнение~\eqref{maineqmatrix_copy}  с~матрицами~\eqref{matr5} 
+асимптотически устойчиво только при~таких значениях запаздывания.
+\end{example}
+
+\begin{example}\label{ex_5}
+Положим в \eqref{maineqmatrix_copy}
+\begin{equation}\label{ex_matr4x4}
+    A =
+    \begin{pmatrix}
+          1 &   1   &   -3  &   2   \\
+         -3 &   1   &   -2  &   3   \\
+         -1 &  0.5  &    4  &  -2   \\
+         -3 &   2   &   -1  &   1   \\
+    \end{pmatrix},
+    B = 0.8I + 0.2A + 2A^{2}.
+\end{equation}
+Требуется определить, при~каких значениях~$\tau$ это уравнение устойчиво, 
+а при~каких неустойчиво.
+
+Очевидно, матрицы~$A, B$ коммутируют. Собственные числа матриц~$A$ и $B$ 
+имеют вид
+    \begin{align*}
+        \lambda_{1} &= 3.562,               &\qquad     \mu_{1} &= 26.888,\\
+        \lambda_{2,3} &= 2.368\pm 1.514i,   &\qquad     \mu_{2,3} &= 7.902\pm 14.640i,\\
+        \lambda_{4} &= -1.298,              &\qquad     \mu_{4} &= 3.907.
+    \end{align*}
+При этом
+\begin{align*}
+        a_{1}&=\Re{\lambda_{1}}=3.562, \qquad a_{2}=\Re{\lambda_{2}}=2.368, \\
+        a_{3}&=\Re{\lambda_{3}}=2.368, \qquad a_{4}=\Re{\lambda_{4}}=-1.298.\\
+    b_{1} &= \mu_{1}\,\exp(i \tau \Im  \lambda_{1})=26.888,\\
+    b_{2} &= \mu_{2}\,\exp(i \tau \Im  \lambda_{2})=16.637 \exp(i(1.076+ 1.514\tau)),\\
+    b_{3} &= \mu_{3}\,\exp(i \tau \Im  \lambda_{3})=16.637 \exp(i(- 1.076- 1.514\tau)),\\
+    b_{4} &= \mu_{4}\,\exp(i(\tau \Im  \lambda_{4})= 3.9073.
+\end{align*}
+
+Построим кривые $(\Re b_{j}\tau,\, \Im b_{j}\tau,\, a_{j}\tau), j=\overline{1,4}$ 
+и конус устойчивости. Они изображены на~рисунке~\ref{fig:cone2}.  
+ 
+\begin{figure}[!ht]
+    \centering
+    \subfloat[][]{\includegraphics[width=8cm]{correct4_4_short2}}\quad 
+    \subfloat[][]{\includegraphics[width=8cm]{correct4_4_up}}
+    \caption[]{
+        Конус устойчивости и кривая  $(\Re b_{j}\tau,\, \Im b_{j}\tau,\,a_{j}\tau)$  
+        в~разных проекциях}
+    \label{fig:cone2}
+\end{figure}
+
+Для~асимптотической устойчивости необходимо и достаточно, чтобы все точки кривой
+$(\Re b_{j}\tau,\, \Im b_{j}\tau,\, a_{j}\tau)$ 
+находились внутри конуса устойчивости. Две системы точек, соответствующие
+комплексным собственным значениям матрицы~$A$, с~изменением~$\tau$ образуют
+винтовые линии, пересекающие конус устойчивости при~$\tau_{2,3} \hm{\approx} 0.033$. 
+Две другие системы точек, соответствующие действительным собственным значениям
+матрицы~$A$, находятся внутри конуса при~$\tau \hm{\in} (0,\tau_{1})$, 
+где~$\tau_{1} \hm{\approx} 0.063$, и при~$\tau\in(0,\tau_{4})$,
+где~$\tau_{4} \hm{\approx} 0.321$.
+
+Итак, уравнение~\eqref{maineqmatrix_copy} с~матрицами~\eqref{ex_matr4x4}  
+асимптотически устойчиво тогда и только тогда, когда $\tau\in(0,\tau_{0})$, 
+где~$\tau_{0}=\min(\tau_{1},\tau_{2,3},\tau_{4})=\tau_{2,3}\approx0.033$.
+При~$\tau>\tau_0$ уравнение~\eqref{maineqmatrix_copy} неустойчиво.   
+\end{example}
+
+Таким образом, метод конусов устойчивости, описанный в данном разделе, позволяет
+исследовать устойчивость систем~\eqref{maineqmatrix_copy} с совместно
+триангулируемыми матрицами (см.~также \cite{conf_Samara_2010}, \cite{conf_SUSU_2010}) и
+наглядно интерпретировать результаты. В частности, в \cite{Khokhlova_2010}
+автором рассмотрен случай равенства нулю одной из координат в
+\eqref{pointsM}. Нахождение интервалов значений запаздываний, обеспечивающих
+устойчивость рассматриваемого уравнения и указанных в примерах \eqref{ex_4},
+\eqref{ex_5}, требует констуирования специального алгоритма, основанного на
+методе конусов устойчивости, и будет подробно описано в главе 2 настоящей
+диссертации.   
+
+\bigskip
+
+Обсудим следующую задачу: при~каких условиях
+уравнение~\eqref{maineqmatrix_copy} с~$n\times n$ матрицами~$A,B$ является
+устойчивым независимо от~запаздывания~$\tau$\,?  
+
+Рассмотрим $n+2$~конуса в~$\mathbb{R}^3$. 
+Первый~$K^1$~--- конус устойчивости (см.~определение~\ref{defin_cone}). 
+Второй~$K^2$~--- конус $u_1^2+u_2^2=u_3^2$, $u_3\geqslant 0$. Конус~$K^1$ 
+содержит~$K^2$ и оба~конуса неограниченно сближаются при~$u_3\rightarrow +\infty$. 
+Если $\Re \lambda_{jj} \neq 0$, $\mu_{jj}\neq 0$, то другие $n$~конусов 
+зададим формулами
+\begin{equation}\label{cones_for_dis}
+    K_j: \quad (\Re \lambda_{jj})^2(u_{11}^2+u_{22}^2)=|\mu_{jj}|^2u_3^2, 
+    \quad 1\leqslant j\leqslant n,
+\end{equation}
+где~$\lambda_{jj},\mu_{jj}$ диагональные элементы матриц~$A,B$ соответственно. 
+
+На~конусах~$K_j$ лежат конические спирали~\ref{otherpointsM}, 
+указанные в~теореме~\ref{th:stab1} (спираль вырождается в~прямую, если $\Im \lambda_{jj}=0$).
+Если $\Re \lambda_{jj}<0$, то $u_3<0$ в~\ref{otherpointsM}, и тогда точки~$M_j$ 
+выходят из~$K^1$ при~неограниченном увеличении~$\tau$ (при $\mu_{jj}\neq 0$), 
+что влечёт неустойчивость уравнения~\eqref{maineqmatrix_copy} 
+Следовательно, асимптотическая устойчивость~\eqref{maineqmatrix_copy},
+независимая от запаздывания $\tau$, имеет место тогда и только тогда, когда
+для любого~$j$ ($1\leqslant j\leqslant n$ ) $\Re \lambda_{jj}>0$ и конус~$K^j$
+лежит внутри~$K^2$, то~есть  
+\begin{equation}\label{dis_condition}
+    |\mu_{jj}| < \Re \lambda_{jj}.     
+\end{equation}
+Итак, мы доказали следующую теорему.
+
+\begin{theorem}\label{th:delayindependentstab}
+Пусть $A, B, S\in \mathbb{R}^{m\times m}$ и $S^{-1}AS=A_{T}$ и $S^{-1}BS=B_{T}$,
+где $A_{T}$ и $B_{T}$~--- нижние треугольные матрицы с~элементами соответственно 
+$\lambda_{j\,s}, \mu_{j\,s}\,(1 \leqslant  j,\, s \leqslant  m)$. 
+Для того, чтобы уравнение ~\eqref{maineqmatrix_copy} было асимптотически 
+устойчивым при любом запаздывании $\tau\geqslant 0$, необходимо  и достаточно
+выполнение условия \eqref{dis_condition}.  
+\end{theorem}
+
+Автору неизвестно, есть~ли условие~\eqref{dis_condition}  в~литературе, 
+кроме статьи автора совместно с~научным руководителем и 
+В.\,В.~Малыгиной~\cite{Khokhlova&Kipnis&Malygina_2011}. Другое, не~столь удобное 
+условие устойчивости, независимой от~запаздывания 
+\Eng(delay"=independent) \Russian
+дано в~\cite{Chen&Latchman_1995}. 
+
+Наш подход даёт геометрическое понимание условия~\eqref{dis_condition}, 
+гарантирующего  устойчивость, независимую от~запаздывания.    

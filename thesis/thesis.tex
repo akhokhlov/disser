@@ -1,0 +1,192 @@
+\documentclass[candidate,subf,href,colorlinks=true
+%,ams
+%,draft         % собирает выходной файл, не включая в него рисунки
+%,times         % шрифт Times как основной
+%,fixint=false  % отключить прямые знаки интегралов
+%,classified    % секретно
+,libcat        % номер УДК
+%,facsimile     % факсимиле диссертанта
+]{disser}
+
+\usepackage[
+  a4paper, mag=1000, includefoot,
+  left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm
+]{geometry}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+%\usepackage{cmap}
+\usepackage{verbatim}
+%\usepackage{amsthm}
+\ifpdf\usepackage{epstopdf}\fi
+
+%\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\tocpostthechapter}{~}
+\renewcommand{\tocpostthesection}{~}
+\renewcommand{\postthechapter}{~} % Убираем точку после номера главы
+\renewcommand{\postthechapter}{\par\nobreak\vskip 5pt}
+\renewcommand{\postthesection}{~}
+\renewcommand{\postthesubsection}{~}
+
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
+\renewcommand{\exp}{\mathop{\mathrm{exp}}\nolimits}
+\renewcommand{\tg}{\mathop{\mathrm{tg}}\nolimits}
+\renewcommand{\arctg}{\mathop{\mathrm{arctg}}\nolimits}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
+
+\newtheorem{assertion}{Утверждение}
+\newtheorem{note}{Замечание}
+
+
+
+%Демонстрация полностью настраиваемых окружений типа <<теорема>>.
+
+\newtheorem{theorem}{Теорема}[chapter]
+\def\thetheoremstyle{\indent\bfseries}
+\def\opargtheoremstyle{\itshape}
+\def\theoremstyle{\itshape}
+\def\preopargtheorem{(}
+\def\postopargtheorem{)}
+
+\newtheorem{lemm}{Лемма}[chapter]
+\def\thelemmstyle{\indent\bfseries}
+\def\oparglemmstyle{\itshape}
+\def\lemmstyle{}
+\def\preoparglemm{(}
+\def\postoparglemm{)}
+
+\newtheorem{prop}{Предложение}[chapter]
+\def\thepropstyle{\indent\bfseries}
+\def\opargpropstyle{\itshape}
+\def\propstyle{\itshape}
+\def\preopargprop{(}
+\def\postopargprop{)}
+
+\newtheorem{determine}{Определение}[chapter]
+\def\determinestyle{\itshape}
+\def\thedeterminestyle{\indent\bfseries}
+\def\postthedetermine{.}
+
+\newtheorem{remark}{Примечание}[chapter]
+\def\remarkstyle{}
+\def\theremarkstyle{\indent}
+\def\posttheremark{.}
+
+\newtheorem{example}{Пример}[chapter]
+\def\examplestyle{}
+\def\theexamplestyle{\indent\bfseries}
+\def\posttheexample{.}
+
+% оформление доказательства
+\newenvironment{proof}                  % имя окружения
+{\par\noindent{\bf Доказательство.}}    % команды для \begin
+{\hfill$\scriptstyle\blacksquare$}      % команды для \end
+
+% перенос формул в тексте
+\providecommand*{\hm}[1]{#1\nobreak\discretionary {}%
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+% вставка кода
+\providecommand{\includecode}[2][1]{\subsubsection{#2.m} \input{#1/#2}}
+
+% подавление висячих строк
+\clubpenalty =10000
+\widowpenalty=10000
+
+% Привязка нумерации формул к разделам.
+%\numberwithin{equation}{section}
+% Сквозная нумерация
+%\renewcommand{\labelenumii}{\arabic{enumi}.}
+%\captionsetup{figurewithin=none}
+
+
+% Номера страниц сверху и по центру
+%\def\headfont{\small}
+%\pagestyle{headcenter}
+%\chapterpagestyle{empty}
+
+% Ссылки на работы соискателя включаются в общий список литературы
+\let\citemy=\cite
+
+% Использовать полужирное начертание для векторов
+\let\vec=\mathbf
+
+% Путь к файлам с иллюстрациями
+\graphicspath{{img/}}
+
+
+
+% Только для черновика
+\makeatletter%ставим, чтобы знак @ воспринимался как буква, а не как команда
+\renewcommand{\@oddhead}{ \hbox to 80mm{\large \it Черновик от \today}}
+\makeatother% возвращаем знаку @ командные свойства
+
+
+\begin{document}
+    % Включение файла с общим текстом диссертации и автореферата
+    % (текст титульного листа и характеристика работы).
+    \input{common}
+
+    % номер копии для грифа секретности
+    %\copynum{1}
+    % класс доступа
+    %\classlabel{Для служебного пользования}
+
+    % номер УДК
+    \libcatnum{517.929}
+
+    \title{ДИССЕРТАЦИЯ\\
+    на соискание учёной степени\\
+    кандидата физико-математических наук}
+
+
+    \newpage \mbox{} \newpage
+
+    \input{all}
+
+    %\maketitle
+    \tableofcontents
+    %\input{intro}
+    %\input{review}
+
+	\input{11}
+	\input{12}
+	\input{13}
+	\input{14}
+	\input{15}
+	\input{16}
+
+	\input{21}
+	\input{22}
+	
+	\input{31}
+	\input{32}
+	\input{33}
+	\input{34}
+	\input{35}
+	\input{36}
+	\input{37}
+	
+	\input{41}
+	\input{42}
+	\input{43}
+	\input{44}
+
+    %\input{concl}
+    \bibliography{thesis}
+    \bibliographystyle{gost705s}
+
+    %\appendix
+    %\input{app_src_pp1}
+    %\input{app_src_pp2}
+    %\input{app_src_pp3}
+    
+    %\input{app-a}
+    %\input{app-b}
+    %\input{app-c}
+    %\input{app-p1}
+    %\input{app-p2}
+
+
+\end{document}

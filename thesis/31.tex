@@ -1,0 +1,225 @@
+\chapter{Численный и теоретический анализ устойчивости нейронных сетей с
+неограниченным  количеством нейронов} \label{chapter3} 
+
+\section{Постановка задачи и алгоритм диагностирования устойчивости  кольцевой
+сети с неограниченным количеством нейронов}\label{sec31}
+
+Много работ посвящено проблеме  устойчивости нейронных сетей, состоящих из двух 
+нейронов (например, \cite{Yu&Cao_2007, Huang&Huang_2007}). Проблема устойчивости
+нейронной сети   круговой архитектуры с запаздывающим взаимодействием при
+количестве нейронов больше двух исследуется, например, в работах
+~\cite{Campbell&Ruan&Wei_1999,Yuan&Campbell_2004, Campbell&Ncube&Wu_2006,
+Guo&Huang_2007, Lu&Guo_2008, Kaslic&Balint_2009} Изучаемая нами в этой главе
+модель наиболее близка к модели работ 
+\cite{Campbell&Ruan&Wei_1999,Yuan&Campbell_2004}.     
+В отличие от
+работ~\cite{Campbell&Ruan&Wei_1999, Yuan&Campbell_2004}, мы не вводим
+запаздывание в реакцию нейрона на собственный сигнал (selfconnection), зато
+рассматриваем  несимметричное взаимодействие нейрона с правым и левым соседом.
+Особенность нашего подхода в этом разделе и вообще в этой главе~---
+рассмотрение  конфигураций  с неограниченным количеством нейронов.  
+Методы нашего исследования  основаны на конусах устойчивости, введенных в главе
+\ref{chapter1} диссертации (см. также~\cite{Khokhlova&Kipnis&Malygina_2011}), 
+но требуют изменения в связи с спецификой задачи о неограниченности  количестве
+нейронов в кольце.
+Аналогичные методы применены в~\cite{Ivanov&Kipnis&Malygina_2011} для изучения
+устойчивости дискретных моделей круговой системы нейронов (см. 
+также~\cite{Kaslic&Balint_2009,Kipnis&Malygina_2011}).
+
+
+Переход от нелинейных моделей нейронных сетей с одним запаздыванием к линейным
+уравнениям посредством линеаризации описан   в разделе~\ref{sec11}  диссертации.
+Аналогично этому  следующее дифференциальное уравнение описывает 
+кольцевую нейронную сеть   (рис.~\ref{fig:circle_of_neurons})  с  запаздыванием
+$\tau_1$ во взаимодействии нейрона с левым соседним нейроном и $\tau$ с правым:
+\begin{equation}\label{maingeneral}
+    \dot{x}_{j}(t) +  x_{j}(t) +  a\, x_{j-1}(t-\tau_1) + b\, x_{j+1}(t-\tau) = 0
+    \qquad  (j\; {\rm{mod}}\; n).  
+\end{equation}
+
+\begin{figure}[ht]%\hspace*{1mm}
+    \begin{center}
+        \includegraphics[scale=0.4]{circle_of_neurons}
+    \end{center}
+    \caption{Круговая система нейронов}
+    \label{fig:circle_of_neurons}
+\end{figure}
+
+Здесь $x_j$ $(1\leqslant j \leqslant n)$ сигнал $j$-го нейрона, действительные
+коэффициенты $a$ и  $b$ характеризуют  интенсивности взаимодействия нейрона с
+правым и левым соседними нейронами соответственно.  Общее аналитическое
+исследование устойчивости системы  \eqref{maingeneral} вряд ли возможно,
+поскольку даже  скалярное уравнение   $\dot{x}(t) +  a\, x(t-\tau_1) + b\, 
+x(t-\tau) = 0$ имеет, как выяснилось 
+(см. \cite{Kipnis&Levitskaya_2007,Levitskaya_2006}), очень сложную структуру
+области устойчивости в пространстве параметров. Поэтому основными моделями в
+нашем исследовании будут два  упрощенных варианта систем ~\eqref{maingeneral}, в
+первом из которых $\tau_1=0$, во втором $\tau_1=\tau$:
+\begin{equation}\label{main1}
+    \dot{x}_{j}(t) +  x_{j}(t) +  a\, x_{j-1}(t) + b\, x_{j+1}(t-\tau) = 0 \qquad 
+    (j\; {\rm{mod}}\; n),
+\end{equation}
+\begin{equation}\label{main2}
+    \dot{x}_{j}(t) +  x_{j}(t) +  a\, x_{j-1}(t-\tau) + b\, x_{j+1}(t-\tau) = 0
+    \qquad  (j\; {\rm{mod}}\; n).
+\end{equation}
+Уравнение ~\eqref{main1} соответствует малым запаздываниям взаимодействия
+нейронов  с правыми соседними нейронами, а~\eqref{main2} --- близким 
+запаздываниям взаимодействия нейронов  с правыми и левыми соседями. В обоих
+уравнениях интенсивность взаимодействия нейронов с правыми и левыми соседями не
+обязательно одинакова. Последнее свойство отличает нашу модель от модели работ
+\cite{Campbell&Ruan&Wei_1999, Yuan&Campbell_2004}. Еще одно отличие в том, что у
+нас отсутствует запаздывание в реакции нейрона на собственный сигнал (selfconnection).
+
+Системы~\eqref{main1},~\eqref{main2} принадлежат классу систем вида 
+\begin{equation}\label{generalequ}
+    \dot{x}(t) +Ax(t)+ Bx(t-\tau)=0,    
+\end{equation}
+где $n\times n$ матрицы $A,B$ одновременно триангулируемы.  В главе \ref{chapter1} 
+и статье автора диссертации \cite{Khokhlova&Kipnis&Malygina_2011} указан метод
+диагностики устойчивости таких систем с помощью конусов устойчивости.
+
+Введем специальное обозначение для $n\times n$ матрицы оператора сдвига строк: 
+\begin{equation}\label{matrixP}
+P=
+    \begin{pmatrix}
+        0      &    0     &   \ldots &  0       &  1        \\
+        1      &    0     &   \ldots &  0       &  0        \\
+        0      &    1     &   \ldots &  0       &  0        \\
+        \vdots &    \vdots&   \ddots &  \vdots  &  \vdots   \\
+        0      &   0      &   \ldots &  1       &  0        \\
+    \end{pmatrix}.
+\end{equation}
+В матричном виде уравнения~\eqref{main1},~\eqref{main2} соответственно будут
+иметь вид
+\begin{eqnarray}\label{mainmatrix1}
+    \dot{x}(t) + (I+aP)\, x(t) +  bP^{n-1}\, x(t-\tau) = 0, \\
+    \label{mainmatrix2}
+    \dot{x}(t) + I\, x(t) + (aP+ bP^{n-1})\, x(t-\tau) = 0, 
+\end{eqnarray}
+где $I$ есть единичная $n\times n$ матрица, $x(t)=(x_1(t),\ldots , x_n(t))^T$.
+
+
+
+
+Пусть матрицы $A,B$ в уравнении  \eqref{generalequ} приводятся одной
+трансформирующей матрицей к треугольным  формам $A_T, B_T$  с диагональными
+элементами   
+$\lambda_j,\;\mu_j$ $(1\leqslant j \leqslant n)$ соответственно. 
+
+Построим $n$ точек  $M_j=(u_{1j}, u_{2j}, u_{3j})~\in~{\mathbb{R}}^3$, так что 
+\begin{equation}\label{generalpoints} 
+    u_{1j}+iu_{2j} = \tau\mu_{j}\exp(i\tau\, {\rm{Im}}\,\lambda_{j}),  \qquad 
+    u_{3j} = \tau \,{\rm{Re}}\, \lambda_{j},  \qquad 1\leqslant j \leqslant  n.                                           
+\end{equation}
+В силу результатов главы 1 диссертации (см. также  
+\cite{Khokhlova&Kipnis&Malygina_2011}), система
+\eqref{generalequ} асимптотически устойчива тогда и только тогда, когда все
+точки $M_{j}$ $(1\leqslant j \leqslant n)$ лежат внутри конуса устойчивости. 
+Если хотя бы одна из точек   $M_{j}$ лежит вне конуса, то~\eqref{generalequ}
+неустойчива.
+
+В разделах  \ref{sec21} и \ref{sec22}
+диссертации мы описали алгоритм и программный продукт <<Анализ устойчивости>>
+(см. также~\cite{program2}),  предназначенный для диагностирования устойчивости
+системы~\eqref{generalequ}. Программа  по согласованному  
+ спектру  $\lambda_j,\; \mu_j$ $1\leqslant j \leqslant$ матриц $A,B$
+возвращает объединение интервалов
+\begin{equation}\label{stabintervals} 
+    T = \cup_{k=1}^N (\tau_k , \, \tau_{k+1}),  
+\end{equation}  
+такое что если $\tau\in T$, то система~\eqref{generalequ}  асимптотически
+устойчива, а если    $\tau\notin  [\tau_k , \, \tau_{k+1}]$ при любом $k$ 
+$(1\leqslant k \leqslant N)$, то~\eqref{generalequ}  неустойчива.   
+
+Для проверки устойчивости систем \eqref{main1} и \eqref{main2} при
+неограниченном порядке $n$  требуется модификация алгоритма, первоначально
+предназначенного для общей системы~\eqref{generalequ}.   
+В настоящем разделе мы указываем такой алгоритм. 
+
+Собственные числа матрицы $P$ суть $\lambda_j=\exp(i\frac{2\pi j}{n})$,
+$1\leqslant j\leqslant n$. Поэтому при одновременном приведении четырех
+циркулянтных матриц $(I+a\,P)$, $b\,P^{n-1}$, $I$, $a\,P+b\,P^{n-1}$  к
+диагональному виду  их диагональные элементы равны соответственно
+
+\begin{eqnarray}
+    \label{lambdamu1}
+    \lambda_{j}^{'} = 1+a\,\exp(i\frac{2\pi j}{n}), \quad   
+    \mu_{j}^{'}= b\,\exp(-i\frac{2\pi j}{n}), \quad 
+    1\leqslant j \leqslant n,\\
+    \label{lambdamu2} 
+    \lambda_{j}^{''} = 1, \quad 
+    \mu_{j}^{''}=a\, \exp(i\frac{2\pi j}{n}) + b\, \exp(-i\frac{2\pi j}{n}), 
+    \quad 1\leqslant j \leqslant n.
+\end{eqnarray}
+ 
+Для изучения устойчивости уравнений \eqref{matrixP},~\eqref{mainmatrix1} строим
+систему точек   $M_j^{'}= (u_{1j}^{'}, u_{2j}^{'}, u_{3j}^{'})~\in~{\mathbb{R}}^3$,
+определенных  равенствами (cм.~\eqref{generalpoints}, ~\eqref{lambdamu1})  
+\begin{equation}\label{pointsmjmain1} 
+    u_{1j}^{'}+iu_{2j}^{'}  =
+        \tau b\,\exp(i(-\frac{2\pi j}{n}+a\tau\sin\frac{2\pi j}{n})),  \quad
+    u_{3j}^{'}=\tau (1+a\cos \frac{2\pi j}{n}),  
+    \quad  1\leqslant j \leqslant  n.                                             
+\end{equation}
+Аналогично, для системы~\eqref{matrixP},~\eqref{mainmatrix2} точки 
+$M_j^{''}=(u_{1j}^{''}, u_{2j}^{''}, u_{3j}^{''})\in {\mathbb{R}}^3$, определены
+равенствами (cм.~\eqref{generalpoints},~\eqref{lambdamu2}) 
+\begin{equation}
+    u_{1j}^{''}+iu_{2j}^{''} = 
+    \tau a \,(\exp(i \frac{2\pi j}{n}) + b \exp(-i \frac{2\pi j}{n})), \quad
+    u_{3j}^{''}         =\tau,   \quad 1\leqslant j \leqslant  n.         
+\end{equation}
+Для анализа устойчивости систем~\eqref{matrixP},~\eqref{mainmatrix1} с большим
+$n$ вместо дискретной системы точек~$M_j$ естественно ввести непре\-рыв\-ную  замкнутую
+кривую   $M^{'}(t)=(u_1^{'}(t), u_2^{'}(t), u_3^{'}(t))$, положив 
+$t=\frac{2\pi j}{n}$ в~\eqref{pointsmjmain1}:  
+\begin{multline}\label{curvemain1}
+    u_{1}^{'}(t)+iu_{2}^{'}(t) = \tau b \,\exp(i(-t+a\, \tau\sin t)),  \\
+    u_{3}^{'}(t) = \tau (1+a\cos t),  \quad 0\leqslant t \leqslant 2\pi.                                  
+\end{multline}
+Аналогично, для~\eqref{matrixP}, ~\eqref{mainmatrix2} строим  кривую
+$M^{''}(t)=(u_1^{''}(t), u_2^{''}(t), u_3^{''}(t))$:
+\begin{equation}\label{curvemain2}
+    u_{1}^{''}(t)+iu_{2}^{''}(t)  = \tau (a \,\exp(it) +b \,\exp(-it) ),  \quad
+    u_{3}^{''}(t) = \tau,   \quad 0\leqslant t \leqslant 2\pi.                                    
+\end{equation}
+
+При $n \rightarrow\infty$ точки $M_j$, определенные
+равенствами~\eqref{pointsmjmain1}, образуют плотное на
+кривой~\eqref{curvemain1} множество. Поэтому  вопрос об устойчивости системы
+~\eqref{matrixP},~\eqref{mainmatrix1} сводится к геометрической проблеме. 
+Если все точки кривой~\eqref{curvemain1} лежат внутри конуса
+устойчивости~\eqref{cone},~\eqref{preimage} (см.~определение~\ref{defin_cone}), 
+то система~\eqref{matrixP}, \eqref{mainmatrix1} устойчива при любом $n$,  
+а если хотя бы одна точка кривой \eqref{curvemain1} лежат вне конуса устойчивости,  
+то система~\eqref{matrixP}, \eqref{mainmatrix1} неустойчива при всех достаточно
+больших значениях $n$ (рис. \ref{fig:stabcone}).
+
+\begin{figure}[ht]
+    \begin{center}
+    \hspace*{-20mm}\includegraphics[scale=0.8]{cone_nice2}
+    %{\hspace*{15mm} 
+    \end{center}
+    \caption{Конус устойчивости и две кривые~\eqref{curvemain1}. Одна кривая 
+    для  $\tau = 1.5$,  $a = - 1.4$,  $b = 0.7$,  находится частично вне конуса
+    устойчивости, следовательно, система~\eqref{matrixP},~\eqref{mainmatrix1} 
+    неустойчива при достаточно больших $n$.  Вторая кривая  для  $\tau = 2$,  $a
+    = 0.5$,  $b = -0.2$,  находится полностью  внутри конуса устойчивости,
+    следовательно, система~\eqref{matrixP},~\eqref{mainmatrix1} устойчива при
+    любом $n$.}      
+    \label{fig:stabcone}
+\end{figure}
+
+
+
+
+В свою очередь, эта геометрическая задача может быть решена  численными методами. 
+Для системы~\eqref{matrixP},~\eqref{mainmatrix1} при различных значениях $t\in
+[0,2\pi]$ мы вычисляем  $\arg(u^{'}_1(t)+ i u^{'}_2(t))$ согласно 
+~\eqref{curvemain1} и находим на конусе устойчивости на высоте $h=u^{'}_3(t)$ 
+точку или две точки с тем же аргументом. Сравнение модулей точек на кривой и
+конусе дает ответ на вопрос, устойчива ли система~\eqref{matrixP},
+~\eqref{mainmatrix1}. Аналогично изучается
+система~\eqref{matrixP},~\eqref{mainmatrix2}.
+

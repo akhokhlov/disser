@@ -1,0 +1,295 @@
+
+
+\chapter{Исследование устойчивости стандартных   нейронных сетей}
+\label{chapter2} 
+
+\section{Алгоритм для определения значений запаздывания, гарантирующих
+устойчивость дифференциального уравнения с запаздыванием}\label{sec21}
+
+В этом разделе мы дадим алгоритм для определения всех значений $\tau$, которые
+гарантируют устойчивость дифференциального уравнения   
+\begin{equation}\label{maineqmatrixchapter2}
+    \dot{x}(t)+A x(t)+B x(t-\tau)=0 
+\end{equation}
+с $n\times n$ матрицами $A\, ,B$, допускающими одновременную триангуляцию. 
+
+
+
+Пусть матрицы $A$ и $B$ приведены к треугольному виду $A_T$, $B_T$ одним 
+преобразованием. Пусть $\lambda_{j\,j}, \mu_{j\,j},\; 1 \leqslant  j \leqslant n$  
+собственные числа матриц $A$ и $B$ в том порядке, в котором они расположены на
+диагоналях  матриц $A_T$, $B_T$. Для каждого $j,\; 1 \leqslant  j \leqslant  n$
+составим множество $T_{j}$ по следующему {\bfseries алгоритму.} 
+
+Если для некоторого $j$ выполнено $\Re{\lambda_{j\,j}} > |\mu_{j\,j}|$, то
+$T_{j}=(0, +\infty)$. В~противном случае находим числа 
+\begin{multline}
+\label{tau} \tau_{j}^{m}=\frac{\arg{(\pm iQ - \Re{\lambda_{j\,j}})}-\arg
+{\mu_{j\,j}} +2\pi m}{\Im{\lambda_{j\,j}\pm Q}}, \quad m\in \mathbb{Z}, \\ 
+Q=\sqrt{|\mu_{j\,j}|^{2}-(\Re{\lambda_{j\,j}})^{2}}.
+\end{multline}
+
+\noindent
+Из чисел $\tau_{j}^{m}$ выбираем такие, для которых
+
+\begin{equation}
+\label{inequality_tau} 0<\tau_{j}^{m}\leq\pi/Q  \quad \mbox{и} \quad 
+\Re{\lambda_{j\,j}} \geqslant -\frac{Q}{\tg(Q\,\tau_{j}^{m})},
+\end{equation}
+и сортируем по возрастанию, исключая повторения. Полученные числа обозначим
+$\tau_{1 j}, \tau_{2 j}, \ldots ,\tau_{s j}$. 
+
+\noindent
+Составим множество $T_{j}$ следующим образом. Пусть
+\begin{equation}
+\label{Tj_1}
+ T_{j}=(0,\tau_{1 j})\cup(\tau_{2 j}, \tau_{3 j})\cup\ldots
+\end{equation}
+в следующих случаях:
+
+%\end{document}
+
+1) $\Re{\lambda_{j j}} > 0$ и выполнено хотя бы одно условие
+
+\begin{equation}
+\label{Re>0}
+ \mbox{а)}\; \arg {\mu_{j\,j}}\in(-\pi/2, \pi/2)   \quad  \mbox{или} \quad   
+ \mbox{б)}\; \frac{\Re{\lambda_{j j}}}{|\Re{\mu_{j j}}|} > 1.
+\end{equation}
+
+
+\begin{equation}
+\label{Re<0}
+2)  \Re{\lambda_{j j}} < 0, \quad 
+\left|\frac{\Re{\lambda_{j j}}}{\Re{\mu_{j j}}}\right| < 1 \quad 
+\mbox{и} \quad 
+\arg {\mu_{j\,j}}\in(-\pi/2, \pi/2).
+\end{equation}
+
+\noindent В остальных случаях
+\begin{equation}
+\label{Tj_2}
+ T_{j}=(\tau_{1 j}, \tau_{2 j})\cup(\tau_{3 j}, \tau_{4 j})\cup\ldots
+\end{equation}
+
+%\end{document}
+
+
+\noindent
+Последним интервалом в $T_{j}$ может быть $(\tau_{s-1 j}, \tau_{s j})$ или
+$(\tau_{s j}, +\infty)$. Если для некоторого $j$ множество $(\tau_{1j}, 
+\tau_{2 j}, \ldots ,\tau_{s j})$ пусто и выполнено \eqref{Re>0} или
+\eqref{Re<0}, то $T_{j}=(0, +\infty)$.   
+
+
+Докажем теорему.
+\begin{theorem}  Пусть множества $T_{j}, 1 \leqslant  j \leqslant  n$ составлены
+согласно описанному алгоритму. Тогда уравнение \eqref{maineqmatrixchapter2}
+асимптотически устойчиво если и только если  $\tau \in \bigcap_{j} T_{j}$. 
+\end{theorem}
+
+
+%\end{document}
+
+\begin{proof}
+Построим для каждого $j$  точку $M_j=(u_{1j}, u_{2j}, u_{3j})\in \mathbb{R}^3$, 
+так что (см. \eqref{pointsM}) 
+\begin{equation}\label{pointsMchapter2}
+    \begin{array}{l}
+        u_{1j} = \tau \Re ( \mu_{jj} \, \exp({i\tau \Im \lambda_{jj}})),  \\
+        u_{2j} = \tau \Im ( \mu_{jj} \, \exp({i\tau \Im \lambda_{jj}})),  \\
+        u_{3j} = \tau \Re \lambda_{jj}.
+    \end{array}
+\end{equation}
+
+%\end{proof}
+%\end{document}
+
+
+Построим также конус устойчивости для уравнения \eqref{maineqmatrixchapter2}, 
+а именно  множество точек $M=(u_1,u_2,u_3)\in \mathbb{R}^3$, таких, что
+\begin{equation}\label{conechapter2}
+    \left\{
+        \begin{array}{l}
+            u_1=-h \cos{\omega} + \omega \sin{\omega},\\
+            u_2=h \sin{\omega} + \omega \cos{\omega},\\
+            u_3 = h,
+        \end{array}
+    \right.
+\end{equation}
+где действительные параметры~$h, \omega$ подчинены ограничениям
+\begin{equation}\label{preimagechapter2}
+    \left\{
+        \begin{array}{l}
+            h\geqslant -\dfrac{\omega}{\tg{\omega}},\\[2mm]
+            -\pi<\omega<\pi .\\
+        \end{array}
+    \right.
+\end{equation}
+
+
+%\end{proof}
+%\end{document}
+
+
+
+Согласно Теореме \ref{th:stab1} уравнение \eqref{maineqmatrixchapter2} 
+асимптотически  устойчиво если и только если  все  точки  $M_j$ лежат внутри 
+конуса  устойчивости \eqref{conechapter2}, \eqref{preimagechapter2}. 
+
+C изменением $\tau$ от 0 до $+\infty$ точки \eqref{pointsMchapter2} образуют
+винтовые линии (прямые в случае $\Im \lambda_{jj}=0$). Для каждого $j$ найдем
+значения $\tau$, соответствующие точкам пересечения этих линий с овалом
+устойчивости $(u_{1}, u_{2})$ на уровне $u_{3}=h$. Эти значения $\tau$ являются
+корнями уравнения    
+\begin{equation}\label{equality}
+\tau \mu_{jj} \exp(i \tau  \Im \lambda_{jj}) =(i\omega -h)\,\exp(-i\omega ), 
+\quad h=\tau \Re \lambda_{jj},
+\end{equation}
+с параметрами $h, \omega$, удовлетворяющими условию \eqref{preimagechapter2}.
+
+Система  \eqref{equality} равносильна системе
+\begin{equation}\label{system}
+ \left\{
+\begin{array}{l}
+\tau |\mu_{jj}|=\sqrt{{\omega}^{2}+h^{2}},\\
+\arg \mu_{jj}+\tau  \Im \lambda_{jj} = -\omega  + \arg (i\omega  - h) +2\pi m, 
+\quad m\in\mathbb{Z},\\
+h=\tau \Re \lambda_{jj}.
+\end{array}
+\right.
+\end{equation}
+Из первого и третьего уравнения  системы \eqref{system}  найдем $\omega$:
+\begin{equation}\label{omega}
+\omega=\pm\tau\,\sqrt{|\mu_{j\,j}|^{2}-(\Re{\lambda_{j\,j}})^{2}} = \pm \tau Q.
+\end{equation}
+
+Подставим $\omega$ во второе уравнение системы  \eqref{system}, а также
+воспользуемся свойством $\arg(\tau z)=\arg(z)$ для любого $\tau>0$. Получим
+уравнение  
+
+\begin{equation}\label{long}
+\tau (\Im{\lambda_{j\,j}}\pm Q) = 
+\arg{(\pm iQ - \Re{\lambda_{j\,j}})}-\arg {\mu_{j\,j}} +2\pi m,
+\end{equation}
+корнями которого являются числа $\tau_{j}^{m}$, указанные в формулировке теоремы.
+
+Отметим, что $\omega \in[-\pi, \pi]$, поэтому требуется выполнение условия
+
+$$
+\pm \tau \sqrt{|\mu_{j\,j}|^{2}-(\Re{\lambda_{j\,j}})^{2}} =\pm \tau  Q \in [-\pi, \pi],
+$$
+что означает $0<\tau\leqslant \pi/Q $.
+
+Кроме того, поскольку $h\geqslant -\dfrac{\omega}{\tg{\omega}}$, то
+$$
+\Re{\lambda_{j\,j}} \geqslant -\frac{Q}{\tg(Q\, \tau_{j}^{m})}.
+$$
+
+Таким образом, для каждого $j$ требуется найти такие $\tau_{j}^{m}$, которые
+удо\-вле\-тво\-ряют условиям \eqref{inequality_tau}. 
+
+Для правильного определения интервалов устойчивости данной винтовой линии
+(прямой) необходимо отсортировать числа $\tau_{j}^{m}$ по возрастанию, т.е.
+получить систему чисел  $\tau_{1 j}, \tau_{2 j},\ldots, \tau_{l j}$, и
+определить, является ли интервал $(0, \tau_{1 j})$ интервалом устойчивости или
+интервалом неустойчивости.    
+Интервалы устойчивости и неустойчивости чередуются, поэтому в зависимости от
+характера первого интервала составляем множество $T_{j}$, которое будет иметь
+вид $T_{j}=(0,\tau_{1 j})\cup(\tau_{2 j}, \tau_{3 j})\cup\ldots$ или
+$T_{j}=(\tau_{1 j}, \tau_{2 j})\cup(\tau_{3 j}, \tau_{4 j})\cup\ldots$. Это
+множество тех значений запаздывания, при которых точки винтовой линии 
+$(u_{1j}(\tau), u_{2j}(\tau), u_{3j}(\tau))$ находятся внутри конуса устойчивости.     
+
+Для ответа на вопрос, является ли интервал $(0, \tau_{1 j})$ интервалом
+устойчивости, определим, лежат ли точки винтовой линии $(u_{1 j}(\tau), u_{2
+j}(\tau), u_{3 j}(\tau))$ при $\tau\rightarrow 0+$ внутри овала устойчивости. 
+% $(u_{1}, u_{2})$ на уровне $u_{3}=0$ или вне его.   
+Заметим, что при $u_{3}=0$ овал устойчивости лежит в правой полуплоскости, а его
+левая вершина лежит в начале координат.
+%, причем $\dfrac{d u_{2}}{d u_{1}}\rightarrow +\infty$ при $w\rightarrow 0+$ и
+% $\dfrac{d u_{2}}{d u_{1}}\rightarrow -\infty$ при $w\rightarrow 0-$.  
+
+
+
+Сначала рассмотрим случай $\Re{\lambda_{j j}} > 0$. При этом $u_{3} >0$ и
+винтовая линия лежит выше плоскости $u_3=0$. Чтобы точки винтовой линии при
+$\tau\rightarrow 0+$ лежали внутри конуса устойчивости, достаточно, чтобы вектор
+производной $\dfrac{d u_{2}}{d u_{1}}$ при $\tau\rightarrow 0+$ лежал в
+полуплоскости $u_{1}>0$ или независимо от этого модуль коэффициента наклона
+образующих винтовой линии в сечении $u_{2} =0$ был больше единицы.     
+
+В первом случае для нахождения угла наклона касательной к винтовой линии в
+плоскости $(u_{1}, u_{2})$ в точке $\tau=0$ вычислим производную
+па\-ра\-мет\-ри\-чески заданной кривой $u_{2 j}(u_{1 j})$ в данной точке.  
+
+\begin{multline}\label{deriv}
+\left.\dfrac{d u_{2 j}}{d u_{1 j}}\right|_{\tau=0}= 
+\left.\dfrac{(u_{2 j})'_{\tau}}{(u_{1 j})'_{\tau}}\right|_{\tau=0}= \\
+=\left.\dfrac{ |\mu_{jj}| (\sin (\arg \mu_{jj}+\tau \Im \lambda_{jj}) +
+\tau \cos (\arg \mu_{jj}+\tau \Im \lambda_{jj})\Im \lambda_{jj}    )} 
+{|\mu_{jj}| (\cos (\arg \mu_{jj}-\tau \Im \lambda_{jj}) +
+\tau \sin (\arg \mu_{jj}+\tau \Im \lambda_{jj})\Im \lambda_{jj}    
+)}\right|_{\tau=0}=\\
+=\tg{\arg \mu_{jj}}.
+\end{multline}
+
+Если угол наклона касательной к винтовой линии в точке $\tau=0$ лежит в
+интервале $(-\pi/2, \pi/2)$, то точки винтовой линии лежат внутри овала
+устойчивости при $\tau\rightarrow 0+$, тогда интервал $(0, \tau_{1 j})$ является
+интервалом устойчивости. 
+%Если этот угол лежит в интервале $[-\pi, -\pi/2]\cup[\pi/2, \pi]$, то интервал
+% $(0, \tau_{1 j})$ является интервалом неустойчивости.
+
+Отметим, что $\arg z \in[-\pi, \pi]$. Если $\arg \mu_{jj}\in[-\pi/2, \pi/2]$, то
+интервал $(0, \tau_{1 j})$ является интервалом устойчивости. Таким образом,
+получено условие~\eqref{Re>0} а). 
+%В противном случае интервал $(0, \tau_{1 j})$ является интервалом неустойчивости.
+
+Во втором случае найдем коэффициент наклона образующих винтовой линии в сечении
+$u_{2} =0$. Он равен 
+
+\begin{equation}\label{deriv2}
+\left.\dfrac{d u_{3 j}}{d u_{1 j}}\right|_{\tau=0}= 
+\left.\dfrac{(u_{3 j})'_{\tau}}{(u_{1 j})'_{\tau}}\right|_{\tau=0}= 
+\frac{\Re{\lambda_{j j}}}{\Re{\mu_{j j}}}.
+\end{equation}
+
+Таким образом, если $\frac{\Re{\lambda_{j j}}}{|\Re{\mu_{j j}}|}>1$, то точки
+винтовой линии при $\tau~\rightarrow~0+$ лежат внутри конуса устойчивости, а
+значит, интервал $(0, \tau_{1 j})$ является интервалом устойчивости. Получено
+условие~\eqref{Re>0} б).  
+
+Теперь рассмотрим случай $\Re{\lambda_{j j}} < 0$. При этом $u_{3}<0$ и винтовая
+линия лежит ниже плоскости $u_3=0$. В этом случае для нахождения точек винтовой
+линии внутри конуса устойчивости при $\tau\rightarrow 0+$ требуется, чтобы
+вектор производной $\dfrac{d u_{2}}{d u_{1}}$ при $\tau\rightarrow 0+$ лежал в
+полуплоскости $u_{1}>0$ и модуль коэффициента наклона образующих винтовой линии
+в сечении $u_{2} =0$ был меньше единицы. Таким образом, должны одновременно
+выполняться условия $\arg \mu_{jj}\in[-\pi/2, \pi/2]$ и
+$\left|\frac{\Re{\lambda_{j j}}}{\Re{\mu_{j j}}}\right|<1$, т.е. должно
+выполняться условие \eqref{Re<0}.
+
+Во всех остальных случаях точки винтовой линии лежат вне конуса устойчивости при
+$\tau\rightarrow 0+$, поэтому множество $T_{j}$ составляется по формуле
+\eqref{Tj_2}.  
+
+Если для некоторого $j$ выполнено $\Re{\lambda_{j\,j}} > |\mu_{j\,j}|$, то
+винтовая линия лежит внутри конуса устойчивости при всех значениях запаздывания,
+поэтому для нее $T_{j}=(0, +\infty)$.  
+
+Таким образом, для каждого $j$ составлено множество $T_{j}$ тех значений
+запаздывания, при которых точки винтовой линии $(u_{1 j}(\tau), u_{2 j}(\tau),
+u_{3 j}(\tau))$ находятся внутри конуса устойчивости.  
+
+Для устойчивости уравнения \eqref{maineqmatrixchapter2} требуется, чтобы все
+точки  $M_j=(u_{1j},u_{2j},u_{3j})$, $1\leqslant j \leqslant n$ находились
+внутри конуса устойчивости при данном $\tau$. Значит, уравнение
+\eqref{maineqmatrixchapter2} асимптотически устойчиво тогда и только тогда,
+когда $\tau \in \bigcap_{j} T_{j}$.    
+Утверждение теоремы доказано.
+\end{proof}
+
+Заметим, что если  равенство $\Re{\lambda_{j\,j}} > |\mu_{j\,j}|$ верно для всех
+$j$, то уравнение \eqref{maineqmatrixchapter2} асимптотически устойчиво при всех
+$\tau\geqslant 0$ (Теорема \ref{th:delayindependentstab}).  
