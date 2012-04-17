@@ -2,8 +2,8 @@ function application3
 
 fontsize0 = 12;
 fontsize1 = 15;
-image1 = imread('circles_right.png');                                                                           
-image2 = imread('circles.png');                                                                           
+image1 = imread('../common/circles_right.png');                                                                           
+image2 = imread('../common/circles.png');                                                                           
 
 % Error strings
 label_error = 'Ошибка';

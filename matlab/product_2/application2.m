@@ -10,8 +10,8 @@ function application2
     figure_y = 0; 
     graph_count = 0;
     resetFigureVars();
-    image1 = imread('circles_right.png');                                                                           
-    image2 = imread('circles.png');                                                                           
+    image1 = imread('../common/circles_right.png');                                                                           
+    image2 = imread('../common/circles.png');                                                                           
     label_graph = 'График';
 	appTitle = 'Устойчивость нейронных сетей';
 	header = 'Анализ устойчивости нейронных сетей';
