@@ -141,14 +141,15 @@
     кандидата физико-математических наук}
 
 
-    \newpage \mbox{} \newpage
 
-    \input{all}
+    % Дата создания на первой странице для черновика.
+    %\newpage \mbox{} \newpage
 
     %\maketitle
     \tableofcontents
-    %\input{intro}
+    \input{intro}
     %\input{review}
+
 
 	\input{11}
 	\input{12}
@@ -173,20 +174,11 @@
 	\input{43}
 	\input{44}
 
-    %\input{concl}
+    \input{concl}
     \bibliography{thesis}
     \bibliographystyle{gost705s}
 
-    %\appendix
-    %\input{app_src_pp1}
-    %\input{app_src_pp2}
-    %\input{app_src_pp3}
-    
-    %\input{app-a}
-    %\input{app-b}
-    %\input{app-c}
-    %\input{app-p1}
-    %\input{app-p2}
-
+    \appendix
+    \input{appendix}
 
 \end{document}

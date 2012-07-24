@@ -1,3 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Главная функция приложения, запускающая графический интерфейс пользователя.
+% Для её работы требуются следующие функции: pointsPlotter, а также некоторые 
+% общие функции (arg, coalition, cone, getIntervals, intersection, isInside),
+% представленные в приложении Г.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function application
 	MAX_DIM = 5;
 	fontsize0 = 12;
@@ -193,7 +199,7 @@ uicontrol(bottomPanel, 'style', 'pushbutton', ...
 		'units', 'normalized', 'position', [0.2, 0, .2, 1], ...
 		'callback', @clear_callback); 
                                                                            
-%------------------------ Handlers --------------------------------------%
+	%------------------------ Handlers --------------------------------------%
     function sel_callback(~,~)
         pos = get (matrixPanel, 'position');
         if  pos(1) == 0 
@@ -383,6 +389,7 @@ uicontrol(bottomPanel, 'style', 'pushbutton', ...
                 'string', num2str (rand (1)*2-1, 4), 'backgroundcolor', 'w',...
                 'units', 'normalized', 'position', [.65, 1-.2*n, .25, .2]);
             childrenLabels2(n) = uicontrol(panel, 'style', 'text', 'fontsize', fontsize1,...
+
                 'horizontalAlignment', 'left', 'string', '*i',...
                 'units', 'normalized', 'position', [0.9, 1-.2*n, .1, .2]);
         end
