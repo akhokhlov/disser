@@ -12,18 +12,6 @@
 \usepackage{tabularx}
 \ifpdf\usepackage{epstopdf}\fi
 
-% Поддержка нескольких списков литературы в одном документе
-\usepackage{multibib}
-% Создание команд для цитирования собственных работ диссертанта
-% в отдельном разделе. В данном случае ссылка будет иметь вид \citemy{...}.
-\newcites{my,submitted,internal}%
-{Own Work,%
-Submitted Work,%
-{Technical Reports, Master Theses and Ph.D. Theses}}
-
-% Путь к файлам с иллюстрациями
-\graphicspath{{img/}}
-
 %\renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\tocpostthechapter}{~}
 \renewcommand{\tocpostthesection}{~}
@@ -42,7 +30,10 @@ Submitted Work,%
 \newtheorem{assertion}{Утверждение}
 \newtheorem{note}{Замечание}
 
+
+
 %Демонстрация полностью настраиваемых окружений типа <<теорема>>.
+
 \newtheorem{theorem}{Теорема}[chapter]
 \def\thetheoremstyle{\indent\bfseries}
 \def\opargtheoremstyle{\itshape}
@@ -88,11 +79,21 @@ Submitted Work,%
 \providecommand*{\hm}[1]{#1\nobreak\discretionary {}%
 {\hbox{$\mathsurround=0pt #1$}}{}}
 
+% вставка кода
+\providecommand{\includecode}[2][1]{\subsubsection{#2.m} \input{#1/#2}}
+
 % подавление висячих строк
 \clubpenalty =10000
 \widowpenalty=10000
 
+% Поддержка нескольких списков литературы в одном документе
+\usepackage{multibib}
+% Создание команд для цитирования собственных работ диссертанта
+% в отдельном разделе. В данном случае ссылка будет иметь вид \citemy{...}.
+\newcites{my}{Список публикаций}
 
+% Путь к файлам с иллюстрациями
+\graphicspath{{img/}}
 
 \begin{document}
 % Включение файла с общим текстом диссертации и автореферата
@@ -183,8 +184,8 @@ Submitted Work,%
 \valuetext
 
 % Результаты и положения, выносимые на защиту
-\resultssection
-\resultstext
+%\resultssection
+%\resultstext
 
 % Апробация работы
 \approbationsection
@@ -200,7 +201,7 @@ Submitted Work,%
 
 % Структура и объем диссертации
 \structsection
-%\structtext
+\structtext
 
 \nsection{Содержание работы}
 
@@ -214,7 +215,7 @@ Submitted Work,%
 Содержание первой главы.
 
 Результаты первой главы опубликованы в
-работе~\citesubmitted{Khokhlova&Kipnis&Malygina_2011}.
+работе~\citemy{Khokhlova&Kipnis&Malygina_2011}.
 
 \textbf{Во второй главе} ...
 
@@ -226,13 +227,6 @@ Submitted Work,%
 \textbf{В Заключении}
 
 % ----------------------------------------------------------------
-\renewcommand\bibsection{\nsection{Список вак публикаций}}
-
-% Префикс номеров ссылок на работы соискателя
-\def\BibPrefix{A}
-\bibliographystylesubmitted{gost705s}
-\bibliographysubmitted{thesis}
-
 \renewcommand\bibsection{\nsection{Список публикаций}}
 
 % Префикс номеров ссылок на работы соискателя
