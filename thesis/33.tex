@@ -1,172 +1,69 @@
+\section{Границы областей устойчивости моделей кольцевых сетей с~ограниченным 
+    количеством нейронов и двусторонним запаздыва\-ни\-ем}
+    \label{sec33} 
 
-\section{Результаты исследования устойчивости кольцевой сети нейронов 
-с неограниченным количеством нейронов  } 
-\label{sec33} 
+В этом разделе мы представим результаты поиска границ областей устойчивости 
+ для модели \eqref{main2chapter4} кольцевой системы нейронов  с двусторонним запаздыванием и
+ограниченным количеством нейронов. 
+Результаты получены с помощью программы, описанной  в первом разделе данной главы.
 
+Как и в предыдущем разделе, полученные области указаны кружками в
+трёх сериях рисунков для различных значений запаздывания 
+(см. соответственно рисунок~\ref{fig:sym-0_1} 
+для $\tau=0.1$ , рисунок~\ref{fig:sym-0_5} для $\tau=0.5$ 
+и рисунок~\ref{fig:sym-1} для $\tau=1$).
 
-В работе Mori и др.~\cite{Mori&Fukuma&Kuwahara_1981} доказано, что 
-устойчивость уравнения~\eqref{generalequ}, независимая от запаздывания,
-гарантирована при условии
-\begin{equation}\label{mori}
-    \min_{1\leqslant j \leqslant n}   \{\alpha_{jj}- \sum_{k=1,k\neq
-    j}^{n}|\alpha_{jk}|\}> \max_{1\leqslant j \leqslant n}\sum_{k=1}^{n}
-    |\beta_{jk}|,
-\end{equation}
-где $\alpha_{jk},\beta_{jk}$ суть элементы матриц $A,B$ соответственно. Отсюда
-вытекает следующее Предложение.
-
-\begin{prop}\label{prop:stab1}
-    Если  $|a|+|b|<1$, то системы~\eqref{matrixP},~\eqref{mainmatrix1} 
-    и \eqref{matrixP}, \eqref{mainmatrix2} асимптотически устойчивы при любом
-    $n$ и любом $\tau\geqslant 0$.
-\end{prop}
-
-Утверждение \ref{prop:stab1} также несложно вывести из Теоремы
-\ref{th:delayindependentstab} раздела \ref{sec14}
-диссертации. 
-
-
-
-
-\begin{theorem}\label{th:stab_with_great_n}
-    Если $|a+b|>1$, то  системы~\eqref{matrixP},~\eqref{mainmatrix1} и
-   \eqref{matrixP},~\eqref{mainmatrix2} неустойчивы при любом $\tau > 0$,
-    если $n$ достаточно велико.
-\end{theorem}
-
-Доказательство теоремы~\ref{th:stab_with_great_n}  будет
-дано в  разделе~\ref{sec36}. Предложение~\ref{prop:stab1} и
-теорема~\ref{th:stab_with_great_n} не дает информации о поведении систем
-\eqref{matrixP},~\eqref{mainmatrix1} и~\eqref{matrixP},~\eqref{mainmatrix2} для
-случая, когда выполнены одновременно неравенства $|a+b|<1$ и 
-\linebreak $|a|+|b|~>~1$.
-Для этого случая мы 
-применили исходный код программны <<Устойчивость
-нейронных сетей>>.
-
-Здесь мы представляем 
-результаты применения программного продукта, Предложения~\ref{prop:stab1} и
-Теоремы~\ref{th:stab_with_great_n} (см. также \cite{conf_SMO_2011}).
-
-На рисунках~\ref{fig:domain_no_delayright},~\ref{fig:domain_yes_delayright} 
-показаны области $D_{\tau}$ в плоскости параметров $(a, b)$  для некоторых
-значений~$\tau$. Область $D_{\tau}$ является расширением области, заданной
-неравенством $|a|+|b|<1$, на северо-запад и юго-восток до границ, зависящих от
-$\tau$. Если точка    $(a, b)$ лежит внутри  $D_{\tau}$ на Рис.
-\ref{fig:domain_no_delayright}, то система~\eqref{matrixP},~\eqref{mainmatrix1}
-асимптотически устойчива. Если  $(a, b)$ лежит вне   $D_{\tau}$ на 
-рисунке~\ref{fig:domain_no_delayright}, то система~\eqref{matrixP},
-\eqref{mainmatrix1} неустойчива при достаточно больших $n$. Аналогичные
-утверждения верны для рисунка~\ref{fig:domain_yes_delayright} и системы
-\eqref{matrixP}, ~\eqref{mainmatrix2}. Область $D_{\tau}$
-центрально-симметрична: если $(a,b)\in D_{\tau}$, то $(-a,-b)\in D_{\tau}$.     
-При одинаковых~$\tau$  область устойчивости для системы~\eqref{matrixP}, 
-\eqref{mainmatrix1} шире области для~\eqref{matrixP},~\eqref{mainmatrix2}.  
-
-\vspace{5mm}       
-
-\begin{figure}[ht]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[scale=1]{graph1}
-    \caption{
-        Области устойчивости  для системы~\eqref{matrixP},~\eqref{mainmatrix1}
-        }
-    \label{fig:domain_no_delayright}
-\end{figure}
- 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=1]{graph2}
-    \caption{
-        Области устойчивости  для системы~\eqref{matrixP},~\eqref{mainmatrix2}
-        }
-    \label{fig:domain_yes_delayright}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_1-3}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_1-4}}\\
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_1-5}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_1-6}}\\
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_1-7}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_1-8}}
+    \caption{%
+        Границы областей  устойчивости для системы  \eqref{main2chapter4} для $\tau=0.1$ и 
+         значений $n$ от 3 до 8 показаны кружками.  Сплошная линия~--- 
+         граница области устойчивости, гарантированной для любого $n$.}
+    \label{fig:sym-0_1}
 \end{figure}
 
-%\end{input}
-
-Для обеих систем  важна  прямая $a=-b$  в плоскости $(a, b)$, в окрестности
-которой сконцентрированы точки устойчивости систем. Поэтому естественно
-рассмотреть следующие две системы уравнений:
-\begin{equation}\label{main1centereq}
-    \dot{x}_{j}(t) +  x_{j}(t) +  a\, (x_{j-1}(t) - x_{j+1}(t-\tau)) = 0 \qquad
-    (j\; {\rm{mod}}\; n),  
-\end{equation}
-\begin{equation}\label{main2centereq}
-    \dot{x}_{j}(t) +  x_{j}(t) +  a\, (x_{j-1}(t-\tau) -  x_{j+1}(t-\tau)) = 0
-    \qquad    (j\; {\rm{mod}}\; n).  
-\end{equation}
-
-\begin{determine}\label{det:bound_of_stability_for_big_n}
-    Границей устойчивости системы~\eqref{main1centereq}  для больших $n$ назовем
-    такое число $a_1(\tau)\in \mathbb{R}$, что если $|a|<a_1(\tau)$, то
-   \eqref{main1centereq} устойчива при любом $n$, а если  $|a|>a_1(\tau)$, то
-   \eqref{main1centereq}  неустойчива при всех достаточно больших $n$. Аналогично
-    определим  $a_2(\tau)$ как границу устойчивости ~\eqref{main2centereq}  для
-    больших $n$.
-\end{determine}
-
-В  таблице~\ref{tab:boundaries} представлены  результаты анализа устойчивости
-систем \eqref{main1centereq}, \eqref{main2centereq}  с помощью программного
-продукта <<Устойчивость  нейронных сетей>>. 
-  
-  
- 
-Очевидно, $\lim_{\tau\rightarrow \infty}a_1(\tau)\hm{=}\lim_{\tau\rightarrow
-\infty}a_2(\tau)\hm{=}1/2$. 
-
-  
-Не столь очевидно поведение систем~\eqref{main1centereq},~\eqref{main2centereq}
-при $\tau\rightarrow 0$, которое рассматривается в следующей теореме.
-
-
-\begin{theorem}\label{th:asymptotics_of_simm}
-    \begin{equation}\label{evalasym}
-        \lim_{\tau\rightarrow 0} a_1(\tau)\sqrt{2\tau}=\lim_{\tau\rightarrow 0}
-        a_2(\tau)2\sqrt{\tau}=1.
-    \end{equation}
-\end{theorem}
-
-Доказательство теоремы~\ref{th:asymptotics_of_simm} дано в
-разделе~\ref{sec36}. Таблица~\ref{tab:boundaries} подтверждает оценки
-теоремы~\ref{th:asymptotics_of_simm}.  Действительно, согласно 
-таблице~\ref{tab:boundaries},  при  $\tau=0.01$ имеем  
-$a_1(\tau)\sqrt{2\tau}\simeq 1.0017$, $a_2(\tau)2\sqrt{\tau}\simeq 1.0033$.
-
-
-\begin{table}[ht]
+\begin{figure}[!ht]
     \centering
-    \caption{
-        Границы областей устойчивости для систем~\eqref{main1centereq}, 
-       ~\eqref{main2centereq}}
-    \label{tab:boundaries}
-    \begin{tabular}[t]{|l|ccccccccc|} 
-    \hline
-        {\footnotesize  $\tau$}         &   {\footnotesize 0.01}    &
-        {\footnotesize  0.05}           &   {\footnotesize 0.1}     &
-        {\footnotesize 0.2}             &   {\footnotesize 0.5}     &
-        {\footnotesize 1}               &   {\footnotesize  2}      &
-        {\footnotesize 3}               &   {\footnotesize 4}       \\  
-        \hline 
-        {\footnotesize $a_1(\tau)$}     &   {\footnotesize 7.0830}  &
-        {\footnotesize 3.1901}          &   {\footnotesize 2.2742}  &
-        {\footnotesize 1.6337}          &   {\footnotesize 1.0829}  &
-        {\footnotesize 0.8229}          &   {\footnotesize 0.6597}  &
-        {\footnotesize 0.5988}          &   {\footnotesize 0.5678}  \\
-        {\footnotesize $a_2(\tau)$}     &   {\footnotesize 5.0166}  &
-        {\footnotesize  2.2733 }        &   {\footnotesize 1.6337}  &
-        {\footnotesize  1.1921 }        &   {\footnotesize 0.8226}  &
-        {\footnotesize 0.6595 }         &   {\footnotesize 0.5678}  &
-        {\footnotesize 0.5380}          &   {\footnotesize 0.5244} \\
-        \hline
-    \end{tabular}
-\end{table}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_5-3}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_5-4}}\\
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_5-5}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_5-6}}\\
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_5-7}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-0_5-8}}
+    \caption{%
+        Границы областей устойчивости для системы  \eqref{main2chapter4} для $\tau=0.5$ и 
+         значений $n$ от 3 до 8 показаны кружками.  Сплошная линия~--- 
+         граница области устойчивости, гарантированной для любого $n$.}
+    \label{fig:sym-0_5}
+\end{figure}
 
- Для построения областей устойчивости и
-неустойчивости исследуемых сетей в плоскости параметров
-(рис.~\ref{fig:domain_no_delayright}, ~\ref{fig:domain_yes_delayright}) и
-составления таблицы~\ref{tab:boundaries} потребовалось многократное применение
-программы <<Устойчивость  нейронных сетей>>, что послужило толчком к созданию
-нового программного продукта, который будет подробно описан в
-главе~\ref{chapter4} настоящей диссертации.
+\begin{figure}[!ht]
+    \centering
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-1_0-3}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-1_0-4}}\\
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-1_0-5}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-1_0-6}}\\
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-1_0-7}}
+    \subfloat{\includegraphics[width=6.4cm]{ring_bounds/sym-1_0-8}}
+    \caption{%
+        Границы областей  устойчивости для системы  \eqref{main2chapter4} для $\tau=1$ и 
+         значений $n$ от 3 до 8 показаны кружками.  Сплошная линия~--- 
+         граница области устойчивости, гарантированной для любого $n$.}
+    \label{fig:sym-1}
+\end{figure}
+
+Как и в случае кольцевых сетей с односторонним запаздыванием, рассмотренных 
+в предыдущем разделе, наблюдается стремление границ областей устойчивости 
+для ограниченного числа нейронов к границе для неограниченного числа нейронов, 
+а также некоторое сходство полученных кривых для нечетного и четного числа 
+нейронов в сети (левый и правый столбцы соответственно).  В отличие от сетей 
+с односторонним запаздыванием, области устойчивости для сетей с двусторонним 
+запаздыванием и нечетным числом нейронов не выдаются в первую и вторую 
+четверти и симметричны относительно прямой $a=b$.
 

@@ -1,0 +1,138 @@
+\section{Проверка устойчивости уравнения с~комплексными коэффициентами 
+посредством системы неравенств} \label{sec15}
+
+Для уравнения~\eqref{scalar_complex_lambda_mu} сформулируем и докажем теорему, 
+позволяющую делать вывод об~устойчивости данного уравнения с~помощью 
+системы неравенств, не~прибегая при~этом к~геометрическим процедурам. 
+Другое решение этой задачи имеется в~работе А.\,И.~Кирьянена и 
+К.\,В.~Галуновой~\cite{Kiryanen&Gal_1989}. В~дальнейшем  в~диссертации мы 
+не~будем использовать результаты этого раздела. Мы~внесли эту тему в~диссертацию, 
+чтобы продемонстрировать <<от~противного>> преимущества  метода конуса устойчивости.
+
+Рассмотрим уравнение
+\begin{equation}\label{scalar_complex} 
+    \dot x\left(t\right)+\rho_{1}\,\exp({i\alpha_{1}})\, x(t) +  
+        \rho_{2}\,\exp({i\alpha_{2}})\, x(t-\tau)=0,
+\end{equation}
+где~$\rho_{1}, \rho_{2}, \alpha_{1}, \alpha_{2}\in\mathbb{R}$.
+
+В~соответствии с~\eqref{after_change_lambda_mu} оно эквивалентно следующему уравнению:
+\begin{equation}\label{after_change} 
+    \dot y\left(t\right)+\rho_{1}\cos{\alpha_{1}}\,\, y(t) +  
+        \rho_{2}\,\exp(i(\alpha_{2}+\rho_{1}\tau \sin {\alpha_{1}})) \, y(t-\tau)=0.
+\end{equation}
+
+Поскольку в~\eqref{after_change} коэффициент при~$y(t)$ действительный, 
+можно применить  теорему~\ref{th:scalar_cone_ab} с~заменой уравнения~\eqref{scalar} 
+на~\eqref{scalar_complex} и при
+\begin{equation}
+    a = \rho_{1}\cos{\alpha_{1}}, \qquad   
+    b = \rho_{2}\,\exp(i(\alpha_{2}+\rho_{1}\tau \sin {\alpha_{1}})).
+\end{equation}
+
+Будем использовать функцию~$\arg{z}$ комплексного переменного~$z$, считая, 
+что $0\leqslant\arg{z}<2\pi$.
+
+\begin {theorem}\label{th:scalar_both_complex_inequalities}
+Пусть дано уравнение~\eqref{scalar_complex}. Тогда следующие утверждения верны.
+\begin{enumerate}
+    \item Если $\rho_{2}<\rho_{1}\cos{\alpha_{1}}$, то уравнение~\eqref{scalar_complex}
+асимптотически устойчиво.
+    \item Если $-\min(1/\tau,\, \rho_{2})<\rho_{1}\cos{\alpha_{1}}<\rho_{2}$, то 
+уравнение~\eqref{scalar_complex} асимптотически устойчиво тогда и только тогда, 
+когда одновременно выполняются условия:
+\begin{equation}
+\label{cond}
+\rho_{2}<\sqrt{\omega_{1}^{2}+\rho_{1}^{2}\cos^{2}{\alpha_{1}}},
+\end{equation}
+где $\omega_{1}$ есть наименьший положительный корень уравнения 
+$a\sin{\omega\tau} \hm{+} \omega \cos{\omega\tau} \hm{=} 0$,
+и
+\begin{equation}\label{cond2}  
+    \arg\,(\exp(i(\alpha_{2}+\rho_{1}\tau \sin{\alpha_{1}})))
+    \in(0,\beta)\cup(2\pi-\beta, 2\pi),
+\end{equation}
+где
+\begin{equation}
+    \beta=\arg\,(\exp\,(-i\tau\sqrt{\rho_{2}^{2}-\rho_{1}^{2}\cos^{2}{\alpha_{1}}}))+\gamma,
+\end{equation}
+$$
+\gamma=
+\left\{
+    \begin{array}{l}
+        \arctg{\dfrac{\sqrt{\rho_{2}^{2}-\rho_{1}^{2}\cos^{2}{\alpha_{1}}}}{\rho_{1}\cos{\alpha_{1}}}}, 
+        \quad 
+        \cos{\alpha_{1}}<0,\\
+        \pi - \arctg{\dfrac{\sqrt{\rho_{2}^{2}-\rho_{1}^{2}\cos^{2}{\alpha_{1}}}}{\rho_{1}\cos{\alpha_{1}}}},
+        \quad 
+        \cos{\alpha_{1}}>0.
+    \end{array}
+\right.
+$$
+    \item Если $\rho_{1}\cos{\alpha_{1}}<-\min(1/\tau,\, \rho_{2})$, то 
+уравнение~\eqref{scalar_complex} неустойчиво.
+\end{enumerate}
+\end {theorem}
+
+\begin{proof}
+Уравнение~\eqref{scalar_complex} асимптотически устойчиво тогда и только тогда, 
+когда асимптотически устойчиво уравнение~\eqref{after_change}. Поэтому будем 
+исследовать устойчивость уравнения~\eqref{after_change}.
+
+1) При $\rho_{2}< \rho_{1}\cos{\alpha_{1}}$ по теореме \ref{theorem_scalar} и
+примечанию \ref{rem:positionofoval}  овал устойчивости существует и начало
+координат лежит внутри овала устойчивости.
+При~этом окружность радиуса~$\rho_{2}$ полностью лежит внутри овала устойчивости, 
+что обеспечивает асимптотическую устойчивость уравнения~\eqref{after_change}.
+
+2) Пусть $-\min(1/\tau,\, \rho_{2}) < \rho_{1}\cos{\alpha_{1}} < \rho_{2}$. 
+Рассмотрим~2 случая.
+
+\emph{Случай  2.1.} $-\min(1/\tau,\, \rho_{2})< \rho_{1}\cos{\alpha_{1}} < 0$. 
+При~этом овал устойчивости существует и полностью лежит в~правой полуплоскости. 
+Для асимптотической устойчивости необходимо и достаточно выполнение двух условий. 
+Одно из~них обеспечивает пересечение окружности радиуса~$\rho_{2}$ с~овалом устойчивости, 
+что равносильно условию~\eqref{cond}. Второе условие связано с~тем, 
+что аргумент точки $\exp(i(\alpha_{2} + \rho_{2}\tau \sin{\alpha_{1}}))$ 
+должен находится между аргументом точек~$M, N$ пересечения окружности радиуса~$\rho_{2}$ 
+с~овалом устойчивости. Рассмотрим точку~$M$, лежащую в верхней полуплоскости. 
+Отметим, что часть овала устойчивости~\eqref{oval}, лежащая в верхней полуплоскости, 
+соответствует отрицательным значениям параметра~$\omega$.
+\begin{multline}
+    \arg M= \arg\left(-\rho_{1}\cos\alpha_{1} \exp(i\omega\tau) - i\omega\exp(i\omega\tau) \right) = \\
+    = \arg( \exp(i\omega\tau)) + \arg(-\rho_{1}\cos\alpha_{1} - i\omega) =\\
+    = \arg( \exp(i\omega\tau)) + \arctg\frac{|\omega|}{\rho_{1}\cos\alpha_{1}}.
+\end{multline}
+По определению овала устойчивости (см. определение \ref{def:stability_oval})
+имеем $$\omega = \pm \sqrt{\rho_{2}^{2} - \rho_{1}^{2}\cos^{2}\alpha_{1}}.$$
+Поэтому
+\begin{equation}\label{argM}
+    \arg M = \arg \left(\exp\left(-i\tau \sqrt{\rho_{2}^{2} - 
+        \rho_{1}^{2}\cos^{2}\alpha_{1}}\right) \right) +  
+        \arctg\frac{\sqrt{\rho_{2}^{2} - 
+        \rho_{1}^{2}\cos^{2}\alpha_{1}}}{\rho_{1}\cos{\alpha_{1}}}.
+\end{equation}
+Из~\eqref{argM} следует, что второе условие равносильно~\eqref{cond2}.
+
+\emph{Случай 2.2.} $0 < \rho_{1}\cos{\alpha_{1}} < \rho_{2}$.
+Так~как $\cos{\alpha_{1}} > 0 $, то овал устойчивости существует 
+и начало координат лежит внутри овала устойчивости. Те~же требования приводят 
+к~условиям~\eqref{cond}, \eqref{cond2}. Отметим, что
+при $\cos{\alpha_{1}} > 0 $ получим
+\begin{equation}
+    \arg(-\rho_{1} \cos{\alpha_{1}} - i\omega) = 
+        \pi - \arctg\frac{\sqrt{\rho_{2}^{2} - 
+        \rho_{1}^{2}\cos^{2}\alpha_{1}}}{\rho_{1}\cos{\alpha_{1}}}.
+\end{equation}
+
+3) Пусть $\rho_{1}\cos{\alpha_{1}} < -\min(1/\tau,\, \rho_{2})$. Возможны два случая.
+
+\emph{Случай 3.1.} $\rho_{1}\cos{\alpha_{1}} < -\frac{1}{\tau}$. 
+Тогда по~теореме~\ref{theorem_scalar} уравнение неустойчиво.
+
+\emph{Случай 3.2.} $-\frac{1}{\tau} < \rho_{1}\cos{\alpha_{1}} < -\rho_{2}$. 
+При~этом овал устойчивости существует и начало координат лежит внутри овала устойчивости. 
+Так~как $\rho_{2} < -\rho_{1}\cos{\alpha_{1}}$, то окружность радиуса~$\rho_{2}$ 
+не~пересекает овал устойчивости, поэтому уравнение неустойчиво. 
+Теорема доказана.
+\end{proof} 

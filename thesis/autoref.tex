@@ -12,6 +12,16 @@
 \usepackage{tabularx}
 \ifpdf\usepackage{epstopdf}\fi
 
+% Поддержка нескольких списков литературы в одном документе
+%\usepackage{multibib}
+% Создание команд для цитирования собственных работ диссертанта
+% в отдельном разделе. В данном случае ссылка будет иметь вид \citemy{...}.
+%\newcites{my}{Список публикаций}
+
+% Путь к файлам с иллюстрациями
+\graphicspath{{img/}}
+
+
 %\renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\tocpostthechapter}{~}
 \renewcommand{\tocpostthesection}{~}
@@ -86,14 +96,7 @@
 \clubpenalty =10000
 \widowpenalty=10000
 
-% Поддержка нескольких списков литературы в одном документе
-\usepackage{multibib}
-% Создание команд для цитирования собственных работ диссертанта
-% в отдельном разделе. В данном случае ссылка будет иметь вид \citemy{...}.
-\newcites{my}{Список публикаций}
 
-% Путь к файлам с иллюстрациями
-\graphicspath{{img/}}
 
 \begin{document}
 % Включение файла с общим текстом диссертации и автореферата
@@ -109,7 +112,7 @@
 диссертации на соискание учёной степени\\
 кандидата физико-математических наук}
 
-\maketitle
+%\maketitle
 
 % Внутренняя сторона обложки
 \noindent
@@ -157,10 +160,10 @@
 \hfill
 \makeatletter
 % вставка файла, содержащего факсимиле учёного секретаря
-\ifDis@facsimile
-  \raisebox{-4pt}{\includegraphics[width=3cm]{sec-facsimile}}\hfill
-\fi%
-\makeatother%
+%\ifDis@facsimile
+%  \raisebox{-4pt}{\includegraphics[width=3cm]{sec-facsimile}}\hfill
+%\fi%
+%\makeatother%
 \emph{фамилия и. о.}
 
 \clearpage
@@ -192,8 +195,8 @@
 \approbationtext
 
 % Публикации
-\pubsection
-\pubtext
+%\pubsection
+%\pubtext
 
 % Личный вклад автора
 \contribsection
@@ -203,36 +206,106 @@
 \structsection
 \structtext
 
-\nsection{Содержание работы}
+{\nsection{Публикации по теме диссертации}}
+\renewcommand\bibsection{\nsection{\textit {\normalsize Статьи,
+опубликованные в ведущих рецензируемых научных журналах, определенных ВАК}}}
 
-\textbf{Во введении} обоснована актуальность диссертационной работы,
-сформулирована цель и аргументирована научная новизна исследований, показана
-практическая значимость полученных результатов, представлены выносимые на
-защиту научные положения.
+%\bibliography{}
+\begin{thebibliography}{99}
+\bibitem{vestnik}{
+Хохлова Т. 
+Конус устойчивости для линейного матричного дифференциального уравнения с
+запаздыванием // Вестник ЮУрГУ, серия «Матема­тика. Механика. Физика». 
+2010. Т. 30 (206). С. 33–37.
+}
+\bibitem{Khokhlova&Kipnis&Malygina_2011} {\Eng Khokhlova T., Kipnis M., Malygina
+V.
+The stability cone for a delay differential matrix equation // 
+Applied Mathematics Letters. 2011. Vol.~24. Pp.~742–745.
+}
 
-\textbf{В первой главе} ...
+\bibitem{Khokhlova&Kipnis_2012}{
+\Eng Khokhlova T., Kipnis M. Numerical and qualitative stability analysis of
+ring and linear neural networks with a large number of neurons // 
+International~J. of Pure and Applied Mathematics. 2012. Vol. 76(3).
+Pp.~403--419.
+}
 
-Содержание первой главы.
+\end{thebibliography}
 
-Результаты первой главы опубликованы в
-работе~\citemy{Khokhlova&Kipnis&Malygina_2011}.
+\renewcommand\bibsection{\nsection{\textit {\normalsize Другие
+публикации}}}
+\begin{thebibliography}{99}
+\bibitem{my6}{
+Хохлова Т.\,Н. Устойчивость нейронных сетей Хопфилда с запаздыванием // 
+Труды седьмой Всероссийской научной конференции с междуна­родным участием
+«Математическое моделирование и краевые задачи».
+Самара: 2010. С. 277–279.
+}
+\bibitem{my7}{
+Хохлова Т.\,Н. Устойчивость нейронных сетей Хопфилда с запаздывани­ем // 
+Научный поиск: материалы второй научной конференции аспиран­тов и докторантов.
+Естественные науки. Челябинск: Изд. центр ЮУрГУ, 2010. С. 72–75.
+}
+\bibitem{my8}{
+Хохлова Т.\,Н. Анализ устойчивости // Хроники ОФЭРНиО. 2011. Т.~2 (21). 
+С.~22–23. Номер свидетельства о регистрации 16759 от 28.02.2011.
+URL: http://ofernio.ru/portal/newspaper/ofernio/2011/2.doc.
+}
+\bibitem{my9}{
+Хохлова Т.\,Н. Устойчивость нейронных сетей // Хроники ОФЭРНиО.
+2011. Т.~7 (26). С.~35–36. Номер свидетельства о регистрации 17346 от
+01.08.2011. URL: http://ofernio.ru/portal/newspaper/ofernio/2011/7.doc.
+}
+\bibitem{my10}{
+Хохлова Т.\,Н. Устойчивость нейронных сетей стандартных конфигураций // 
+Статистика. Моделирование. Оптимизация. Сборник трудов  Всероссийской
+конференции. Челябинск: 2011. С.~331–335.
+}
+\bibitem{my14}{
+Хохлова Т.\,Н., Хохлов А.\,Д. Алгоритм и программа для  диагностирования
+устойчивости больших нейронных сетей // Статистика. Моделирова­ние. Оптимизация.
+Сборник трудов Всероссийской конференции. Челя­ бинск: 2011. С.~328–331.
+}
+\bibitem{my11}{
+Хохлова Т.\,Н. Построение областей устойчивости круговых нейронных
+сетей // Хроники ОФЭРНиО. 2012. Т.~1 (32). С.~4–5. Номер свидетельства
+о регистрации 17779 от 10.01.2012. URL: http://ofernio.ru/portal/newspaper/ofernio/2012/1.doc.
+}
+\bibitem{my12}{
+Хохлова Т.\,Н. Устойчивость двухслойного соединения нейронов с запаздыванием // 
+II Международная научно-практическая конференция  студентов и аспирантов
+«Математика и её приложения в современной науке и практике». Курск: 2012. С. ??–??
+}
+\bibitem{my13}{
+Хохлова Т.\,Н. Устойчивость полносвязной и звездной структур  нейрон­ных сетей
+// Научный поиск: материалы четвёртой научной конференции аспирантов и докторантов. 
+Естественные науки. Челябинск: Изд. центр ЮУрГУ, 2012. С. ??–??
+}
 
-\textbf{Во второй главе} ...
+\bibitem{my35}{
+\Eng Khokhlova T. Stability Cone. 2011. URL:
+http://disser. assembla.me/\linebreak stability\_analysis.html.
+}
+\bibitem{my36}{
+\Eng Khokhlova T. Stability of Ring Neural Networks. 2011. URL:
+http://\linebreak disser.assembla.me/stability\_networks.html.
+}
+\bibitem{my37}{
+\Eng Khokhlova T. Stability Domains. 2012. URL:
+http://disser.assembla.\linebreak me/stability\_domains.html.
+}
 
-Содержание второй главы.
+\end{thebibliography}
 
-Результаты второй главы опубликованы в
-работе~\citemy{Khokhlova&Kipnis_2012}.
-
-\textbf{В Заключении}
 
 % ----------------------------------------------------------------
 \renewcommand\bibsection{\nsection{Список публикаций}}
 
 % Префикс номеров ссылок на работы соискателя
-\def\BibPrefix{A}
-\bibliographystylemy{gost705s}
-\bibliographymy{thesis}
+%\def\BibPrefix{A}
+%\bibliographystylemy{gost705s}
+%\bibliographymy{thesis}
 
 \renewcommand\bibsection{\nsection{Цитированная литература}}
 

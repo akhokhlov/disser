@@ -1,11 +1,13 @@
 \section {Конус устойчивости для скалярного уравнения с~комплексными коэффициентами} 
 \label{sec13}
 
-Поначалу рассмотрим уравнение~\eqref{scalar} с~действительными коэффициентами~$a$ 
+Вначале рассмотрим, как и в предыдущем разделе, уравнение~\eqref{scalar} с~действительными коэффициентами~$a$ 
 и комплексными~$b$. Для исследования его устойчивости, 
 %при действительных $a$ и комплексных $b$,  
-а в дальнейшем также и для матричного уравнения~\eqref{maineqmatrix} 
+а в дальнейшем также и для матричного уравнения~\eqref{maineqmatrix},
 определим в~$\mathbb{R}^3$ некоторую поверхность, которую назовём конусом устойчивости.
+
+
 
 \begin{determine}\label{defin_cone}
 Конусом устойчивости для уравнений \eqref{scalar}, \eqref{maineqmatrix} 
@@ -29,6 +31,8 @@
     \right.
 \end{equation}
 \end{determine}
+
+
 
 \begin{remark}\label{rem:cone}
 Единственный конус устойчивости~\eqref{cone}, \eqref{preimage} строится 
@@ -141,12 +145,9 @@ $a\in\mathbb{R}$, $b\in\mathbb{C}$, $\tau>0$.
     Пусть в уравнении~\eqref{scalar_complex_lambda_mu} $\lambda,\mu\in\mathbb{C}$.
     Построим точку $M \hm{=} (u_{1},u_{2},u_{3})$ так, что
     \begin{equation}\label{pointM}
-        \begin{array}{l}
-            u_{1} = \tau \Re ( \mu \, \exp(i\tau \Im \lambda)),  \\
-            u_{2} = \tau \Im ( \mu \, \exp(i\tau \Im \lambda)),  \\
-            u_{3} = \tau \Re \lambda.
-        \end{array}
-    \end{equation}
+                  u_{1} +iu_2= \tau  ( \mu \, \exp(i\tau \Im \lambda)),  \quad 
+                       u_{3} = \tau \Re \lambda.
+            \end{equation}
     Тогда имеют место следующие утверждения.
     \begin{enumerate}
       \item Уравнение~\eqref{scalar_complex_lambda_mu} асимптотически устойчиво тогда 

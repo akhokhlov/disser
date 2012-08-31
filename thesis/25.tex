@@ -1,0 +1,133 @@
+\section{Разрыв в кольце: модель сети  линейной конфигурации с большим количеством нейронов}
+\label{sec25}
+ 
+Выясним, что  происходит с устойчивостью , когда разорвана связь между, скажем,
+первым и последним нейронами в  модели кольцевой сети нейронов (рисунок
+\ref{fig:linear_neurons}). 
+ 
+ \begin{figure}[ht]%\hspace*{1mm}
+\begin{center}
+\includegraphics[scale=0.4]{line_of_neurons}
+\end{center}
+\caption{Линейная система нейронов.}
+\label{fig:linear_neurons}
+  \end{figure}
+ 
+
+В этом случае система   \eqref{matrixP}, \eqref{mainmatrix1} переходит в
+некоторое  уравнение вида \eqref{generalequ} с матрицами $A,B$, которые, вообще
+говоря, не приводятся одновременно к треугольному виду.    
+Наш метод конусов устойчивости непригоден для анализа устойчивости таких систем. 
+Поэтому мы вынуждены ограничиться анализом  системы \eqref{matrixP}, 
+\eqref{mainmatrix2}, подвергнутой разрыву одной связи между нейронами. 
+Итак, рассмотрим следующий аналог модели  \eqref{matrixP},  \eqref{mainmatrix2}:
+\begin{equation}
+\nonumber \dot{x}_{1}(t) +  x_{1}(t) +   b\, x_{2}(t-\tau) = 0,  \\
+\end{equation}
+\begin{equation}
+\label{brokenequ} 
+\dot{x}_{j}(t) +  x_{j}(t) +  a\, x_{j-1}(t-\tau) + b\, x_{j+1}(t-\tau) = 0, 
+\qquad  2\leqslant j\leqslant (n-1), \\
+\end{equation}
+\begin{equation}
+\nonumber \dot{x}_{n}(t) +  x_{n}(t) +  a\, x_{n-1}(t-\tau)  = 0, \qquad n>2. 
+\end{equation}
+Матричная форма уравнения \eqref{brokenequ} такова:
+\begin{equation}\label{matrixbrokenequ}
+\dot{x}(t) +I\,x(t)+ D\,x(t-\tau)=0,    
+\end{equation}
+ где $n\times n$ матрица $D$ имеет вид
+\begin{equation}\label{matrixbroken}
+D=
+\begin{pmatrix}  
+  0  &  b & 0 &   \ldots &  0 &  0\\
+  a  &  0 & b &   \ldots &  0 &  0\\
+  0  &  a & 0 &   \ldots &  0 &  0\\
+  \vdots  & \vdots & \vdots  &   \ddots &  \vdots &  \vdots \\
+  0  &  0 & 0 &   \ldots &  0 &  b\\
+  0  &  0 & 0 &   \ldots &  a &  0   \\
+\end{pmatrix}.
+\end{equation}
+Для формулировки следующей теоремы определим функцию $F(\tau)$ от запаздывания
+$\tau\in (0,\infty)$: 
+\begin{equation}
+\label{Ftau} 
+F(\tau)= \frac{1}{4\sin^2\omega(\tau)},
+\end{equation}
+где $\omega(\tau)$ есть наименьший положительный корень уравнения 
+\begin{equation}
+\label{omegaboundary} 
+\tau= \omega \tg \omega.
+\end{equation}
+
+\begin{theorem}\label{th:stab_linear}
+1. Если  $0 \leqslant ab <\frac {1}{4} $, то система  \eqref{matrixbrokenequ},
+\eqref{matrixbroken} асимптотически устойчива при любом $n$ и любом
+$\tau\geqslant 0$.\\  
+2. Если $ab> \frac {1}{4}$, то  система  \eqref{matrixbrokenequ},
+\eqref{matrixbroken} неустойчива при любом $\tau\geqslant 0$, если $n$
+достаточно велико. \\  
+3. Если  $ab<0$ и $|ab|<F(\tau)$, то система \eqref{matrixbrokenequ},
+\eqref{matrixbroken} асимптотически устойчива  при любом $n$.\\ 
+4. Если $ab<0$ и  $|ab|>F(\tau)$, то система \eqref{matrixbrokenequ},
+\eqref{matrixbroken} неустойчива, если $n$ достаточно велико.  
+\end{theorem}
+ 
+ Доказательство Теоремы \ref{th:stab_linear}  дано в  разделе \ref{sec26}. 
+ Область устойчивости, независимой от запаздывания,  очерченная пунктами  1,3
+ Теоремы \ref{th:stab_linear}, шире области  $|a| +|b|<1$, гарантированной
+ достаточным условием \eqref{mori}, вытекающим из результата Мори с соавторами \cite{Mori&Fukuma&Kuwahara_1981}
+ Теорема  \ref{th:stab_linear} иллюстрируется рисунком  \ref{fig:domainbroken}. 
+\begin{figure}[ht]%\hspace*{1mm}
+	\begin{center}
+	\includegraphics[scale=0.7]{domain_for_line_of_neurons}
+	\end{center}
+	\caption{Границы области  устойчивости системы  \eqref{matrixbrokenequ}, 
+		\eqref{matrixbroken} для линейной конфигурации при достаточно большом количестве нейронов $n$.  }
+	\label{fig:domainbroken}
+\end{figure}
+Сравнивая рисунки \ref{fig:domain_yes_delayright} и \ref{fig:domainbroken}, мы
+видим, что при разрыве кольца нейронов область устойчивости в пространстве
+параметров  увеличивается, если количество нейронов достаточно велико.
+Это подтверждается следующей теоремой. 
+
+
+
+
+\begin{theorem}\label{th:comparison_ring_and_linear}
+Фиксируем значения параметров $a,b, \tau$ для системы \eqref{matrixP}, 
+\eqref{mainmatrix2} для кольца нейронов и  системы \eqref{matrixbrokenequ}, 
+		\eqref{matrixbroken} для сети с линейной конфигурацией нейронов.
+Если система  \eqref{matrixP}, \eqref{mainmatrix2}  асимптотически устойчива при любом количестве нейронов $n$, то 
+система  \eqref{matrixbrokenequ}, 
+		\eqref{matrixbroken} также асимптотически устойчива при любом   количестве нейронов $n$.
+\end{theorem}
+
+
+
+
+
+
+Доказательство Теоремы \ref{th:comparison_ring_and_linear} дано в разделе  \ref{sec26}.
+В следующей главе мы покажем, что при малом количестве нейронов в кольцевой системе разрыв  кольца может, наоборот, сделать устойчивую кольцевую систему неустойчивой. Но это явление редкое (в житейском смысле этого слова), и автору пришлось предпринять специальные усилия, чтобы его обнаружить.   
+    
+Ещё одно наблюдение: в модели \eqref{matrixbrokenequ}, \eqref{matrixbroken} при
+$a=0$ (или $b=0$) Теорема \ref{th:stab_linear}  гарантирует  устойчивость
+независимо от запаздывания. 
+В интерпретации это означает, что при разрыве кольца нейронов блокировка
+взаимодействия нейронов с правым (или левым) соседом гарантирует устойчивость
+при любом запаздывании, что отнюдь неверно для неповрежденного кольца  нейронов
+(см.  Теорему \ref{th:stab_with_great_n} и Рисунки~\ref{fig:domain_no_delayright},~\ref{fig:domain_yes_delayright}).   
+
+Рассмотрим вариант $a=-b$ в \eqref{matrixbrokenequ}, \eqref{matrixbroken}.
+Положим   $H(\tau)=\sqrt{F(\tau)}$ (см. \eqref{Ftau}, \eqref{omegaboundary}). 
+Очевидно, $\lim_{\tau\rightarrow \infty}  H(\tau)= 1/2$ и 
+$\lim_{\tau\rightarrow 0}  H(\tau) 2 \sqrt{\tau}=1$.
+В системе \eqref{matrixbrokenequ}, \eqref{matrixbroken}  с $a=-b$ функция
+$H(\tau)$ играет  роль границы устойчивости,  аналогичную функции $a_2(\tau)$
+для системы \eqref{main2centereq} 
+(см. Определение \ref{det:bound_of_stability_for_big_n}).    
+Сравнение поведения  $H(\tau)$ с $a_2(\tau)$  (см. \eqref{evalasym}) обнаруживает
+весьма малые различия в условиях устойчивости для замкнутой и разорванной цепи
+нейронов, если соединение каждого нейрона с соседними антисимметрично, то есть
+при $a=-b$ в \eqref{matrixbrokenequ}, \eqref{matrixbroken}.    

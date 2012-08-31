@@ -1,138 +1,292 @@
-\section{Проверка устойчивости уравнения с~комплексными коэффициентами 
-посредством системы неравенств} \label{sec15}
 
-Для уравнения~\eqref{scalar_complex_lambda_mu} сформулируем и докажем теорему, 
-позволяющую делать вывод об~устойчивости данного уравнения с~помощью 
-системы неравенств, не~прибегая при~этом к~геометрическим процедурам. 
-Другое решение этой задачи имеется в~работе А.\,И.~Кирьянена и 
-К.\,В.~Галуновой~\cite{Kiryanen&Gal_1989}. В~дальнейшем  в~диссертации мы 
-не~будем использовать результаты этого раздела. Мы~внесли эту тему в~диссертацию, 
-чтобы продемонстрировать <<от~противного>> преимущества  метода конуса устойчивости.
 
-Рассмотрим уравнение
-\begin{equation}\label{scalar_complex} 
-    \dot x\left(t\right)+\rho_{1}\,\exp({i\alpha_{1}})\, x(t) +  
-        \rho_{2}\,\exp({i\alpha_{2}})\, x(t-\tau)=0,
+\section{Алгоритм  для определения значений запаздывания, гарантирующих
+устойчивость дифференциального уравнения с запаздыванием}\label{sec15}
+
+В этом разделе мы дадим алгоритм для определения всех значений $\tau$, которые
+гарантируют устойчивость дифференциального уравнения   
+\begin{equation}\label{maineqmatrixchapter2}
+    \dot{x}(t)+A x(t)+B x(t-\tau)=0 
 \end{equation}
-где~$\rho_{1}, \rho_{2}, \alpha_{1}, \alpha_{2}\in\mathbb{R}$.
+с $n\times n$ матрицами $A\, ,B$, допускающими одновременную триангуляцию. 
 
-В~соответствии с~\eqref{after_change_lambda_mu} оно эквивалентно следующему уравнению:
-\begin{equation}\label{after_change} 
-    \dot y\left(t\right)+\rho_{1}\cos{\alpha_{1}}\,\, y(t) +  
-        \rho_{2}\,\exp(i(\alpha_{2}+\rho_{1}\tau \sin {\alpha_{1}})) \, y(t-\tau)=0.
-\end{equation}
 
-Поскольку в~\eqref{after_change} коэффициент при~$y(t)$ действительный, 
-можно применить  теорему~\ref{th:scalar_cone_ab} с~заменой уравнения~\eqref{scalar} 
-на~\eqref{scalar_complex} и при
+
+Пусть матрицы $A$ и $B$ приведены к треугольному виду $A_T$, $B_T$ одним 
+преобразованием. Пусть $\lambda_{j\,j}, \mu_{j\,j},\; 1 \leqslant  j \leqslant n$  
+собственные числа матриц $A$ и $B$ в~том порядке, в котором они расположены на
+диагоналях  матриц $A_T$, $B_T$. Для каждого $j,\; 1 \leqslant  j \leqslant  n$
+составим множество $T_{j}$ по следующему {\bfseries алгоритму.} 
+
+Если для некоторого $j$ выполнено $\Re{\lambda_{j\,j}} > |\mu_{j\,j}|$, то
+$T_{j}=(0, +\infty)$. В~противном случае находим числа 
+\begin{multline}
+\label{tau} \tau_{j}^{m}=\frac{\arg{(\pm iQ - \Re{\lambda_{j\,j}})}-\arg
+{\mu_{j\,j}} +2\pi m}{\Im{\lambda_{j\,j}\pm Q}}, \quad m\in \mathbb{Z}, \\ 
+Q=\sqrt{|\mu_{j\,j}|^{2}-(\Re{\lambda_{j\,j}})^{2}}.
+\end{multline}
+
+\noindent
+Из чисел $\tau_{j}^{m}$ выбираем такие, для которых
+
 \begin{equation}
-    a = \rho_{1}\cos{\alpha_{1}}, \qquad   
-    b = \rho_{2}\,\exp(i(\alpha_{2}+\rho_{1}\tau \sin {\alpha_{1}})).
+\label{inequality_tau} 0<\tau_{j}^{m}\leq\pi/Q  \quad \mbox{и} \quad 
+\Re{\lambda_{j\,j}} \geqslant -\frac{Q}{\tg(Q\,\tau_{j}^{m})},
+\end{equation}
+и сортируем по возрастанию, исключая повторения. Полученные числа обозначим
+$\tau_{1 j}, \tau_{2 j}, \ldots ,\tau_{s j}$. 
+
+\noindent
+Составим множество $T_{j}$ следующим образом. Пусть
+\begin{equation}
+\label{Tj_1}
+ T_{j}=(0,\tau_{1 j})\cup(\tau_{2 j}, \tau_{3 j})\cup\ldots
+\end{equation}
+в следующих случаях:
+
+%\end{document}
+
+1) $\Re{\lambda_{j j}} > 0$ и выполнено хотя бы одно условие
+
+\begin{equation}
+\label{Re>0}
+ \mbox{а)}\; \arg {\mu_{j\,j}}\in(-\pi/2, \pi/2)   \quad  \mbox{или} \quad   
+ \mbox{б)}\; \frac{\Re{\lambda_{j j}}}{|\Re{\mu_{j j}}|} > 1.
 \end{equation}
 
-Будем использовать функцию~$\arg{z}$ комплексного переменного~$z$, считая, 
-что $0\leqslant\arg{z}<2\pi$.
 
-\begin {theorem}\label{th:scalar_both_complex_inequalities}
-Пусть дано уравнение~\eqref{scalar_complex}. Тогда следующие утверждения верны.
-\begin{enumerate}
-    \item Если $\rho_{2}<\rho_{1}\cos{\alpha_{1}}$, то уравнение~\eqref{scalar_complex}
-асимптотически устойчиво.
-    \item Если $-\min(1/\tau,\, \rho_{2})<\rho_{1}\cos{\alpha_{1}}<\rho_{2}$, то 
-уравнение~\eqref{scalar_complex} асимптотически устойчиво тогда и только тогда, 
-когда одновременно выполняются условия:
 \begin{equation}
-\label{cond}
-\rho_{2}<\sqrt{\omega_{1}^{2}+\rho_{1}^{2}\cos^{2}{\alpha_{1}}},
+\label{Re<0}
+2)  \Re{\lambda_{j j}} < 0, \quad 
+\left|\frac{\Re{\lambda_{j j}}}{\Re{\mu_{j j}}}\right| < 1 \quad 
+\mbox{и} \quad 
+\arg {\mu_{j\,j}}\in(-\pi/2, \pi/2).
 \end{equation}
-где $\omega_{1}$ есть наименьший положительный корень уравнения 
-$a\sin{\omega\tau} \hm{+} \omega \cos{\omega\tau} \hm{=} 0$,
-и
-\begin{equation}\label{cond2}  
-    \arg\,(\exp(i(\alpha_{2}+\rho_{1}\tau \sin{\alpha_{1}})))
-    \in(0,\beta)\cup(2\pi-\beta, 2\pi),
-\end{equation}
-где
+
+\noindent В остальных случаях
 \begin{equation}
-    \beta=\arg\,(\exp\,(-i\tau\sqrt{\rho_{2}^{2}-\rho_{1}^{2}\cos^{2}{\alpha_{1}}}))+\gamma,
+\label{Tj_2}
+ T_{j}=(\tau_{1 j}, \tau_{2 j})\cup(\tau_{3 j}, \tau_{4 j})\cup\ldots
 \end{equation}
-$$
-\gamma=
-\left\{
-    \begin{array}{l}
-        \arctg{\dfrac{\sqrt{\rho_{2}^{2}-\rho_{1}^{2}\cos^{2}{\alpha_{1}}}}{\rho_{1}\cos{\alpha_{1}}}}, 
-        \quad 
-        \cos{\alpha_{1}}<0,\\
-        \pi - \arctg{\dfrac{\sqrt{\rho_{2}^{2}-\rho_{1}^{2}\cos^{2}{\alpha_{1}}}}{\rho_{1}\cos{\alpha_{1}}}},
-        \quad 
-        \cos{\alpha_{1}}>0.
-    \end{array}
-\right.
-$$
-    \item Если $\rho_{1}\cos{\alpha_{1}}<-\min(1/\tau,\, \rho_{2})$, то 
-уравнение~\eqref{scalar_complex} неустойчиво.
-\end{enumerate}
-\end {theorem}
+
+%\end{document}
+
+
+\noindent
+Последним интервалом в $T_{j}$ может быть $(\tau_{s-1 j}, \tau_{s j})$ или
+$(\tau_{s j}, +\infty)$. Если для некоторого $j$ множество $(\tau_{1j}, 
+\tau_{2 j}, \ldots ,\tau_{s j})$ пусто и выполнено \eqref{Re>0} или
+\eqref{Re<0}, то $T_{j}=(0, +\infty)$.   
+
+
+Докажем теорему.
+\begin{theorem}  Пусть множества $T_{j}, 1 \leqslant  j \leqslant  n$ составлены
+согласно описанному алгоритму. Тогда уравнение \eqref{maineqmatrixchapter2}
+асимптотически устойчиво если и только если  $\tau \in \bigcap_{j} T_{j}$. 
+\end{theorem}
+
+
+%\end{document}
 
 \begin{proof}
-Уравнение~\eqref{scalar_complex} асимптотически устойчиво тогда и только тогда, 
-когда асимптотически устойчиво уравнение~\eqref{after_change}. Поэтому будем 
-исследовать устойчивость уравнения~\eqref{after_change}.
+Построим для каждого $j$  точку $M_j=(u_{1j}, u_{2j}, u_{3j})\in \mathbb{R}^3$, 
+так что (см. \eqref{otherpointsM}) 
+\begin{equation}\label{pointsMjusttwice}
+    \begin{array}{l}
+        u_{1j} = \tau \Re ( \mu_{jj} \, \exp({i\tau \Im \lambda_{jj}})),  \\
+        u_{2j} = \tau \Im ( \mu_{jj} \, \exp({i\tau \Im \lambda_{jj}})),  \\
+        u_{3j} = \tau \Re \lambda_{jj}.
+    \end{array}
+\end{equation}
 
-1) При $\rho_{2}< \rho_{1}\cos{\alpha_{1}}$ по теореме \ref{theorem_scalar} и
-примечанию \ref{rem:positionofoval}  овал устойчивости существует и начало
-координат лежит внутри овала устойчивости.
-При~этом окружность радиуса~$\rho_{2}$ полностью лежит внутри овала устойчивости, 
-что обеспечивает асимптотическую устойчивость уравнения~\eqref{after_change}.
+%\end{proof}
+%\end{document}
 
-2) Пусть $-\min(1/\tau,\, \rho_{2}) < \rho_{1}\cos{\alpha_{1}} < \rho_{2}$. 
-Рассмотрим~2 случая.
 
-\emph{Случай  2.1.} $-\min(1/\tau,\, \rho_{2})< \rho_{1}\cos{\alpha_{1}} < 0$. 
-При~этом овал устойчивости существует и полностью лежит в~правой полуплоскости. 
-Для асимптотической устойчивости необходимо и достаточно выполнение двух условий. 
-Одно из~них обеспечивает пересечение окружности радиуса~$\rho_{2}$ с~овалом устойчивости, 
-что равносильно условию~\eqref{cond}. Второе условие связано с~тем, 
-что аргумент точки $\exp(i(\alpha_{2} + \rho_{2}\tau \sin{\alpha_{1}}))$ 
-должен находится между аргументом точек~$M, N$ пересечения окружности радиуса~$\rho_{2}$ 
-с~овалом устойчивости. Рассмотрим точку~$M$, лежащую в верхней полуплоскости. 
-Отметим, что часть овала устойчивости~\eqref{oval}, лежащая в верхней полуплоскости, 
-соответствует отрицательным значениям параметра~$\omega$.
-\begin{multline}
-    \arg M= \arg\left(-\rho_{1}\cos\alpha_{1} \exp(i\omega\tau) - i\omega\exp(i\omega\tau) \right) = \\
-    = \arg( \exp(i\omega\tau)) + \arg(-\rho_{1}\cos\alpha_{1} - i\omega) =\\
-    = \arg( \exp(i\omega\tau)) + \arctg\frac{|\omega|}{\rho_{1}\cos\alpha_{1}}.
+Построим также конус устойчивости для уравнения \eqref{maineqmatrixchapter2}, 
+а именно  множество точек $M=(u_1,u_2,u_3)\in \mathbb{R}^3$, таких, что
+\begin{equation}\label{conechapter2}
+    \left\{
+        \begin{array}{l}
+            u_1=-h \cos{\omega} + \omega \sin{\omega},\\
+            u_2=h \sin{\omega} + \omega \cos{\omega},\\
+            u_3 = h,
+        \end{array}
+    \right.
+\end{equation}
+где действительные параметры~$h, \omega$ подчинены ограничениям
+\begin{equation}\label{preimagechapter2}
+    \left\{
+        \begin{array}{l}
+            h\geqslant -\dfrac{\omega}{\tg{\omega}},\\[2mm]
+            -\pi<\omega<\pi .\\
+        \end{array}
+    \right.
+\end{equation}
+
+
+%\end{proof}
+%\end{document}
+
+
+
+Согласно Теореме \ref{th:stab1} уравнение \eqref{maineqmatrixchapter2} 
+асимптотически  устойчиво если и только если  все  точки  $M_j$ лежат внутри 
+конуса  устойчивости \eqref{conechapter2}, \eqref{preimagechapter2}. 
+
+C изменением $\tau$ от 0 до $+\infty$ точки \eqref{pointsMjusttwice} образуют
+винтовые линии (прямые в случае $\Im \lambda_{jj}=0$). Для каждого $j$ найдем
+значения $\tau$, соответствующие точкам пересечения этих линий с овалом
+устойчивости $(u_{1}, u_{2})$ на уровне $u_{3}=h$. Эти значения $\tau$ являются
+корнями уравнения    
+\begin{equation}\label{equality}
+\tau \mu_{jj} \exp(i \tau  \Im \lambda_{jj}) =(i\omega -h)\,\exp(-i\omega ), 
+\quad h=\tau \Re \lambda_{jj},
+\end{equation}
+с параметрами $h, \omega$, удовлетворяющими условию \eqref{preimagechapter2}.
+
+Система  \eqref{equality} равносильна системе
+\begin{equation}\label{system}
+ \left\{
+\begin{array}{l}
+\tau |\mu_{jj}|=\sqrt{{\omega}^{2}+h^{2}},\\
+\arg \mu_{jj}+\tau  \Im \lambda_{jj} = -\omega  + \arg (i\omega  - h) +2\pi m, 
+\quad m\in\mathbb{Z},\\
+h=\tau \Re \lambda_{jj}.
+\end{array}
+\right.
+\end{equation}
+Из первого и третьего уравнения  системы \eqref{system}  найдем $\omega$:
+\begin{equation}\label{omega}
+\omega=\pm\tau\,\sqrt{|\mu_{j\,j}|^{2}-(\Re{\lambda_{j\,j}})^{2}} = \pm \tau Q.
+\end{equation}
+
+Подставим $\omega$ во второе уравнение системы  \eqref{system}, а также
+воспользуемся свойством $\arg(\tau z)=\arg(z)$ для любого $\tau>0$. Получим
+уравнение  
+
+\begin{equation}\label{long}
+\tau (\Im{\lambda_{j\,j}}\pm Q) = 
+\arg{(\pm iQ - \Re{\lambda_{j\,j}})}-\arg {\mu_{j\,j}} +2\pi m,
+\end{equation}
+корнями которого являются числа $\tau_{j}^{m}$, указанные в формулировке теоремы.
+
+Отметим, что $\omega \in[-\pi, \pi]$, поэтому требуется выполнение условия
+
+$$
+\pm \tau \sqrt{|\mu_{j\,j}|^{2}-(\Re{\lambda_{j\,j}})^{2}} =\pm \tau  Q \in [-\pi, \pi],
+$$
+что означает $0<\tau\leqslant \pi/Q $.
+
+Кроме того, поскольку $h\geqslant -\dfrac{\omega}{\tg{\omega}}$, то
+$$
+\Re{\lambda_{j\,j}} \geqslant -\frac{Q}{\tg(Q\, \tau_{j}^{m})}.
+$$
+
+Таким образом, для каждого $j$ требуется найти такие $\tau_{j}^{m}$, которые
+удо\-вле\-тво\-ряют условиям \eqref{inequality_tau}. 
+
+Для правильного определения интервалов устойчивости данной винтовой линии
+(прямой) необходимо отсортировать числа $\tau_{j}^{m}$ по возрастанию, т.е.
+получить систему чисел  $\tau_{1 j}, \tau_{2 j},\ldots, \tau_{l j}$, и
+определить, является ли интервал $(0, \tau_{1 j})$ интервалом устойчивости или
+интервалом неустойчивости.    
+Интервалы устойчивости и неустойчивости чередуются, поэтому в зависимости от
+характера первого интервала составляем множество $T_{j}$, которое будет иметь
+вид $T_{j}=(0,\tau_{1 j})\cup(\tau_{2 j}, \tau_{3 j})\cup\ldots$ или
+$T_{j}=(\tau_{1 j}, \tau_{2 j})\cup(\tau_{3 j}, \tau_{4 j})\cup\ldots$. Это
+множество тех значений запаздывания, при которых точки винтовой линии 
+$(u_{1j}(\tau), u_{2j}(\tau), u_{3j}(\tau))$ находятся внутри конуса устойчивости.     
+
+Для ответа на вопрос, является ли интервал $(0, \tau_{1 j})$ интервалом
+устойчивости, определим, лежат ли точки винтовой линии $(u_{1 j}(\tau), u_{2
+j}(\tau), u_{3 j}(\tau))$ при $\tau\rightarrow 0+$ внутри овала устойчивости. 
+% $(u_{1}, u_{2})$ на уровне $u_{3}=0$ или вне его.   
+Заметим, что при $u_{3}=0$ овал устойчивости лежит в правой полуплоскости, а его
+левая вершина лежит в начале координат.
+%, причем $\dfrac{d u_{2}}{d u_{1}}\rightarrow +\infty$ при $w\rightarrow 0+$ и
+% $\dfrac{d u_{2}}{d u_{1}}\rightarrow -\infty$ при $w\rightarrow 0-$.  
+
+
+
+Сначала рассмотрим случай $\Re{\lambda_{j j}} > 0$. При этом $u_{3} >0$ и
+винтовая линия лежит выше плоскости $u_3=0$. Чтобы точки винтовой линии при
+$\tau\rightarrow 0+$ лежали внутри конуса устойчивости, достаточно, чтобы вектор
+производной $\dfrac{d u_{2}}{d u_{1}}$ при $\tau\rightarrow 0+$ лежал в
+полуплоскости $u_{1}>0$ или независимо от этого модуль коэффициента наклона
+образующих винтовой линии в сечении $u_{2} =0$ был больше единицы.     
+
+В первом случае для нахождения угла наклона касательной к винтовой линии в
+плоскости $(u_{1}, u_{2})$ в точке $\tau=0$ вычислим производную
+па\-ра\-мет\-ри\-чески заданной кривой $u_{2 j}(u_{1 j})$ в данной точке.  
+
+\begin{multline}\nonumber\label{deriv1}
+\left.\dfrac{d u_{2 j}}{d u_{1 j}}\right|_{\tau=0}= 
+\left.\dfrac{(u_{2 j})'_{\tau}}{(u_{1 j})'_{\tau}}\right|_{\tau=0}= \\
+=\left.\dfrac{ |\mu_{jj}| (\sin (\arg \mu_{jj}+\tau \Im \lambda_{jj}) +
+\tau \cos (\arg \mu_{jj}+\tau \Im \lambda_{jj})\Im \lambda_{jj}    )} 
+{|\mu_{jj}| (\cos (\arg \mu_{jj}-\tau \Im \lambda_{jj}) +
+\tau \sin (\arg \mu_{jj}+\tau \Im \lambda_{jj})\Im \lambda_{jj}    
+)}\right|_{\tau=0}=\\
+=\tg{\arg \mu_{jj}}.
 \end{multline}
-По определению овала устойчивости (см. определение \ref{def:stability_oval})
-имеем $$\omega = \pm \sqrt{\rho_{2}^{2} - \rho_{1}^{2}\cos^{2}\alpha_{1}}.$$
-Поэтому
-\begin{equation}\label{argM}
-    \arg M = \arg \left(\exp\left(-i\tau \sqrt{\rho_{2}^{2} - 
-        \rho_{1}^{2}\cos^{2}\alpha_{1}}\right) \right) +  
-        \arctg\frac{\sqrt{\rho_{2}^{2} - 
-        \rho_{1}^{2}\cos^{2}\alpha_{1}}}{\rho_{1}\cos{\alpha_{1}}}.
+
+Если угол наклона касательной к винтовой линии в точке $\tau=0$ лежит в
+интервале $(-\pi/2, \pi/2)$, то точки винтовой линии лежат внутри овала
+устойчивости при $\tau\rightarrow 0+$, тогда интервал $(0, \tau_{1 j})$ является
+интервалом устойчивости. 
+%Если этот угол лежит в интервале $[-\pi, -\pi/2]\cup[\pi/2, \pi]$, то интервал
+% $(0, \tau_{1 j})$ является интервалом неустойчивости.
+
+Отметим, что $\arg z \in[-\pi, \pi]$. Если $\arg \mu_{jj}\in[-\pi/2, \pi/2]$, то
+интервал $(0, \tau_{1 j})$ является интервалом устойчивости. Таким образом,
+получено условие~\eqref{Re>0} а). 
+%В противном случае интервал $(0, \tau_{1 j})$ является интервалом неустойчивости.
+
+Во втором случае найдем коэффициент наклона образующих винтовой линии в сечении
+$u_{2} =0$. Он равен 
+
+\begin{equation}\nonumber\label{deriv2}
+\left.\dfrac{d u_{3 j}}{d u_{1 j}}\right|_{\tau=0}= 
+\left.\dfrac{(u_{3 j})'_{\tau}}{(u_{1 j})'_{\tau}}\right|_{\tau=0}= 
+\frac{\Re{\lambda_{j j}}}{\Re{\mu_{j j}}}.
 \end{equation}
-Из~\eqref{argM} следует, что второе условие равносильно~\eqref{cond2}.
 
-\emph{Случай 2.2.} $0 < \rho_{1}\cos{\alpha_{1}} < \rho_{2}$.
-Так~как $\cos{\alpha_{1}} > 0 $, то овал устойчивости существует 
-и начало координат лежит внутри овала устойчивости. Те~же требования приводят 
-к~условиям~\eqref{cond}, \eqref{cond2}. Отметим, что
-при $\cos{\alpha_{1}} > 0 $ получим
-\begin{equation}
-    \arg(-\rho_{1} \cos{\alpha_{1}} - i\omega) = 
-        \pi - \arctg\frac{\sqrt{\rho_{2}^{2} - 
-        \rho_{1}^{2}\cos^{2}\alpha_{1}}}{\rho_{1}\cos{\alpha_{1}}}.
-\end{equation}
+Таким образом, если $\frac{\Re{\lambda_{j j}}}{|\Re{\mu_{j j}}|}>1$, то точки
+винтовой линии при $\tau~\rightarrow~0+$ лежат внутри конуса устойчивости, а
+значит, интервал $(0, \tau_{1 j})$ является интервалом устойчивости. Получено
+условие~\eqref{Re>0} б).  
 
-3) Пусть $\rho_{1}\cos{\alpha_{1}} < -\min(1/\tau,\, \rho_{2})$. Возможны два случая.
+Теперь рассмотрим случай $\Re{\lambda_{j j}} < 0$. При этом $u_{3}<0$ и винтовая
+линия лежит ниже плоскости $u_3=0$. В этом случае для нахождения точек винтовой
+линии внутри конуса устойчивости при $\tau\rightarrow 0+$ требуется, чтобы
+вектор производной $\dfrac{d u_{2}}{d u_{1}}$ при $\tau\rightarrow 0+$ лежал в
+полуплоскости $u_{1}>0$ и модуль коэффициента наклона образующих винтовой линии
+в сечении $u_{2} =0$ был меньше единицы. Таким образом, должны одновременно
+выполняться условия $\arg \mu_{jj}\in[-\pi/2, \pi/2]$ и
+$\left|\frac{\Re{\lambda_{j j}}}{\Re{\mu_{j j}}}\right|<1$, т.е. должно
+выполняться условие \eqref{Re<0}.
 
-\emph{Случай 3.1.} $\rho_{1}\cos{\alpha_{1}} < -\frac{1}{\tau}$. 
-Тогда по~теореме~\ref{theorem_scalar} уравнение неустойчиво.
+Во всех остальных случаях точки винтовой линии лежат вне конуса устойчивости при
+$\tau\rightarrow 0+$, поэтому множество $T_{j}$ составляется по формуле
+\eqref{Tj_2}.  
 
-\emph{Случай 3.2.} $-\frac{1}{\tau} < \rho_{1}\cos{\alpha_{1}} < -\rho_{2}$. 
-При~этом овал устойчивости существует и начало координат лежит внутри овала устойчивости. 
-Так~как $\rho_{2} < -\rho_{1}\cos{\alpha_{1}}$, то окружность радиуса~$\rho_{2}$ 
-не~пересекает овал устойчивости, поэтому уравнение неустойчиво. 
-Теорема доказана.
-\end{proof} 
+Если для некоторого $j$ выполнено $\Re{\lambda_{j\,j}} > |\mu_{j\,j}|$, то
+винтовая линия лежит внутри конуса устойчивости при всех значениях запаздывания,
+поэтому для нее $T_{j}=(0, +\infty)$.  
+
+Таким образом, для каждого $j$ составлено множество $T_{j}$ тех значений
+запаздывания, при которых точки винтовой линии $(u_{1 j}(\tau), u_{2 j}(\tau),
+u_{3 j}(\tau))$ находятся внутри конуса устойчивости.  
+
+Для устойчивости уравнения \eqref{maineqmatrixchapter2} требуется, чтобы все
+точки  $M_j=(u_{1j},u_{2j},u_{3j})$, $1\leqslant j \leqslant n$ находились
+внутри конуса устойчивости при данном $\tau$. Значит, уравнение
+\eqref{maineqmatrixchapter2} асимптотически устойчиво тогда и только тогда,
+когда $\tau \in \bigcap_{j} T_{j}$.    
+Утверждение теоремы доказано.
+\end{proof}
+
+Заметим, что если  равенство $\Re{\lambda_{j\,j}} > |\mu_{j\,j}|$ верно для всех
+$j$, то уравнение \eqref{maineqmatrixchapter2} асимптотически устойчиво при всех
+$\tau\geqslant 0$ (Теорема \ref{th:delayindependentstab}).  

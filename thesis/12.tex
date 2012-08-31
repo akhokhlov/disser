@@ -3,24 +3,27 @@
 Рассмотрим  уравнение
 \begin{equation}\label{scalar} 
     \dot x\left(t\right) + a\, x(t) +  b\, x(t-\tau) = 0,\quad
-\tau > 0.
+t> 0,
 \end{equation}
-Вначале напомним известные результаты об~устойчивости уравнения~\eqref{scalar} 
-при~$a, b\in\mathbb{R}$.
-Уравнение~\eqref{scalar} считаем (асимптотически) устойчивым, если его нулевое
-решение является (асимптотически)  устойчивым. Будем рассматривать
+где $a, b\in\mathbb{R}$, $\tau>0$.
+ Будем рассматривать
 уравнение~\eqref{scalar} с~начальными условиями 
 \begin{equation}
     \label{condition}  x(t)=\varphi(t),\qquad t\in[-\tau,0],
 \end{equation}
 где~$\tau > 0$~--- запаздывание,
 $\varphi(t)$~--- начальная функция.
-
-Будем считать, что начальная функция~$\varphi(t)$ кусочно"=непрерывна на
+Будем считать, что начальная функция~$\varphi(t)$ кусочно-непрерывна на
 промежутке $[-\tau,0]$.
 Решением уравнения~\eqref{scalar} назовём функцию~$x(t):[-\tau,\infty)
 \hm{\rightarrow} \mathbb{R}$, удовлетворяющую уравнению~\eqref{scalar} и
 условию~\eqref{condition}.
+
+
+Уравнение~\eqref{scalar} считаем (асимптотически) устойчивым, если его нулевое
+решение является (асимптотически)  устойчивым.
+
+
 Сформулируем известное утверждение  об~области устойчивости этого уравнения.
 \begin {prop} \label{prop:realab}
     Следующие утверждения верны.
@@ -111,7 +114,7 @@ $a\sin{\omega\tau} + \omega \cos{\omega\tau} \hm{=} 0$.
 
 \begin{proof} Для определения границ области устойчивости уравнения \eqref{scalar} 
 на~комплексной плоскости параметра~$b$ будем использовать метод 
-${D}$\,-раз\-бие\-ний~\cite{Gryazina&Polyak_2006}, при~этом полагаем, что $a\in\mathbb{R}$ 
+${D}$\,-раз\-бие\-ний \cite{Gryazina&Polyak_2006},                      при~этом полагаем, что $a\in\mathbb{R}$ 
 фиксированная величина. Характеристический квазимногочлен уравнения~\eqref{scalar} 
 имеет вид
 \begin{equation}\label{char_pol}
@@ -129,8 +132,8 @@ $\exists \omega \quad F(i\omega)=0, \quad \omega\in(-\infty,\infty)$.
 \begin{equation} \label{20}
     \left\{
         \begin{array}{l}
-            \Re F(i\omega)=a + \Re b\cdot\cos{\omega\tau} + \Im b\cdot\sin{\omega\tau}=0,\\
-            \Im F(i\omega)=\omega - \Re b\cdot\sin{\omega\tau}+ \Im b\cdot\cos{\omega\tau}=0.
+            \Re F(i\omega)=a + (\Re b)\cdot\cos{\omega\tau} +( \Im b)\cdot\sin{\omega\tau}=0,\\
+            \Im F(i\omega)=\omega - (\Re b)\cdot\sin{\omega\tau}+ (\Im b)\cdot\cos{\omega\tau}=0.
         \end{array}
     \right.
 \end{equation}
@@ -171,8 +174,8 @@ $\exists \omega \quad F(i\omega)=0, \quad \omega\in(-\infty,\infty)$.
 
 2) Пусть $a> -\frac{1}{\tau}$ и  точка $(\Re b,\, \Im b)$
 находится внутри овала устойчивости для данного~$a$. Рассмотрим в~качестве тестовых 
-точки точки внутри овала устойчивости, такие что 
-$b\in \mathbb{R}$,  $b\in(b(0),\, b(\omega_{1})$. 
+точки  внутри овала устойчивости, такие что 
+$b\in \mathbb{R}$,  $b\in(b(0),\, b(\omega_{1}))$. 
 Овал изображен на рисунке~\ref{oval_fig}, а~точки  
 $b\in \mathbb{R}$, $b\in(b(0),\, b(\omega_{1}))$ отмечены пунктиром.
 
