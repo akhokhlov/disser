@@ -20,6 +20,13 @@
 %\usepackage{amsthm}
 \ifpdf\usepackage{epstopdf}\fi
 
+\hyphenation{не-ко-то-рых 
+за-па-з-ды-ва-ни-ем 
+мо-де-ли
+ог-ра-ни-чен-ным 
+ура-в-не-ний 
+ус-той-чи-вость ус-той-чи-вости}
+
 
 %\renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\tocpostthechapter}{~}
@@ -119,7 +126,7 @@
 
 % Только для черновика
 \makeatletter%ставим, чтобы знак @ воспринимался как буква, а не как команда
-\renewcommand{\@oddhead}{ \hbox to 80mm{\large \it Черновик от \today}}
+\renewcommand{\@oddhead}{ \hbox to 90mm{\large \it Черновик от \today}}
 \makeatother% возвращаем знаку @ командные свойства
 
 
@@ -149,7 +156,6 @@
     \tableofcontents
     \input{intro}
     %\input{review}
-
 
 	\input{11}
 	\input{12}
