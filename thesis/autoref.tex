@@ -1,6 +1,6 @@
-\documentclass[autoref,subf,href,facsimile,colorlinks=true
+\documentclass[12pt,autoref,subf,href,facsimile,colorlinks=true
 %,fixint=false
-,draft
+%,draft
 %,times
 %,classified
 ]{disser}
@@ -13,91 +13,28 @@
 \usepackage{tabularx}
 \ifpdf\usepackage{epstopdf}\fi
 
+% Межстрочный интервал
+\renewcommand{\baselinestretch}{1}
+
+
 % Поддержка нескольких списков литературы в одном документе
 %\usepackage{multibib}
 % Создание команд для цитирования собственных работ диссертанта
 % в отдельном разделе. В данном случае ссылка будет иметь вид \citemy{...}.
 %\newcites{my}{Список публикаций}
 
-% Путь к файлам с иллюстрациями
-\graphicspath{{img/}}
 
-\include{hypheration}
+\include{common/hypheration}
+\include{common/preamble}
 
+% Нормализует параметры шрифта-установка 14 кегля
+%\usepackage[14pt]{extsizes} 
+% интервал межстрочный: ~1.2
+%\renewcommand\normalsize{\fontsize{14}{22pt}\selectfont}
 
-%\renewcommand{\thechapter}{\Roman{chapter}}
-\renewcommand{\tocpostthechapter}{~}
-\renewcommand{\tocpostthesection}{~}
-\renewcommand{\postthechapter}{~} % Убираем точку после номера главы
-\renewcommand{\postthechapter}{\par\nobreak\vskip 5pt}
-\renewcommand{\postthesection}{~}
-\renewcommand{\postthesubsection}{~}
-
-\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
-\renewcommand{\exp}{\mathop{\mathrm{exp}}\nolimits}
-\renewcommand{\tg}{\mathop{\mathrm{tg}}\nolimits}
-\renewcommand{\arctg}{\mathop{\mathrm{arctg}}\nolimits}
-\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
-\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
-
-\newtheorem{assertion}{Утверждение}
-\newtheorem{note}{Замечание}
-
-
-
-%Демонстрация полностью настраиваемых окружений типа <<теорема>>.
-
-\newtheorem{theorem}{Теорема}[chapter]
-\def\thetheoremstyle{\indent\bfseries}
-\def\opargtheoremstyle{\itshape}
-\def\theoremstyle{\itshape}
-\def\preopargtheorem{(}
-\def\postopargtheorem{)}
-
-\newtheorem{lemm}{Лемма}[chapter]
-\def\thelemmstyle{\indent\bfseries}
-\def\oparglemmstyle{\itshape}
-\def\lemmstyle{}
-\def\preoparglemm{(}
-\def\postoparglemm{)}
-
-\newtheorem{prop}{Предложение}[chapter]
-\def\thepropstyle{\indent\bfseries}
-\def\opargpropstyle{\itshape}
-\def\propstyle{\itshape}
-\def\preopargprop{(}
-\def\postopargprop{)}
-
-\newtheorem{determine}{Определение}[chapter]
-\def\determinestyle{\itshape}
-\def\thedeterminestyle{\indent\bfseries}
-\def\postthedetermine{.}
-
-\newtheorem{remark}{Примечание}[chapter]
-\def\remarkstyle{}
-\def\theremarkstyle{\indent}
-\def\posttheremark{.}
-
-\newtheorem{example}{Пример}[chapter]
-\def\examplestyle{}
-\def\theexamplestyle{\indent\bfseries}
-\def\posttheexample{.}
-
-% оформление доказательства
-\newenvironment{proof}                  % имя окружения
-{\par\noindent{\bf Доказательство.}}    % команды для \begin
-{\hfill$\scriptstyle\blacksquare$}      % команды для \end
-
-% перенос формул в тексте
-\providecommand*{\hm}[1]{#1\nobreak\discretionary {}%
-{\hbox{$\mathsurround=0pt #1$}}{}}
-
-% вставка кода
-\providecommand{\includecode}[2][1]{\subsubsection{#2.m} \input{#1/#2}}
-
-% подавление висячих строк
-\clubpenalty =10000
-\widowpenalty=10000
+\includeonly{hypheration,
+%11,12,13,14,15,16,17
+} 
 
 
 
@@ -115,7 +52,16 @@
 диссертации на соискание учёной степени\\
 кандидата физико-математических наук}
 
-%\maketitle
+\maketitle
+
+
+
+
+
+
+
+
+
 
 % Внутренняя сторона обложки
 \noindent
@@ -171,43 +117,22 @@
 
 \clearpage
 
-\nsection{Общая характеристика работы}
 
-% Актуальность работы
-\actualitysection
-\actualitytext
+\intro
+\input{common/generaldesc}
+\input{common/struct}
+	\include{11}
+	\include{12}
+	\include{13}
+	\include{14}
+	\include{15}
+	\include{16}
+	\include{17}
 
-% Цель диссертационной работы
-\objectivesection
-\objectivetext
-
-% Научная новизна
-\noveltysection
-\noveltytext
-
-% Практическая значимость
-\valuesection
-\valuetext
-
-% Результаты и положения, выносимые на защиту
-%\resultssection
-%\resultstext
-
-% Апробация работы
-\approbationsection
-\approbationtext
-
-% Публикации
-%\pubsection
-%\pubtext
-
-% Личный вклад автора
-\contribsection
-\contribtext
 
 % Структура и объем диссертации
-\structsection
-\structtext
+%\structsection
+%\structtext
 
 {\nsection{Публикации по теме диссертации}}
 \renewcommand\bibsection{\nsection{\textit {\normalsize Статьи,
@@ -310,8 +235,7 @@ http://disser.assembla.\linebreak me/stability\_domains.html.
 %\bibliographystylemy{gost705s}
 %\bibliographymy{thesis}
 
-\renewcommand\bibsection{\nsection{Цитированная литература}}
-
+%\renewcommand\bibsection{\nsection{Цитированная литература}}
 \def\BibPrefix{}
 \bibliographystyle{gost705s}
 \bibliography{thesis}

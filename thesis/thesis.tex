@@ -1,6 +1,6 @@
 \documentclass[candidate,subf,href,colorlinks=true
 %,ams
-%,draft         % собирает выходной файл, не включая в него рисунки
+,draft         % собирает выходной файл, не включая в него рисунки
 %,times         % шрифт Times как основной
 %,fixint=false  % отключить прямые знаки интегралов
 %,classified    % секретно
@@ -20,80 +20,9 @@
 %\usepackage{amsthm}
 \ifpdf\usepackage{epstopdf}\fi
 
-\include{hypheration}
+\include{common/hypheration}
+\include{common/preamble}
 
-%\renewcommand{\thechapter}{\Roman{chapter}}
-\renewcommand{\tocpostthechapter}{~}
-\renewcommand{\tocpostthesection}{~}
-\renewcommand{\postthechapter}{~} % Убираем точку после номера главы
-\renewcommand{\postthechapter}{\par\nobreak\vskip 5pt}
-\renewcommand{\postthesection}{~}
-\renewcommand{\postthesubsection}{~}
-
-\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
-\renewcommand{\exp}{\mathop{\mathrm{exp}}\nolimits}
-\renewcommand{\tg}{\mathop{\mathrm{tg}}\nolimits}
-\renewcommand{\arctg}{\mathop{\mathrm{arctg}}\nolimits}
-\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
-\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
-
-\newtheorem{assertion}{Утверждение}
-\newtheorem{note}{Замечание}
-
-
-
-%Демонстрация полностью настраиваемых окружений типа <<теорема>>.
-\newtheorem{theorem}{Теорема}[chapter]
-\def\thetheoremstyle{\indent\bfseries}
-\def\opargtheoremstyle{\itshape}
-\def\theoremstyle{\itshape}
-\def\preopargtheorem{(}
-\def\postopargtheorem{)}
-
-\newtheorem{lemm}{Лемма}[chapter]
-\def\thelemmstyle{\indent\bfseries}
-\def\oparglemmstyle{\itshape}
-\def\lemmstyle{}
-\def\preoparglemm{(}
-\def\postoparglemm{)}
-
-\newtheorem{prop}{Предложение}[chapter]
-\def\thepropstyle{\indent\bfseries}
-\def\opargpropstyle{\itshape}
-\def\propstyle{\itshape}
-\def\preopargprop{(}
-\def\postopargprop{)}
-
-\newtheorem{determine}{Определение}[chapter]
-\def\determinestyle{\itshape}
-\def\thedeterminestyle{\indent\bfseries}
-\def\postthedetermine{.}
-
-\newtheorem{remark}{Примечание}[chapter]
-\def\remarkstyle{}
-\def\theremarkstyle{\indent}
-\def\posttheremark{.}
-
-\newtheorem{example}{Пример}[chapter]
-\def\examplestyle{}
-\def\theexamplestyle{\indent\bfseries}
-\def\posttheexample{.}
-
-% оформление доказательства
-\newenvironment{proof}                  % имя окружения
-{\par\noindent{\bf Доказательство.}}    % команды для \begin
-{\hfill$\scriptstyle\blacksquare$}      % команды для \end
-
-% перенос формул в тексте
-\providecommand*{\hm}[1]{#1\nobreak\discretionary {}%
-{\hbox{$\mathsurround=0pt #1$}}{}}
-
-% вставка кода
-\providecommand{\includecode}[2][1]{\subsubsection{#2.m} \input{#1/#2}}
-
-% подавление висячих строк
-\clubpenalty =10000
-\widowpenalty=10000
 
 % Привязка нумерации формул к разделам.
 %\numberwithin{equation}{section}
@@ -149,7 +78,12 @@
     \maketitle
     \tableofcontents
     \input{intro}
+    
+    
+    
     %\input{review}
+
+\begin{comment}
 
 	\input{11}
 	\input{12}
@@ -180,5 +114,6 @@
 
     \appendix
     \input{appendix}
+\end{comment}
 
 \end{document}
