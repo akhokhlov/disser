@@ -197,65 +197,38 @@ $u_{21n} > \frac{\omega}{\cos \omega}$,
 
 \subsection{Доказательство   Теоремы   \ref{th:comparison_ring_and_linear}}
 
-\begin{proof} Фиксируем $a,b,\tau$. Пусть система  \eqref{matrixP}, 
-\eqref{mainmatrix2} для кольца нейронов асимптотически устойчива при любом $n$.
-Для каждого $n\in\mathbb{N}$  и для каждого $j$   $(1\leqslant j \leqslant n)$  строим точки 
-$M_{jn}=(u_{1jn}, u_{2jn})$, такие что 
- \begin{equation}\label{u_for_oval_ring}
- u_{1jn} + i u_{2jn} =\tau (a+b)\cos \frac{2\pi j}{n}+i\tau (a-b) \sin  \frac{ 2\pi j}{n}. 
-%, \quad u_{3j}=\tau.
+\begin{proof} Фиксируем $a,b,\tau>0$. Рассмотрим эллипс, лежащий в плоскости комплексного переменного $z$:
+ \begin{equation}\label{ellipsz}
+z= \tau (a+b) \cos\theta +i \tau (a-b) \sin \theta, \qquad 0\leqslant \theta <2\pi. 
  \end{equation} 
-
-
-
- Тогда в силу Теоремы
-\ref{th:stab1} ввиду формулы  \eqref{lambdamu2}   для собственных чисел  циркуллянтной матрицы $aP+bP^{n-1}$ (см. \eqref{mainmatrix2}), мы заключаем, 
-что при любых $n,j\,(1\leqslant j \leqslant n)$ точка $(u_{1jn}, u_{2jn})$, определенная формулой \eqref{u_for_oval_ring}, лежит внутри или на границе овала устойчивости, который является сечением конуса устойчивости на уровне $u_{3}=\tau$. 
-
- Предварительно заметим, что при $ab=0$ заключение теоремы очевидно.
-
-СЛУЧАЙ 1: $a>0$, $b>0$. Положим  $j=n$ и получим $\sin\frac{2\pi j}{n}=1$  и  $\cos \frac{2\pi j}{n}=0$. При таком выборе  $u_{1jn}=0$,  $u_{2jn}= \tau(|a|+|b|)$. Следовательно, точка
-$(u_1, u_2)=(0,\, \tau (|a|+|b|))$  лежит внутри или на границе конуса устойчивости.    
-
-Рассмотрим точки 
-$M_{jn}^{'}=(u_{1jn}^{'}, u_{2jn}^{'})$, 
+Его вершины имеют вид
+\begin{equation}\label{vertecis_of_ellipsz}
+z_1= \tau |a+b|,    \quad    z_2= -|a+b|,   \quad  z_3= i \tau |a-b|, \quad  z_4= - i |a-b|.  
+ \end{equation} 
+СЛУЧАЙ 1. Одна из вершин \eqref{vertecis_of_ellipsz} лежит вне овала устойчивости на высоте $\tau$.
+Поскольку собственные числа $\mu_{jn}^{'}$ матрицы $aP+ bP^{n-1}$ даются формулой $\mu_{jn}^{'}= (a+b)\cos \frac{2\pi j}{n}+i (a-b) \sin  \frac{ 2\pi j}{n}$, в  соответствии с теоремой  \ref{th:stab1}    построим точки $M_{jn}^{'}=(u_{1jn}^{'}, u_{2jn}^{'})$,
 такие что 
- \begin{equation}\label{points_for_line}
-u^{'}_{1jn}=2\tau \sqrt{|ab|}\cos\frac{\pi j}{n+1},  \quad u^{'}_{2jn}=0. 
-\end{equation}
-В силу  Теоремы \ref{th:stab1} ввиду Леммы  \ref{lemm:chebyshev}  для доказательства асимптотической устойчивости линейной конфигурации достаточно доказать, что $u^{'}_{2jn}<u_2=\tau (a+b)$. Ввиду очевидного неравенства $2\sqrt{|ab|}\leq (|a|+|b|)$ искомое доказательство таково:
-  \begin{equation}\label{ineq_case1}
-u^{'}_{2jn}\leq 2\tau\sqrt{|ab|} |\cos\frac{\pi j}{n+1}|  \leq \tau (|a|+|b|)  |\cos\frac{\pi j}{n+1}| <\tau (|a|+|b|).
-\end{equation} 
+ \begin{equation}\label{u_for_oval_ring}
+ u_{1jn}^{'} + i u_{2jn}^{'} =\tau (a+b)\cos \frac{2\pi j}{n}+i\tau (a-b) \sin  \frac{ 2\pi j}{n}. 
+ \end{equation} 
+Все точки, определенные посредством \eqref{u_for_oval_ring}, 
+лежат на эллипсе \eqref{ellipsz} и при неограниченном увеличении $n$  плотно его заполняют. Поэтому найдется такое $n_0$, что при всех $n>n_0$ найдется
+такое $j$, $(1\leqslant j \leqslant n)$,   что точка $M_{jn}^{'}$ находится вне овала устойчивости.  Поэтому для данных $a,b,\tau$ система \eqref{matrixP}, 
+\eqref{mainmatrix2} для нейронного кольца неустойчива. 
 
-
-СЛУЧАЙ 2: $a>0$, $b<0$. Подходящим выбором $j,n$ можно сделать величину $\sin\frac{2\pi j}{n}$ сколь угодно близкой к $1$,  и при этом величину $\cos \frac{2\pi j}{n}$ сколь угодно близкой к нулю. В этом процессе (см. \eqref{u_for_oval_ring})  $u_{1jn} \rightarrow 0$,  $u_{2jn}\rightarrow \tau(|a|+|b|)$. Следовательно, точка
-$(u_1, u_2)=(0,\, \tau (|a|+|b|))$  лежит внутри или на границе конуса устойчивости.    
-
-Рассмотрим точки 
-$M_{jn}^{'}=(u_{1jn}^{'}, u_{2jn}^{'})$, 
+СЛУЧАЙ 2.  Все вершины  \eqref{vertecis_of_ellipsz} лежат внутри  овала устойчивости на высоте $\tau$ или на его границе.
+Поскольку собственные числа $\mu_{jn}^{''}$    матрицы $D$ (см. \eqref{matrixbroken}) равны  $\mu_{jn}^{''}= 2\sqrt{ab}\cos \frac{\pi j}{n+1}$  (см.  Лемму  \ref{lemm:chebyshev}), в  соответствии 
+с теоремой  \ref{th:stab1}    построим точки $M_{jn}^{''}=(u_{1jn}^{''}, u_{2jn}^{''})$,
 такие что 
- \begin{equation}\label{points_for_line_complex  }
-u^{'}_{1jn}=0,  \quad u^{'}_{2jn}=2\tau \sqrt{|ab|}\cos\frac{\pi j}{n+1}. 
-\end{equation}
-
-
-
-
-В силу  Теоремы \ref{th:stab1} ввиду Леммы  \ref{lemm:chebyshev}  для доказательства асимптотической устойчивости линейной конфигурации достаточно доказать, что $u^{'}_{2jn}<u_2=\tau (a-b)$. Используя то же неравенство $2\sqrt{|ab|}\leq (|a|+|b|)$, получим
-  \begin{equation}\label{ineq_case2}
-u^{'}_{2jn}\leq 2\tau\sqrt{|ab|} |\cos\frac{\pi j}{n+1}|  \leq \tau (|a|+|b|)  |\cos\frac{\pi j}{n+1}| <\tau (a-b).
-\end{equation} 
-
-СЛУЧАЙ 3: $a<0$, $b>0$. Доказательство аналогично случаю 2.
-
-СЛУЧАЙ 4: $a<0$, $b<0$.   Подходящим выбором $j,n$ можно сделать величину $\sin\frac{2\pi j}{n}$ сколь угодно близкой к $0$,  и при этом величину $\cos \frac{2\pi j}{n}$ сколь угодно близкой к $(-1)$. В этом процессе  $u_{1jn} \rightarrow \tau ( |a|+|b|)$,  $u_{2jn}\rightarrow 0$. Следовательно, точка
-$(u_1, u_2)=(\tau ( |a|+|b|),  0)$  лежит внутри или на границе конуса устойчивости.    
-
-
-
-В силу  Теоремы \ref{th:stab1} ввиду Леммы  \ref{lemm:chebyshev}  для доказательства асимптотической устойчивости линейной конфигурации достаточно доказать, что $u^{'}_{2jn}<u_2=\tau (|a|+|b|)$, что доказано в \eqref{ineq_case1}. 
-
+ \begin{equation}\label{u_for_line_}
+ u_{1jn}^{''} + i u_{2jn}^{''} =2\tau \sqrt{ab}\cos \frac{\pi j}{n+1} . 
+ \end{equation} 
+Ясно, что устойчивость системы \eqref{matrixbrokenequ}, \eqref{matrixbroken} зависит от положения двух точек $z^{''}=\pm   2\tau \sqrt{ab}\cos \frac{\pi }{n+1}$
+относительно овала устойчивости.  Если $ab\geqslant 0$, то из очевидного неравенства $2\sqrt{ab} \leqslant a+b $ и того, что точки $z_1,z_2$ лежат внутри овала устойчивости, 
+следует, что обе  точки $z^{''}=\pm   2\tau \sqrt{ab}\cos \frac{\pi }{n+1}$ лежат внутри овала устойчивости, и поэтому система \eqref{matrixbrokenequ}, \eqref{matrixbroken} 
+асимптотически устойчива. Если $ab< 0$, то из   неравенства $2\sqrt{|ab|} \leqslant |a-b| $ и того, что точки $z_3,z_4$ лежат внутри овала устойчивости, 
+следует, что обе  точки $z^{''}=\pm   2\tau \sqrt{ab}\cos \frac{\pi 1}{n+1}$ лежат внутри овала устойчивости, и поэтому система \eqref{matrixbrokenequ}, \eqref{matrixbroken} также 
+асимптотически устойчива. 
 Теорема \ref{th:comparison_ring_and_linear} доказана.
 
 \end{proof} 

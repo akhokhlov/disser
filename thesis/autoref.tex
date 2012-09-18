@@ -17,6 +17,8 @@
 \renewcommand{\baselinestretch}{1}
 
 
+
+
 % Поддержка нескольких списков литературы в одном документе
 %\usepackage{multibib}
 % Создание команд для цитирования собственных работ диссертанта
@@ -33,7 +35,7 @@
 %\renewcommand\normalsize{\fontsize{14}{22pt}\selectfont}
 
 \includeonly{hypheration,
-%11,12,13,14,15,16,17
+%11,12,13,14,15,16,17, 21,22,23,24,25,26,27, 31,32,33,34,35,36, concl
 } 
 
 
@@ -128,6 +130,23 @@
 	\include{15}
 	\include{16}
 	\include{17}
+
+	\include{21}
+	\include{22}
+	\include{23}
+	\include{24}
+	\include{25}
+	\include{26}
+	\include{27}
+	
+	\include{31}
+	\include{32}
+	\include{33}
+	\include{34}
+	\include{35}
+	\include{36}
+
+    \include{concl}
 
 
 % Структура и объем диссертации
@@ -228,14 +247,13 @@ http://disser.assembla.\linebreak me/stability\_domains.html.
 
 
 % ----------------------------------------------------------------
-\renewcommand\bibsection{\nsection{Список публикаций}}
-
+%\renewcommand\bibsection{\nsection{Список публикаций}}
 % Префикс номеров ссылок на работы соискателя
 %\def\BibPrefix{A}
 %\bibliographystylemy{gost705s}
 %\bibliographymy{thesis}
 
-%\renewcommand\bibsection{\nsection{Цитированная литература}}
+\renewcommand\bibsection{\nsection{Цитированная литература}}
 \def\BibPrefix{}
 \bibliographystyle{gost705s}
 \bibliography{thesis}

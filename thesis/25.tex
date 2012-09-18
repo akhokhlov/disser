@@ -74,19 +74,17 @@ $\tau\geqslant 0$.\\
 \end{theorem}
  
  Доказательство Теоремы \ref{th:stab_linear}  дано в  разделе \ref{sec26}. 
- Область устойчивости, независимой от запаздывания,  очерченная пунктами  1,3
- Теоремы \ref{th:stab_linear}, шире области  $|a| +|b|<1$, гарантированной
- достаточным условием \eqref{mori}, вытекающим из результата Мори с соавторами \cite{Mori&Fukuma&Kuwahara_1981}
- Теорема  \ref{th:stab_linear} иллюстрируется рисунком  \ref{fig:domainbroken}. 
+ 
+ Теорема  \ref{th:stab_linear} иллюстрируется рисунком  \ref{fig:domainbroken}.        
 \begin{figure}[ht]%\hspace*{1mm}
 	\begin{center}
 	\includegraphics[scale=0.7]{domain_for_line_of_neurons}
 	\end{center}
 	\caption{Границы области  устойчивости системы  \eqref{matrixbrokenequ}, 
-		\eqref{matrixbroken} для линейной конфигурации при достаточно большом количестве нейронов $n$.  }
+		\eqref{matrixbroken} для линейной конфигурации при достаточно большом количестве нейронов $n$.  }      
 	\label{fig:domainbroken}
 \end{figure}
-Сравнивая рисунки \ref{fig:domain_yes_delayright} и \ref{fig:domainbroken}, мы
+Сравнивая рисунки \ref{fig:domain_yes_delayright}  и  \ref{fig:domainbroken}, мы
 видим, что при разрыве кольца нейронов область устойчивости в пространстве
 параметров  увеличивается, если количество нейронов достаточно велико.
 Это подтверждается следующей теоремой. 
@@ -94,13 +92,9 @@ $\tau\geqslant 0$.\\
 
 
 
-\begin{theorem}\label{th:comparison_ring_and_linear}
-Фиксируем значения параметров $a,b, \tau$ для системы \eqref{matrixP}, 
-\eqref{mainmatrix2} для кольца нейронов и  системы \eqref{matrixbrokenequ}, 
-		\eqref{matrixbroken} для сети с линейной конфигурацией нейронов.
-Если система  \eqref{matrixP}, \eqref{mainmatrix2}  асимптотически устойчива при любом количестве нейронов $n$, то 
-система  \eqref{matrixbrokenequ}, 
-		\eqref{matrixbroken} также асимптотически устойчива при любом   количестве нейронов $n$.
+\begin{theorem}\label{th:comparison_ring_and_linear}        
+Для любых действительных значений  параметров $a,b, \tau>0$ найдется такое $n_0$, что для всех $n>n_0$ выполняется дихотомия: либо система  \eqref{matrixP}, \eqref{mainmatrix2} для кольца нейронов неустойчива, либо  система  
+\eqref{matrixbrokenequ},  \eqref{matrixbroken} для сети с линейной конфигурацией нейронов асимптотически устойчива.
 \end{theorem}
 
 
