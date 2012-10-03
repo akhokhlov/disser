@@ -48,7 +48,7 @@ ${D}$\,-разбиений~\cite{Gryazina&Polyak_2006} доказывается теорема об
 b$, которое будет~использоваться также и для~матричного
 уравнения~\eqref{common:maineqmatrix}.
 
-%\setcounter{chapter}{1}
+\setcounter{chapter}{1}
 \begin{determine}\label{common:defin_cone}
 Конусом устойчивости для уравнений \eqref{common:scalar},
 \eqref{common:maineqmatrix} назовём множество точек $M=(u_1,u_2,u_3)\in \mathbb{R}^3$, 
@@ -220,7 +220,7 @@ j \leqslant  n$ составлены согласно описанному алгоритму.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.52]{app1/app1-shot2}
+    \includegraphics[scale=0.52]{products/app1-main2}
     \caption{
         Главное окно программы <<Анализ устойчивости>> при~задании 
         собственных чисел матриц вручную.
@@ -293,6 +293,8 @@ H.~Lat\-ch\-man~\cite{Chen&Latchman_1995} (1995), гарантирующие  устойчивость
 \ref{sec16} не~имеют аналогов в литературе.    
 
 
+\setcounter{chapter}{2}
+\setcounter{section}{1}
 
 {\bfseries Во второй главе} решается задача диагностирования устойчивости моделей
 кольцевых и линейных нейронных сетей    с неограниченным количеством нейронов с
@@ -703,15 +705,15 @@ F1(\tau,n)= \frac{1}{4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} },
 Наши численные исследования с помощью программ показывают, что   это же явление,
 за некоторыми исключениями, имеет место и при небольшом количестве нейронов
 (рис. \ref{common:fig:comparison_ring_and_linear_finite}).
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
 \vspace*{-4mm}
-    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n3}}
-    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n4}}
-    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n5}}\\
-    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n5_zoom}}
-    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n6}}
-    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n7}}
+    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n3_large}}
+    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n4_large}}
+    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n5_large}}\\
+    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n5_zoom_large}}
+    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n6_large}}
+    \subfloat{\includegraphics[width=5.6cm]{finite_line_circle_n7_large}}
        \caption{%
         Границы областей  устойчивости для кольцевой 
         (система~\eqref{common:main2}, границы очерчены кружочками) и линейной 
@@ -767,12 +769,12 @@ B=
 
 \begin{figure}[h!]
     \centering
-    \subfloat{\includegraphics[width=5.6cm]{transition/sym-0_1-6-1_0}}
-    \subfloat{\includegraphics[width=5.6cm]{transition/sym-0_1-6-0_5}}
-    \subfloat{\includegraphics[width=5.6cm]{transition/sym-0_1-6-0_1}}\\
-    \subfloat{\includegraphics[width=5.6cm]{transition/sym-0_1-6-0_01}}
-    \subfloat{\includegraphics[width=5.6cm]{transition/sym-0_1-6-0_001}}
-    \subfloat{\includegraphics[width=5.6cm]{transition/sym-0_1-6-0_0001}}
+    \subfloat{\includegraphics[width=5.6cm]{ring_breaking/sym-0_1-6-1_0_large}}
+    \subfloat{\includegraphics[width=5.6cm]{ring_breaking/sym-0_1-6-0_5_large}}
+    \subfloat{\includegraphics[width=5.6cm]{ring_breaking/sym-0_1-6-0_1_large}}\\
+    \subfloat{\includegraphics[width=5.6cm]{ring_breaking/sym-0_1-6-0_01_large}}
+    \subfloat{\includegraphics[width=5.6cm]{ring_breaking/sym-0_1-6-0_001_large}}
+    \subfloat{\includegraphics[width=5.6cm]{ring_breaking/sym-0_1-6-0_0001_large}}
     \caption{%
        Динамика области устойчивости в процессе разрыва нейронного кольца.
        Границы областей  устойчивости для системы \eqref{maineqmatrix}, 

@@ -1,6 +1,6 @@
 \documentclass[candidate,subf,href,colorlinks=true
 %,ams
-,draft         % собирает выходной файл, не включая в него рисунки
+%,draft         % собирает выходной файл, не включая в него рисунки
 %,times         % шрифт Times как основной
 %,fixint=false  % отключить прямые знаки интегралов
 %,classified    % секретно
@@ -8,14 +8,13 @@
 %,facsimile     % факсимиле диссертанта
 ]{disser}
 
-\usepackage[
-  a4paper, mag=1000, includefoot,
+\usepackage[a4paper, mag=1000, includefoot,
   left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm
 ]{geometry}
 \usepackage[T2A]{fontenc}
 \usepackage[cp1251]{inputenc}
 \usepackage[english,russian]{babel}
-%\usepackage{cmap}
+\usepackage{cmap}
 \usepackage{verbatim}
 %\usepackage{amsthm}
 \ifpdf\usepackage{epstopdf}\fi
@@ -41,11 +40,6 @@
 
 % Использовать полужирное начертание для векторов
 \let\vec=\mathbf
-
-% Путь к файлам с иллюстрациями
-\graphicspath{{img/}}
-
-
 
 % Только для черновика
 \makeatletter%ставим, чтобы знак @ воспринимался как буква, а не как команда
