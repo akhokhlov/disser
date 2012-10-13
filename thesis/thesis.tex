@@ -50,7 +50,7 @@
 \begin{document}
     % ¬ключение файла с общим текстом диссертации и автореферата
     % (текст титульного листа и характеристика работы).
-    \input{common}
+    \input{common/common}
 
     % номер копии дл€ грифа секретности
     %\copynum{1}
@@ -71,7 +71,10 @@
 
     \maketitle
     \tableofcontents
-    \input{intro}
+    
+    \intro
+    \input{common/generaldesc}
+    \input{common/struct}
     
     
     
@@ -104,8 +107,8 @@
     \bibliography{thesis}
     \bibliographystyle{gost705s}
 
-    \appendix
-    \input{appendix}
+    %\appendix
+    %\input{appendix}
 
 
 \end{document}
