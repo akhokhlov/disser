@@ -1,0 +1,289 @@
+\documentclass[12pt,autoref,subf,href,facsimile,colorlinks=true
+%,fixint=false
+%,draft
+%,times
+%,classified
+]{disser}
+
+\graphicspath{{../images/}}
+
+\input{../thesis/common/hypheration}
+
+
+
+\usepackage[a4paper,nohead,includefoot,mag=1000,
+            margin=2cm,footskip=1cm]{geometry}
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{tabularx}
+\ifpdf\usepackage{epstopdf}\fi
+
+%\usepackage{multibib}
+%\newcites{my,vak}{Публикации по теме диссертации, Публикации ВАК}
+
+
+% Межстрочный интервал
+\renewcommand{\baselinestretch}{1.2}
+
+
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{cmap}
+\usepackage{verbatim}
+\usepackage{amsthm}
+\ifpdf\usepackage{epstopdf}\fi
+
+
+%\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\tocpostthechapter}{~}
+\renewcommand{\tocpostthesection}{~}
+\renewcommand{\postthechapter}{~} % Убираем точку после номера главы
+\renewcommand{\postthechapter}{\par\nobreak\vskip 5pt}
+\renewcommand{\postthesection}{~}
+\renewcommand{\postthesubsection}{~}
+
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}\nolimits}
+\renewcommand{\exp}{\mathop{\mathrm{exp}}\nolimits}
+\renewcommand{\tg}{\mathop{\mathrm{tg}}\nolimits}
+\renewcommand{\arctg}{\mathop{\mathrm{arctg}}\nolimits}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
+
+\newtheorem{assertion}{Утверждение}
+\newtheorem{note}{Замечание}
+
+
+
+% Сквозная нумерация
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\theequation}{\arabic{equation}}
+
+%Демонстрация полностью настраиваемых окружений типа <<теорема>>.
+%\newtheorem{theorem}{Теорема}[chapter]
+\newtheorem{theorem}{Теорема}
+\def\thetheoremstyle{\indent\bfseries}
+\def\opargtheoremstyle{\itshape}
+\def\theoremstyle{\itshape}
+\def\preopargtheorem{(}
+\def\postopargtheorem{)}
+
+\newtheorem{lemm}{Лемма}
+\def\thelemmstyle{\indent\bfseries}
+\def\oparglemmstyle{\itshape}
+\def\lemmstyle{}
+\def\preoparglemm{(}
+\def\postoparglemm{)}
+
+\newtheorem{prop}{Предложение}
+\def\thepropstyle{\indent\bfseries}
+\def\opargpropstyle{\itshape}
+\def\propstyle{\itshape}
+\def\preopargprop{(}
+\def\postopargprop{)}
+
+\newtheorem{determine}{Определение}
+\def\determinestyle{\itshape}
+\def\thedeterminestyle{\indent\bfseries}
+\def\postthedetermine{.}
+
+\newtheorem{remark}{Примечание}
+\def\remarkstyle{}
+\def\theremarkstyle{\indent}
+\def\posttheremark{.}
+
+\newtheorem{example}{Пример}
+\def\examplestyle{}
+\def\theexamplestyle{\indent\bfseries}
+\def\posttheexample{.}
+
+
+
+% перенос формул в тексте
+\providecommand*{\hm}[1]{#1\nobreak\discretionary {}% перенос формул в тексте
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+% вставка кода
+\providecommand{\includecode}[2][1]{\subsubsection{#2.m} \input{#1/#2}}
+
+% подавление висячих строк
+\clubpenalty =10000
+\widowpenalty=10000
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Включение файла с общим текстом диссертации и автореферата
+% (текст титульного листа и характеристика работы).
+\input{../thesis/common/common}
+
+\title{АВТОРЕФЕРАТ\\
+диссертации на соискание учёной степени\\
+кандидата физико-математических наук}
+
+\maketitle
+
+
+
+
+
+
+
+
+
+
+% Внутренняя сторона обложки
+\noindent
+\begin{center}
+Работа выполнена в \emph{Южно-Уральском Государственном Университете}.
+\end{center}
+\vskip1ex
+\begin{tabularx}{\linewidth}{lp{1cm}X}
+Научный руководитель:  & & \emph{доктор физико-математических наук}, \\
+                       & & \emph{профессор}, \\
+                       & & \emph{Кипнис Михаил Маркович}
+\\
+Официальные оппоненты: & & \emph{учёная степень}, \\
+                       & & \emph{учёное звание}, \\
+                       & & \emph{фамилия имя отчество}\\
+                       & & \emph{учёная степень}, \\
+                       & & \emph{учёное звание}, \\
+                       & & \emph{фамилия имя отчество}
+\\
+Ведущая организация:   & & \emph{название организации}\\
+\end{tabularx}
+
+\vskip2ex\noindent
+Защита состоится \datefield{} в \rule[0pt]{1cm}{0.5pt} часов
+на заседании диссертационного совета \emph{шифр совета} при \emph{название
+организации, при которой создан совет}, расположенном по адресу:
+\emph{адрес}
+
+\vskip1ex\noindent
+С диссертацией можно ознакомиться в библиотеке
+\emph{название организации}.
+
+\vskip1ex\noindent
+Автореферат разослан \datefield{}
+
+\vskip2ex\noindent
+Отзывы и замечания по автореферату в двух экземплярах, заверенные
+печатью, просьба высылать по вышеуказанному адресу на имя учёного секретаря
+диссертационного совета.
+
+\vfill\noindent
+Учёный секретарь\\
+диссертационного совета,\\
+\emph{учёная степень}, \emph{учёное звание}%
+\hfill
+\makeatletter
+% вставка файла, содержащего факсимиле учёного секретаря
+%\ifDis@facsimile
+%  \raisebox{-4pt}{\includegraphics[width=3cm]{sec-facsimile}}\hfill
+%\fi%
+%\makeatother%
+\emph{фамилия и. о.}
+
+\clearpage
+
+%\intro
+\input{generaldesc}
+\input{struct}
+
+
+\begin{center}
+%\noindent
+{\bf Работы автора по теме диссертации}
+\end{center}
+
+\begin{center}
+{\bf Статьи в журналах, рекомендованных ВАК}
+\end{center}
+
+
+\newcounter{count}
+\begin{list}{\arabic{count}.}{\itemsep 0.0in}
+\usecounter{count}
+
+
+\item Khokhlova T., Kipnis M., Malygina V. The stability cone for a delay differential
+matrix equation // Applied Mathematics Letters. 2011. Vol. 24.
+Pp. 742–745.
+
+\item Khokhlova T., Kipnis M. Numerical and qualitative stability analysis of ring
+and linear neural networks with a large number of neurons // International
+J. of Pure and Applied Mathematics. 2012.  Vol. 76 (3). Pp. 403–419.
+
+\item Хохлова Т. Н. Устойчивость полносвязной и звездной структур нейронных
+сетей // Вестник ЮУрГУ. Математика. Механика. Физика. 2012. Т. ? С. ??--?? 
+
+  
+%\end{list}
+\begin{center}
+{\bf Другие публикации}
+\end{center}
+
+
+
+
+\item Хохлова Т. Н. Устойчивость нейронных сетей Хопфилда с запаздыванием
+// Научный поиск: материалы второй научной конференции аспирантов
+и докторантов. Естественные науки. Челябинск: Изд. центр ЮУрГУ,
+2010. С. 72–75.
+
+\item Хохлова Т. Н. Анализ устойчивости // Хроники ОФЭРНиО. 2011. Т. 2
+(21). С. 22–23. Номер свидетельства о регистрации 16759 от 28.02.2011.\\
+URL: http://ofernio.ru/portal/newspaper/ofernio/2011/2.doc.
+15. 
+
+\item Хохлова Т. Н. Устойчивость нейронных сетей // Хроники ОФЭРНиО.
+2011. Т. 7 (26). С. 35–36. Номер свидетельства о регистрации 17346 от
+01.08.2011. \\
+URL: http://ofernio.ru/portal/newspaper/ofernio/2011/7.doc.
+
+\item Хохлова Т. Н. Построение областей устойчивости круговых нейронных
+сетей // Хроники ОФЭРНиО. 2012. Т. 1 (32). С. 4–5. Номер свидетельства
+о регистрации 17779 от 10.01.2012. URL: http://ofernio.ru/portal/
+newspaper/ofernio/2012/1.doc.
+
+\item Хохлова Т. Н. Устойчивость нейронных сетей Хопфилда с запаздыванием
+// Труды седьмой Всероссийской научной конференции с международным
+участием «Математическое моделирование и краевые задачи».
+Самара: 2010. С. 277–279.
+
+\item Хохлова Т. Н. Устойчивость нейронных сетей стандартных конфигураций
+// Статистика. Моделирование. Оптимизация . Сборник трудов Всероссийской
+конференции. Челябинск: 2011. С. 331–335.
+
+\item Хохлова Т. Н. Устойчивость двухслойного соединения нейронов с запаздыванием
+// II Международная научно-практическая конференция студентов
+и аспирантов «Математика и её приложения в современной науке
+и практике». Курск: 2012. С. 191--194.
+
+\item Хохлова Т. Н., Хохлов А. Д. Алгоритм и программа для диагностирования
+устойчивости больших нейронных сетей // Статистика. Моделирование.
+Оптимизация. Сб.  трудов Всероссийской конференции. Челябинск:
+2011. С. 328–331.
+
+
+\item Хохлова Т. Н.   Динамика области устойчивости 
+в процессе разрыва кольцевой сети нейронов // Вестник МАГУ. Т. ?? 2012. С. ??--??.
+
+
+
+\end{list}
+
+
+\end{document}
+
+
+
