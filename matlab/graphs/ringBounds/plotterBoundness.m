@@ -10,7 +10,7 @@
 % minX, maxX - границы для графиков.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [minX, maxX, figure1] = plotter_boundness(type, tau, number, epsilon, dir, ext, minX, maxX)
+function [minX, maxX, figure1] = plotterBoundness(type, tau, number, epsilon, dir, ext, bounds)
 fontsize=24;
 ticksize=22;
 
@@ -52,7 +52,7 @@ ticksize=22;
      'Position',[-.5 .2],...
      'FontSize',fontsize);
     text('String','unstab',...
-     'Position',[-2 -1.2],...
+     'Position',[-1.9 -1.2],...
      'FontSize',fontsize);
     text('String','unstab',...
      'Position',[1.2 1.5],...
@@ -63,7 +63,7 @@ ticksize=22;
      'FontSize',fontsize);
     text('Interpreter','latex',...
      'String',{'$n = \infty$'},...
-     'Position',[0 -0.7],...
+     'Position',[-0.1 -0.7],...
      'FontSize',fontsize);
 
  % axes
@@ -71,24 +71,25 @@ set(gca, 'FontSize',ticksize);
 %set(gca, 'XTick',[ -3 -2 -1 0 1 2 3 ], 'YTick',[-2 -1 0 1 2 3], 'FontSize',ticksize);
  
     % Масштабирование
-    ax=axis;
-    x1=min(ax(1), ax(3));
-    x2=max(ax(2), ax(4));
-    if exist('minX', 'var')
-        x1=minX;
-    end
-    if exist('maxX', 'var')
-        x2=maxX;
-    end
-    minX = x1;
-    maxX = x2;
-    axis([x1-.5 x2+.5 x1-.5 x2+.5]);
+%     ax=axis;
+%     x1=min(ax(1), ax(3));
+%     x2=max(ax(2), ax(4));
+%     if exist('minX', 'var')
+%         x1=minX;
+%     end
+%     if exist('maxX', 'var')
+%         x2=maxX;
+%     end
+%     minX = x1;
+%     maxX = x2;
+%     axis([x1-.5 x2+.5 x1-.5 x2+.5]);
+axis(bounds);
 
     % Создание дополнительных границ
     ax=axis;
     plot(ax(1:2), [ax(4) ax(4)], 'k', 'LineWidth', 1);
     plot([ax(2) ax(2)], ax(3:4), 'k', 'LineWidth', 1);
-    axis([x1-.5 x2+.5 x1-.5 x2+.51]);
+    %axis([x1-.5 x2+.5 x1-.5 x2+.51]);
 
     % Сохранение построенной фигуры
     if type == 1
