@@ -108,14 +108,15 @@ u_{21n}= 2\tau \sqrt{|ab|} \cos \frac{\pi }{n+1}=
 параметрами}\label{subsec342}
 
 
-
 ¬ разделе \ref{sec25} было показано, что разрыв   кольцевой сети может  только
 улучшить ее устойчивость, если количество нейронов в сети достаточно велико 
 (“еорема \ref{th:stab_linear}).  Ќаши численные исследовани€ с помощью программ
 показывают, что это же €вление, за некоторыми исключени€ми, имеет место и при
-небольшом количестве нейронов. ќбласть тех значений параметров, при которых
+небольшом количестве нейронов. 
+
+ќбласть тех значений параметров $(a,b)$, при которых
 кольцева€ система нейронов устойчива, а линейна€ с теми же параметрами
-неустойчива, назовем парадоксальной областью. “аким образом, парадоксальна€
+неустойчива, назовем парадоксальной областью  при данных $\tau, n$. “аким образом, парадоксальна€
 область это область значений параметров, в которых нарушаетс€ принцип <<разрыв
 кольца благопри€тен дл€ устойчивости>>. 
 Ќа следующем рисунке \ref{fig:comparison_ring_and_linear_finite} показано, что
@@ -123,23 +124,26 @@ u_{21n}= 2\tau \sqrt{|ab|} \cos \frac{\pi }{n+1}=
 $n=3$, отсутствует при $n=4,6$ и  весьма мала при $n=5,7$. ћы не приводим здесь результаты
 экспериментов при $n>7$. ¬ них парадоксальна€ область либо отсутствует, либо
 пренебрежимо мала.   
-\begin{figure}[pH]
+
+
+\begin{figure}[!ht]
     \centering
 \vspace*{-4mm}
-    \subfloat{\includegraphics[width=8.cm]{ringAndLine/finite_line_circle_n3}}
-    \subfloat{\includegraphics[width=8.cm]{ringAndLine/finite_line_circle_n4}}\\[-4mm]
- \subfloat{\includegraphics[width=8.cm]{ringAndLine/finite_line_circle_n5}}
-    \subfloat{\includegraphics[width=8.cm]{ringAndLine/finite_line_circle_n5_zoom}}\\[-4mm]
-  \subfloat{\includegraphics[width=8.cm]{ringAndLine/finite_line_circle_n6}}
-  \subfloat{\includegraphics[width=8.cm]{ringAndLine/finite_line_circle_n7}}\\[-4mm]
-       \caption{%
-        √раницы областей  устойчивости дл€ кольцевой  (система \eqref{matrixP},
+    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n3_large}}
+    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n4_large}}
+    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n5_large}}\\
+    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n5_zoom_large}}
+    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n6_large}}
+    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n7_large}}
+    \caption{%
+      √раницы областей  устойчивости дл€ кольцевой  (система \eqref{matrixP},
         \eqref{mainmatrix2}, границы очерчены кружочками) и линейной  (система 
         \eqref{matrixbrokenequ}, \eqref{matrixbroken},  сплошные линии)
         конфигураций  нейронов, $\tau=0,5$. ƒл€ $n=5$ дополнительно
         парадоксальна€ область показана в увеличении.}    
-    \label{fig:comparison_ring_and_linear_finite}
+    \label{fig:comparison_ring_and_linear_finite }
 \end{figure}
+
 
 
 
