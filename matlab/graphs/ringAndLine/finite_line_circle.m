@@ -39,7 +39,7 @@ close all;
 
 
         [phi, r] = solverBoundnessSmart(2, tau, n, .05);
-        polar(phi, r, 'o');
+        polar(phi, r, 'ok');
 
         % Create xlabel
         xlabel({'a'}, 'FontSize',fontsize);

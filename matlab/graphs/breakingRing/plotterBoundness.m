@@ -13,9 +13,13 @@ save('var', 'c');
    
     % Вычисление области устойчивости для ограниченного числа нейронов.
     [phi, r] = solverBoundnessSmart(type, tau, number, epsilon);
-    polar(phi, r, 'o');
+    polar(phi, r, 'ok');
     
-    title(['$c = ' num2str(c) '$'],...
+    c_str = num2str(c);
+    if c < .001
+        c_str = '0';
+    end
+    title(['$c = ' c_str '$'],...
         'FontSize',fontsize, 'interpreter', 'latex');
     
     % Создание надписей

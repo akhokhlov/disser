@@ -36,11 +36,11 @@ ticksize=22;
         save(datafile, 'infinitePhi', 'infiniteR');
     end
     h = polar(infinitePhi, infiniteR, '-');
-    set(h, 'LineWidth', 3, 'color', 'k') ;
+    set(h, 'LineWidth', 2, 'color', 'k') ;
     
     % Вычисление области устойчивости для ограниченного числа нейронов.
     [phi, r] = solverBoundnessSmart(type, tau, number, epsilon);
-    polar(phi, r, 'o');
+    polar(phi, r, 'ok');
     
     title(['$\tau = ' num2str(tau) ', n = ' num2str(number) '$' ],...
         'FontSize',fontsize, 'interpreter', 'latex');
@@ -67,8 +67,9 @@ ticksize=22;
      'FontSize',fontsize);
 
  % axes
-set(gca, 'FontSize',ticksize);
+%set(gca, 'FontSize',ticksize);
 %set(gca, 'XTick',[ -3 -2 -1 0 1 2 3 ], 'YTick',[-2 -1 0 1 2 3], 'FontSize',ticksize);
+ set(gca, 'XTick',[-4 -2 0 2 4], 'YTick',[-4 -2 0 2 4], 'FontSize',ticksize);
  
     % Масштабирование
 %     ax=axis;
