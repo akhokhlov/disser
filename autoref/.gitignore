@@ -1,1 +1,7 @@
 /tmp
+/autoref.dvi
+/.gitignore
+/autoref.aux
+/autoref.bbl
+/autoref.blg
+/autoref.out

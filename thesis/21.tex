@@ -33,19 +33,18 @@ Guo&Huang_2007, Lu&Guo_2008}.  Изучаемая нами в этой главе
 Переход от нелинейных моделей нейронных сетей с одним запаздыванием к линейным
 уравнениям посредством линеаризации описан   в разделе~\ref{sec11}  диссертации.
 Аналогично этому  следующее дифференциальное уравнение описывает 
-кольцевую нейронную сеть   (рис.~\ref{fig:circle_of_neurons})  с  запаздыванием
+кольцевую нейронную сеть   (рис.~\ref{common:fig:ring_and_line})  с  запаздыванием
 $\tau_1$ во взаимодействии нейрона с левым соседним нейроном и $\tau$ с правым:
 \begin{equation}\label{maingeneral}
     \dot{x}_{j}(t) +  x_{j}(t) +  a\, x_{j-1}(t-\tau_1) + b\, x_{j+1}(t-\tau) = 0
     \qquad  (j\; {\rm{mod}}\; n).  
 \end{equation}
 
-\begin{figure}[ht]%\hspace*{1mm}
-    \begin{center}
-        \includegraphics[width=2.7cm]{circle_of_neurons}
-    \end{center}
-    \caption{Кольцевая  система нейронов}
-    \label{fig:circle_of_neurons}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=12cm]{ring_and_line}
+    \caption{Кольцевая и линейная система нейронов}
+    \label{common:fig:ring_and_line}
 \end{figure}
 
 Здесь $x_j$ $(1\leqslant j \leqslant n)$ сигнал $j$-го нейрона, действительные
