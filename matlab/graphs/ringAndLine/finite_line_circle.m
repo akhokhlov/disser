@@ -3,7 +3,7 @@ function finite_line_circle
 addpath('../../product_3');
 addpath('../../common');
 
-large = false;
+large = true;
     fontsize=18;
     ticksize=16;
     fileExt = '';
@@ -14,14 +14,11 @@ if large
 end
     
 
-% for k=3:6
-%     createFigure(.5, k);
-% end
-% createFigure(.5, 5, [-0 1 -0 1]);
-% createFigure(.5, 6, [-1.5 -.5 .5 1.5 ]);
-
-createFigure(100, 101);
-
+for k=3:6
+    createFigure(.5, k);
+end
+createFigure(.5, 5, [-0 1 -0 1]);
+createFigure(.5, 6, [-1.5 -.5 .5 1.5 ]);
 
 close all;
 
