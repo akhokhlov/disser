@@ -1,4 +1,4 @@
-\documentclass[12pt,autoref,subf,href,facsimile,colorlinks=true
+\documentclass[14pt,autoref,subf,href,facsimile,colorlinks=true
 %,fixint=false
 %,draft
 %,times
@@ -6,21 +6,17 @@
 ]{disser}
 
 \graphicspath{{../images/}}
-
 \input{../thesis/common/hypheration}
 
-
 \usepackage[a4paper,nohead,includefoot,mag=1000,
-            margin=2cm,footskip=1cm]{geometry}
+            margin=2cm,footskip=1cm,
+            left=2cm,right=2cm,top=1.5cm,bottom=1.5cm,
+            bindingoffset=0cm]{geometry}
 \usepackage[T2A]{fontenc}
 \usepackage[cp1251]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{tabularx}
 \ifpdf\usepackage{epstopdf}\fi
-
-%\usepackage{multibib}
-%\newcites{my,vak}{Публикации по теме диссертации, Публикации ВАК}
-
 
 % Межстрочный интервал
 \renewcommand{\baselinestretch}{1.2}
