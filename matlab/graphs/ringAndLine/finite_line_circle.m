@@ -3,7 +3,7 @@ function finite_line_circle
 addpath('../../product_3');
 addpath('../../common');
 
-large = true;
+large = false;
     fontsize=18;
     ticksize=16;
     fileExt = '';
@@ -13,16 +13,15 @@ if large
     fileExt = '_large';
 end
     
-% createFigure(.5, 3);
-% createFigure(.5, 4);
-% createFigure(.5, 5);
-createFigure(.5, 5, [-0 1 -0 1]);
-% createFigure(.5, 6);
-% createFigure(.5, 7);
 
-for k=3:16
-    createFigure(.5, k);
-end
+% for k=3:6
+%     createFigure(.5, k);
+% end
+% createFigure(.5, 5, [-0 1 -0 1]);
+% createFigure(.5, 6, [-1.5 -.5 .5 1.5 ]);
+
+createFigure(100, 101);
+
 
 close all;
 
@@ -68,8 +67,8 @@ close all;
         if (exist('zoom', 'var'))
             axis(zoom);
             % Дополнительные границы
-            plot(zoom(1:2), [ zoom(2) zoom(2)], 'k', 'LineWidth', 1);
-            plot([ zoom(end) zoom(end)], zoom(3:end), 'k', 'LineWidth', 1);
+            plot(zoom(1:2), [ max(zoom(3:4)) max(zoom(3:4))], 'k', 'LineWidth', 1);
+            plot([max(zoom(1:2)) max(zoom(1:2))], zoom(3:end), 'k', 'LineWidth', 1);
             filename = [mfilename '_n' num2str(n) '_zoom' fileExt '.' fileFormat];
         end
 

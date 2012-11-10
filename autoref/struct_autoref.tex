@@ -136,70 +136,10 @@ $\lambda_{j\,s}, \mu_{j\,s}\,(1 \leqslant  j,\, s \leqslant  m)$.
 фиксированных матрицах $A$ и $B$, и его программной реализации. Алгоритм 
 основан на методе конусов устойчивости (Теорема \ref{common:th:stab1}), но при
 этом он содержит только аналитические выкладки и позволяет избежать
-геометрических построений при анализе устойчивости рассматриваемого уравнения. Опишем алгоритм.
+геометрических построений при анализе устойчивости рассматриваемого уравнения. 
+В этом же разделе формулируется и доказывается теорема, обосновывающая данный
+алгоритм.
 
-
-Пусть матрицы $A$ и $B$ приведены к треугольному виду $A_T$, $B_T$ одним 
-преобразованием. Пусть $\lambda_{j\,j}, \mu_{j\,j},\; 1 \leqslant  j \leqslant n$  
-собственные числа матриц $A$ и $B$ в~том порядке, в котором они расположены на
-диагоналях  матриц $A_T$, $B_T$. Для каждого $j,\; 1 \leqslant  j \leqslant  n$
-составим множество $T_{j}$ по следующему алгоритму. 
-
-Если для некоторого $j$ выполнено $\Re{\lambda_{j\,j}} > |\mu_{j\,j}|$, то
-$T_{j}=(0, +\infty)$. В~противном случае находим числа 
-\begin{multline}
-\label{common:tau} \tau_{j}^{m}=\frac{\arg{(\pm iQ - \Re{\lambda_{j\,j}})}-\arg
-{\mu_{j\,j}} +2\pi m}{\Im{\lambda_{j\,j}\pm Q}}, \quad m\in \mathbb{Z}, \\ 
-Q=\sqrt{|\mu_{j\,j}|^{2}-(\Re{\lambda_{j\,j}})^{2}}.
-\end{multline}
-
-\noindent
-Из чисел $\tau_{j}^{m}$ выбираем такие, для которых
-
-\begin{equation}
-\label{common:inequality_tau} 0<\tau_{j}^{m}\leq\pi/Q  \quad \mbox{и} \quad 
-\Re{\lambda_{j\,j}} \geqslant -\frac{Q}{\tg(Q\,\tau_{j}^{m})},
-\end{equation}
-и сортируем по возрастанию, исключая повторения. 
-Обозначим $\tau_{1 j}, \tau_{2 j}, \ldots ,\tau_{s j}$ полученные числа. 
-Составим множество $T_{j}$ следующим образом. Пусть
-$
- T_{j}=(0,\tau_{1 j})\cup(\tau_{2 j}, \tau_{3 j})\cup\ldots
-$
-в следующих случаях:
-\begin{enumerate}
-  \item $\Re{\lambda_{j j}} > 0$ и выполнено хотя бы одно условие
-      \begin{equation}
-      \label{Re>0_common}
-      \mbox{а)}\; \arg {\mu_{j\,j}}\in(-\pi/2, \pi/2)   \quad  \mbox{или} \quad   
-      \mbox{б)}\; \frac{\Re{\lambda_{j j}}}{|\Re{\mu_{j j}}|} > 1.
-     \end{equation}
-      
-  \item 
-      \begin{equation}
-      \label{Re<0_common}
-      \Re{\lambda_{j j}} < 0, \quad 
-      \left|\frac{\Re{\lambda_{j j}}}{\Re{\mu_{j j}}}\right| < 1 \quad 
-      \mbox{и} \quad 
-      \arg {\mu_{j\,j}}\in(-\pi/2, \pi/2).
-      \end{equation}
-\end{enumerate}
-\noindent В остальных случаях
-$
- T_{j}=(\tau_{1 j}, \tau_{2 j})\cup(\tau_{3 j}, \tau_{4 j})\cup\ldots
-$
-
-\noindent
-Последним интервалом в $T_{j}$ может быть $(\tau_{s-1 j}, \tau_{s j})$ или
-$(\tau_{s j}, +\infty)$. Если для некоторого $j$ множество $(\tau_{1j}, 
-\tau_{2 j}, \ldots ,\tau_{s j})$ пусто и выполнено \eqref{Re>0_common} или
-\eqref{Re<0_common}, то $T_{j}=(0, +\infty)$.   
-
-\begin{theorem} \label{common:algorithm_th} Пусть множества $T_{j}, 1 \leqslant
-j \leqslant  n$ составлены согласно описанному алгоритму. 
-Тогда уравнение~\eqref{common:maineqmatrix}
-асимптотически устойчиво если и только если  $\tau \in T=\bigcap_{j} T_{j}$. 
-\end{theorem}
 
 В разделе\,1.6 описана программа  <<Анализ устойчивости>>,
 разработанная в~программном пакете \Eng MATLAB~7.11.0~(R2010b). \Russian       
@@ -743,17 +683,17 @@ F1(\tau,n)= \frac{1}{4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} },
 \begin{figure}[!ht]
     \centering
 \vspace*{-4mm}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n3_large}}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n4_large}}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n5_large}}\\
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n5_zoom_large}}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n6_large}}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n7_large}}
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n3}}
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n4}}\\
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n5}}
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n5_zoom}}\\
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n6}}
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n6_zoom}}\\
     \caption{%
         Границы областей  устойчивости для кольцевой 
         (система~\eqref{common:main2}, границы очерчены кружочками) и линейной 
         (система  \eqref{common:matrixbrokenequ}, \eqref{common:matrixbroken}, 
-        сплошные линии) конфигураций  нейронов, $\tau=0.5$. Для $n=5$
+        сплошные линии) конфигураций  нейронов, $\tau=0.5$. Для $n=5, \,n=6$
         дополнительно парадоксальная область показана в увеличении.}    
     \label{common:fig:comparison_ring_and_linear_finite}
 \end{figure}
@@ -766,9 +706,9 @@ F1(\tau,n)= \frac{1}{4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} },
 для устойчивости>>.   
 На рисунке \ref{common:fig:comparison_ring_and_linear_finite} показано, что при
 $\tau=0.5$ парадоксальная область заметна в модели сети с  количеством нейронов
-$n=3$, отсутствует при $n=4,6$ и  весьма мала при $n=5,7$. В результате численных
-экспериментов выяснилось, что в моделях  сетей  с $n>7$  парадоксальная область
-либо отсутствует, либо пренебрежимо мала.      
+$n=3$, отсутствует при $n=4$ и  весьма мала при $n=5, \,n=6$. В результате
+численных экспериментов выяснилось, что в моделях  сетей  с $n>6$ 
+парадоксальная область либо отсутствует, либо пренебрежимо мала.
 
 
 
