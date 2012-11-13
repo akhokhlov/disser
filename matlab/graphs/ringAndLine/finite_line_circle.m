@@ -3,7 +3,7 @@ function finite_line_circle
 addpath('../../product_3');
 addpath('../../common');
 
-large = true;
+large = false;
     fontsize=18;
     ticksize=16;
     fileExt = '';
@@ -41,7 +41,8 @@ close all;
 
 
         [phi, r] = solverBoundnessSmart(2, tau, n, .05);
-        polar(phi, r, 'ok');
+        h = polar(phi, r, 'ok');
+        set(h, 'lineWidth', 2);
 
         % Create xlabel
         xlabel({'a'}, 'FontSize',fontsize);

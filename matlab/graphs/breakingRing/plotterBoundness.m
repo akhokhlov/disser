@@ -13,7 +13,8 @@ save('var', 'c');
    
     % Вычисление области устойчивости для ограниченного числа нейронов.
     [phi, r] = solverBoundnessSmart(type, tau, number, epsilon);
-    polar(phi, r, 'ok');
+    h = polar(phi, r, 'ok');
+    set(h, 'LineWidth',2);
     
     c_str = num2str(c);
     if c < .001
@@ -41,8 +42,8 @@ set(gca, 'FontSize',ticksize);
     
     % Масштабирование
     ax=axis;
-    x1= -5;
-    x2= 5;
+    x1= -5.5;
+    x2= 5.5;
     if exist('minX', 'var')
         x1=minX;
     end
