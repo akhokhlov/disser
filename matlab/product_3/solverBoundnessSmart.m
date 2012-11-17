@@ -1,27 +1,36 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Вычисляет точки области устойчивости с заданной точностью epsilon, так
-% чтобы они находились на одинаковом расстоянии друг от друга.
-% type - тип соединения нейронов (1 для несимметричного, 2 для симметричного 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Вычисляет точки области устойчивости 
+% с заданной точностью epsilon, так чтобы 
+% они находились на одинаковом расстоянии 
+% друг от друга.
+% type - тип соединения нейронов 
+% (1 для несимметричного, 2 для симметричного 
 % взаимодействия),
 % tau - запаздывание,
 % number - количество нейронов,
 % epsilon - точность,
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [phi r] = solver_boundness_smart(type, tau, number, epsilon)
+function [phi r] = solverBoundnessSmart(...
+    type, tau, number, epsilon)
     radius = 2*epsilon;
     r = zeros(1, 1000);
     phi = zeros(1, 1000);
 
     % Вычисляем первую точку на луче '0a'.
     phi(1) = 0;
-    [r(1)] = searchPointInRowGeom(type, number, tau, 0, radius);
+    [r(1)] = searchPointInRowGeom(...
+        type, number, tau, 0, radius);
 
-    % Все другие точки находим, переходя в локальную полярную систему
-    % координат, на заданном расстоянии radius от предыдущей.
+    % Все другие точки находим, 
+    % переходя в локальную полярную систему
+    % координат, на заданном расстоянии 
+    % radius от предыдущей.
     n=1;
     while n<1000
-        [r(n+1), phi(n+1)] = searchNeighbourhoodPoint(r(n), phi(n), radius);
+        [r(n+1), phi(n+1)] = ...
+            searchNeighbourhoodPoint(r(n), ...
+            phi(n), radius);
         n = n+1;
         if phi(n-1) - phi(n) > 1
             break
@@ -59,15 +68,19 @@ function [phi r] = solver_boundness_smart(type, tau, number, epsilon)
         end
     end
 
-    % Ищет следующую точку на заданном расстоянии radius от предыдущей.
-    function [rEnd phiEnd] = searchNeighbourhoodPoint(r, phi, radius)
+    % Ищет следующую точку на заданном 
+    % расстоянии radius от предыдущей.
+    function [rEnd phiEnd] = ...
+            searchNeighbourhoodPoint(r,phi,radius)
         phi0 = 0;
         phi1 = pi;
         for jj=1:10
             phiHalf = (phi1+phi0)/2;
-            [xHalf yHalf] = translate(r, phi, radius, phiHalf);
+            [xHalf yHalf] = ...
+                translate(r,phi,radius,phiHalf);
        
-            stabHalf = straightStabAnalizer(type, xHalf, yHalf, number, tau);
+            stabHalf = straightStabAnalizer(...
+                type,xHalf,yHalf,number,tau);
             if stabHalf == 1
                 phi1 = phiHalf;
             else

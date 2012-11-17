@@ -1,7 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Определяет принадлежность tau множеству интервалов 'evenSet'.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Определяет принадлежность tau множеству 
+% интервалов 'evenSet'.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function result = isInside(evenSet, tau)
 
 	% Supporting 'tau' as array.
@@ -16,10 +16,10 @@ function result = isInside(evenSet, tau)
 
 	% Check for even.
 	if mod(length(evenSet), 2) == 1
-		error('Input array ''evenSet'' must has the even length!');
+		error(['Input array evenSet '...
+            'must has the even length!']);
 	end
 
-	% Check if tau is included in one of the interval.
 	for j = 1:2:length(evenSet)
 		if evenSet(j) < tau && tau < evenSet(j+1)
 			result = 1;

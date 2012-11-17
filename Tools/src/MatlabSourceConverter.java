@@ -54,18 +54,19 @@ public class MatlabSourceConverter
 		{
 			scan = new Scanner(file, "utf8");
 			writer = new PrintWriter(new File(MATLAB_DIR_IN_THESIS
-					+ File.separator + dir.getName(), file.getName()
-					.replace(".m", ".tex")), "cp1251");
-			writer.println("\\begin{verbatim}");
+					+ File.separator + dir.getName(), file.getName()), "cp1251");
+			//writer.println("\\begin{verbatim}");
 			while (scan.hasNextLine())
 			{
 				String line = scan.nextLine();
 				if (line.trim().length() > 1)
 				{
-					writer.println(line.replaceAll("\t", "    "));
+					//line = line.replaceAll("                ", "\t\t\t\t");
+					//line = line.replaceAll("        ", "\t\t");
+					writer.println(line.replaceAll("    ", "\t"));
 				}
 			}
-			writer.println("\\end{verbatim}");
+			//writer.println("\\end{verbatim}");
 		} catch (IOException e)
 		{
 			e.printStackTrace();

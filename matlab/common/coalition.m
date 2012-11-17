@@ -1,7 +1,9 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Возвращает массив чётной длины, представляющий собой упорядоченный набор 
-% множеств (отрезков) и являющийся объединением наборов множеств set1 и set2.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Возвращает массив чётной длины, 
+% представляющий собой упорядоченный набор 
+% множеств (отрезков) и являющийся объедине-
+% нием наборов множеств set1 и set2.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function result = coalition(set1, set2)
     % проверка входных параметров.
     validate(set1);
@@ -34,15 +36,18 @@ function result = coalition(set1, set2)
     end
 
     % Perform coalition complex and simple set.
-    % First and last indexed of simple set in the complexSet.
+    % First and last indexed of simple set 
+    %in the complexSet.
     maxIndex = length(complexSet)+1;
     first=maxIndex;
     last=maxIndex;
     for n=1:length(complexSet)
-        if first == maxIndex && set(1)<complexSet(n)
+        if first == maxIndex && ...
+                set(1)<complexSet(n)
             first = n;
         end
-        if last == maxIndex && set(2)<complexSet(n)
+        if last == maxIndex && ...
+                set(2)<complexSet(n)
             last = n;
         end
     end
@@ -50,17 +55,20 @@ function result = coalition(set1, set2)
     % Insert simple set into complex set.
     if mod (first,2) == 1  % odd index
         if first == last
-            result = [complexSet(1:first-1), set, complexSet(last:end)];
+            result = [complexSet(1:first-1), ...
+                set, complexSet(last:end)];
             return;
         elseif last>length (complexSet)
             result = [complexSet(1:first-1), set];
             return;
         end
         if mod (last, 2) == 1 % odd index
-            result = [complexSet(1:first-1), set, complexSet(last:end)];
+            result = [complexSet(1:first-1), ...
+                set, complexSet(last:end)];
             return;
         else
-            result = [complexSet(1:first-1), set(1), complexSet(last:end)];
+            result = [complexSet(1:first-1), ...
+                set(1), complexSet(last:end)];
             return;
         end
     else % first index even.
@@ -69,24 +77,27 @@ function result = coalition(set1, set2)
             return;
         end
         if mod (last, 2) == 1 % odd index
-            result = [complexSet(1:first-1), set(2), complexSet(last:end)];
+            result = [complexSet(1:first-1), ...
+                set(2), complexSet(last:end)];
             return;
         else
-            result = [complexSet(1:first-1), complexSet(last:end)];
+            result = [complexSet(1:first-1), ...
+                complexSet(last:end)];
             return;
         end
     end
-        % Проверяет, что массив имеет чётную длину и состоит из неубывающих
-        % значений.
-        function validate(set)
-            if mod(length(set), 2) == 1 
-                error(['Input array [' num2str(set) '] should has the even length!']);
-            end
-            for n=1:length(set)-1
-                if set(n)>set(n+1)
-                    error(['Input array [' num2str(set) ...
-                        '] should consist of increasing values!']);
-                end
+    % Проверяет, что массив имеет чётную 
+    % длину и состоит из неубывающих значений.
+    function validate(set)
+        if mod(length(set), 2) == 1 
+            error(['Input array [' num2str(set) ...
+                '] should has the even length!']);
+        end
+        for n=1:length(set)-1
+            if set(n)>set(n+1)
+                error(['Input array [' num2str(set) ...
+            '] should consist of increasing values!']);
             end
         end
+    end
 end

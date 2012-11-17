@@ -1,11 +1,13 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Строит конус устойчивости.
 %
-% Usage: cone(lambda, mu), 
-%        where lambda, mu are the eigenvalues of matrixes A, B.
-% Example:
-% cone ([0.06+1.8658i 0.06-1.8658i],[0.025+0.1555i 0.025-0.1555i], 7, 0.5)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Использование: cone(lambda, mu), 
+%        где lambda, mu - собственные значения
+% матриц A, B.
+% Пример:
+% cone ([0.06+1.8658i 0.06-1.8658i],...
+% [0.025+0.1555i 0.025-0.1555i], 7, 0.5)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function cone
     if exist('n', 'var') == false 
         n=100;
@@ -15,14 +17,17 @@ function cone
     tau_cone = 1;
     W = pi/tau_cone-0.5; %pi/6;
 
-    w=-W:2*W/100:W;         %вектор для реализации основания конуса(круг)
-    %z=-1/tau_cone:0.1:1.5;            %накопление вектора z
+    %вектор для реализации основания конуса(круг)
+    w=-W:2*W/100:W;         
     z=-w./tan(w*tau_cone);
-    [W,Z]=meshgrid(w,z);        %задание 3-х мерной матрицы(пространства)
-
-    X=W.*sin(tau_cone*W) - Z.*cos(tau_cone*W); %задание вектора фигуры по оси x
-    Y=-W.*cos(tau_cone*W) - Z.*sin(tau_cone*W);%задание вектора фигуры по оси y
-
+    %задание 3-х мерной матрицы(пространства)
+    [W,Z]=meshgrid(w,z);        
+    
+    %задание вектора фигуры по оси x
+    X=W.*sin(tau_cone*W) - Z.*cos(tau_cone*W); 
+    %задание вектора фигуры по оси y
+    Y=-W.*cos(tau_cone*W) - Z.*sin(tau_cone*W);
+    
     for ii=n/2+1 : n+1
 		for j=1 : n+1 
 			Z(ii,j)=1;%tau_cone/(tau_cone);
@@ -44,9 +49,12 @@ function cone
     colormap(gray);
 
     mesh(X, Y, Z)
-    xlabel('$u_{1}$','Interpreter','latex','FontSize',30);
-    ylabel('$u_{2}$','Interpreter','latex','FontSize',30);
-    zlabel('$u_{3}$','Interpreter','latex','FontSize',30);
+    xlabel('$u_{1}$','Interpreter','latex',...
+        'FontSize',30);
+    ylabel('$u_{2}$','Interpreter','latex',...
+        'FontSize',30);
+    zlabel('$u_{3}$','Interpreter','latex',...
+        'FontSize',30);
 
     view([-30 30]);
     alpha(.2);
