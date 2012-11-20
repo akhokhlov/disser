@@ -29,7 +29,7 @@ F1(\tau,n)= \frac{1}{4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} },
 
 \begin{theorem}\label{th:stab_linear_finite}
 % 1. Если  $|ab|<\frac {1}{4} $, то система  \eqref{matrixbrokenequ},
-% \eqref{matrixbroken} асимптотически устойчива при любом $n$ и любом
+% \eqref{matrixbroken} асимптотически устойчива при любом $n\geqslant3$ и любом
 % $\tau\geqslant 0$.\\  
 1. Если  $0\leqslant ab <\frac {1}{4\cos^2\frac{\pi}{n+1}} $, то система  
 \eqref{matrixbrokenequ},
@@ -88,7 +88,7 @@ u_{21n}= 2\tau \sqrt{|ab|} \cos \frac{\pi }{n+1}=
 Пункты 3 и 4 Теоремы  \ref{th:stab_linear_finite}   доказаны.  
  \end{proof} 
 
-Теорема \ref{th:stab_linear_finite} проиллюстрирована рисунком \ref{fig:linear_finite}.
+Теорему \ref{th:stab_linear_finite} иллюстрирует рис.~\ref{fig:linear_finite}.
 
 \begin{figure}[!ht]
     \centering
@@ -137,8 +137,7 @@ u_{21n}= 2\tau \sqrt{|ab|} \cos \frac{\pi }{n+1}=
 неустойчива, назовем парадоксальной областью  при данных $\tau, n$. Таким образом, парадоксальная
 область это область значений параметров, в которых нарушается принцип <<разрыв
 кольца благоприятен для устойчивости>>. 
-На следующем рисунке \ref{fig:comparison_ring_and_linear_finite} 
-показано, что
+На рис.~\ref{fig:comparison_ring_and_linear_finite} показано, что
 при $\tau=0,5$ парадоксальная область заметна в сети с  количеством нейронов
 $n=3$, отсутствует при $n=4$ и  весьма мала при $n=5, \, n=6$. Мы не приводим
 здесь результаты экспериментов при $n>6$. 

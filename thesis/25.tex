@@ -2,8 +2,7 @@
 \label{sec25}
  
 Выясним, что  происходит с устойчивостью , когда разорвана связь между, скажем,
-первым и последним нейронами в  модели кольцевой сети нейронов (рисунок
-\ref{fig:linear_neurons}). 
+первым и последним нейронами в  модели кольцевой сети нейронов (рис.~\ref{fig:linear_neurons}). 
  
  \begin{figure}[ht]%\hspace*{1mm}
 \begin{center}
@@ -62,20 +61,20 @@ F(\tau)= \frac{1}{4\sin^2\omega(\tau)},
 
 \begin{theorem}\label{th:stab_linear}
 1. Если  $0 \leqslant ab <\frac {1}{4} $, то система  \eqref{matrixbrokenequ},
-\eqref{matrixbroken} асимптотически устойчива при любом $n$ и любом
+\eqref{matrixbroken} асимптотически устойчива при любом $n\geqslant3$ и любом
 $\tau\geqslant 0$.\\  
 2. Если $ab> \frac {1}{4}$, то  система  \eqref{matrixbrokenequ},
 \eqref{matrixbroken} неустойчива при любом $\tau\geqslant 0$, если $n$
 достаточно велико. \\  
 3. Если  $ab<0$ и $|ab|<F(\tau)$, то система \eqref{matrixbrokenequ},
-\eqref{matrixbroken} асимптотически устойчива  при любом $n$.\\ 
+\eqref{matrixbroken} асимптотически устойчива  при любом $n\geqslant3$.\\ 
 4. Если $ab<0$ и  $|ab|>F(\tau)$, то система \eqref{matrixbrokenequ},
 \eqref{matrixbroken} неустойчива, если $n$ достаточно велико.  
 \end{theorem}
  
  Доказательство Теоремы \ref{th:stab_linear}  дано в  разделе \ref{sec26}. 
  
- Теорема  \ref{th:stab_linear} иллюстрируется рисунком  \ref{fig:domainbroken}.        
+ Теорему \ref{th:stab_linear} иллюстрирует рис.~\ref{fig:domainbroken}.        
 \begin{figure}[ht]%\hspace*{1mm}
 	\begin{center}
 	\includegraphics[scale=0.7]{domain_for_line_of_neurons}
@@ -85,8 +84,8 @@ $\tau\geqslant 0$.\\
 		 количестве нейронов $n$  }      
 	\label{fig:domainbroken}
 \end{figure}
-Сравнивая рисунки \ref{fig:domain_yes_delayright}  и  \ref{fig:domainbroken}, мы
-видим, что при разрыве кольца нейронов область устойчивости в пространстве
+Сравнивая рис.~\ref{fig:domain_yes_delayright}  и  рис.~\ref{fig:domainbroken},
+мы видим, что при разрыве кольца нейронов область устойчивости в пространстве
 параметров  увеличивается, если количество нейронов достаточно велико.
 Это подтверждается следующей теоремой. 
 
@@ -97,7 +96,8 @@ $\tau\geqslant 0$.\\
 Для любых действительных значений  параметров $a$, $b$, $\tau>0$ найдется такое 
 $n_0$, что для всех $n>n_0$ верно утверждение: либо система  \eqref{matrixP}, 
 \eqref{mainmatrix2} для кольца нейронов неустойчива, либо  система  
-\eqref{matrixbrokenequ},  \eqref{matrixbroken} для сети с линейной конфигурацией нейронов асимптотически устойчива.
+\eqref{matrixbrokenequ},  \eqref{matrixbroken} для сети с линейной конфигурацией 
+нейронов асимптотически устойчива.
 \end{theorem}
 
 
@@ -112,7 +112,8 @@ $a=0$ (или $b=0$) Теорема \ref{th:stab_linear}  гарантирует  устойчивость
 В интерпретации это означает, что при разрыве кольца нейронов блокировка
 взаимодействия нейронов с правым (или левым) соседом гарантирует устойчивость
 при любом запаздывании, что отнюдь неверно для неповрежденного кольца  нейронов
-(см.  Теорему \ref{th:stab_with_great_n} и Рисунки~\ref{fig:domain_no_delayright},~\ref{fig:domain_yes_delayright}).   
+(см.  Теорему \ref{th:stab_with_great_n} и
+рис.~\ref{fig:domain_no_delayright},~\ref{fig:domain_yes_delayright}).
 
 Рассмотрим вариант $a=-b$ в \eqref{matrixbrokenequ}, \eqref{matrixbroken}.
 Положим   $H(\tau)=\sqrt{F(\tau)}$ (см. \eqref{Ftau}, \eqref{omegaboundary}). 
