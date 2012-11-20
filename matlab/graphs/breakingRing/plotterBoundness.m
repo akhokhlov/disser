@@ -1,4 +1,5 @@
-function [minX, maxX, figure1] = plotterBoundness(type, tau, number, epsilon, c, minX, maxX)
+function [minX, maxX, figure1] = ...
+plotterBoundness(type, tau, number, epsilon, c, minX, maxX)
 fontsize=24;
 ticksize=22;
 
@@ -35,15 +36,16 @@ save('var', 'c');
     text('String','unstab',...
      'Position',[2.5 3],...
      'FontSize',fontsize);
- 
-% axes
-set(gca, 'FontSize',ticksize);
+     % axes
+    set(gca, 'XTick',[-4 -2 0 2 4 ], 'YTick',...
+        [ -4 -2 0 2 4 ], 'FontSize',ticksize);
+
  
     
     % Масштабирование
     ax=axis;
-    x1= -5.5;
-    x2= 5.5;
+    x1= -5.9;
+    x2= 5.9;
     if exist('minX', 'var')
         x1=minX;
     end
@@ -63,8 +65,6 @@ set(gca, 'FontSize',ticksize);
      
     strTau = num2str(tau);
     
-    % axes
-    set(gca, 'XTick',[ -4 -2 0 2 4], 'YTick',[ -4 -2 0 2 4], 'FontSize',ticksize);
 
     %mkdir(dir);
     figureName = ['tau' strTau '_n' num2str(number) '_c' num2str(c)];
