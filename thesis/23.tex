@@ -12,7 +12,9 @@
     j}^{n}|\alpha_{jk}|\}> \max_{1\leqslant j \leqslant n}\sum_{k=1}^{n}
     |\beta_{jk}|,
 \end{equation}
-где $\alpha_{jk},\beta_{jk}$ суть элементы матриц $A,B$ соответственно. Отсюда
+где $\alpha_{jk},\beta_{jk}$ суть элементы матриц $A,B$ соответственно.
+
+Отсюда
 вытекает следующее Предложение.
 
 \begin{prop}\label{prop:stab1}
@@ -36,7 +38,7 @@ $n\geqslant3$ и любом $\tau\geqslant 0$.
 
 Доказательство Теоремы~\ref{th:stab_with_great_n}  будет
 дано в  разделе~\ref{sec26}. Предложение~\ref{prop:stab1} и
-Теорема~\ref{th:stab_with_great_n} не дает информации о поведении систем
+Теорема~\ref{th:stab_with_great_n} не дают информации о поведении систем
 \eqref{matrixP},~\eqref{mainmatrix1} и~\eqref{matrixP},~\eqref{mainmatrix2} для
 случая, когда выполнены одновременно неравенства $|a+b|<1$ и 
 \linebreak $|a|+|b|~>~1$.
@@ -46,46 +48,33 @@ $n\geqslant3$ и любом $\tau\geqslant 0$.
 
 Здесь мы представляем 
 результаты применения программного продукта, Предложения~\ref{prop:stab1} и
-Теоремы~\ref{th:stab_with_great_n} (см. также \cite{conf_SMO_2011}).
+Теоремы~\ref{th:stab_with_great_n}. На
+рис.~\ref{fig:domain} (а), (б) показаны области
+$D_{\tau}$ в плоскости параметров $(a, b)$ модели нейронной сети для некоторых значений~$\tau$. 
+\begin{figure}[!ht] 
+    \centering
+    \subfloat[][]{\includegraphics[width=8cm]{graph1}}\quad 
+    \subfloat[][]{\includegraphics[width=8cm]{graph2}}
+    \caption[]{Области устойчивости  для системы~\eqref{matrixP},~\eqref{mainmatrix1} (а)
+        и системы~\eqref{matrixP},~\eqref{mainmatrix2} (б) с~неограниченным числом нейронов}
+	\label{fig:domain}
+\end{figure}
 
-На рис.~\ref{fig:domain_no_delayright},~\ref{fig:domain_yes_delayright} 
-показаны области $D_{\tau}$ в плоскости параметров $(a, b)$ модели нейронной сети для некоторых
-значений~$\tau$. Область $D_{\tau}$ является расширением области, заданной
-неравенством $|a|+|b|<1$, на северо-запад и юго-восток до границ, зависящих от
-$\tau$. Если точка    $(a, b)$ лежит внутри  $D_{\tau}$ на Рис.
-\ref{fig:domain_no_delayright}, то система~\eqref{matrixP},~\eqref{mainmatrix1}
+
+
+
+Область $D_{\tau}$ является расширением области, заданной
+неравенством $|a|\hm{+}|b|<1$, на северо-запад и юго-восток до границ, зависящих от
+$\tau$. Если точка    $(a, b)$ лежит внутри  $D_{\tau}$ на рис.
+\ref{fig:domain}~(а), то система~\eqref{matrixP},~\eqref{mainmatrix1}
 асимптотически устойчива. Если  $(a, b)$ лежит вне   $D_{\tau}$ на 
-рис.~\ref{fig:domain_no_delayright}, то система~\eqref{matrixP},
+рис.~\ref{fig:domain}~(а), то система~\eqref{matrixP},
 \eqref{mainmatrix1} неустойчива при достаточно больших $n$. Аналогичные
-утверждения верны для рис.~\ref{fig:domain_yes_delayright} и системы
+утверждения верны для рис.~\ref{fig:domain}~(б) и системы
 \eqref{matrixP}, ~\eqref{mainmatrix2}. Область $D_{\tau}$
 центрально-симметрична: если $(a,b)\in D_{\tau}$, то $(-a,-b)\in D_{\tau}$.     
 При одинаковых~$\tau$  область устойчивости для системы~\eqref{matrixP}, 
-\eqref{mainmatrix1} шире области для~\eqref{matrixP},~\eqref{mainmatrix2}.  
-
-\vspace{5mm}       
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=1]{graph1}
-    \caption{
-        Области устойчивости  для системы~\eqref{matrixP},~\eqref{mainmatrix1} 
-        с неограниченным числом нейронов
-        }
-    \label{fig:domain_no_delayright}
-\end{figure}
- 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=1]{graph2}
-    \caption{
-        Области устойчивости  для системы~\eqref{matrixP},~\eqref{mainmatrix2} 
-        с неограниченным числом нейронов
-        }
-    \label{fig:domain_yes_delayright}
-\end{figure}
-
-%\end{input}
+\eqref{mainmatrix1} шире области для~\eqref{matrixP},~\eqref{mainmatrix2}.      
 
 Для обеих систем  важна  прямая $a=-b$  в плоскости $(a, b)$, в окрестности
 которой сконцентрированы точки устойчивости систем. Поэтому естественно
@@ -166,7 +155,7 @@ $a_1(\tau)\sqrt{2\tau}\simeq 1.0017$, $a_2(\tau)2\sqrt{\tau}\simeq 1.0033$.
 
  Для построения областей устойчивости и
 неустойчивости исследуемых моделей  в плоскости параметров
-(рис.~\ref{fig:domain_no_delayright}, ~\ref{fig:domain_yes_delayright}) и
+(рис.~\ref{fig:domain}) и
 составления таблицы~\ref{tab:boundaries} потребовалось многократное применение
 программы <<Устойчивость  нейронных сетей>>, что послужило толчком к созданию
 нового программного продукта, который будет подробно описан в

@@ -7,12 +7,12 @@
 задача об устойчивости  сети из двух \cite{Wei&Ruan_1999}, трёх
 \cite{Campbell&Ncube&Wu_2006} или четырех \cite{Campbell&Ruan&Wei_1999,Lu&Guo_2008}  нейронов. Задачу об устойчивости кольцевой системы
 произвольного количества нейронов  рассматривали Y. Yuan, S. Campbell~\cite{Yuan&Campbell_2004}. 
-В \cite{Yuan&Campbell_2004} изучена следующая модель 
+В~\cite{Yuan&Campbell_2004} изучена следующая модель 
  кольцевой нейронной  сети:
 \begin{equation}\label{mainCampbell}
     \dot{x}_{j}(t) + x_{j}(t) + \alpha\,  x_{j}(t-\tau_s) +  \beta\, 
-    (x_{j-1}(t) +  x_{j+1}(t-\tau)) = 0 \qquad 
-    (j\; {\rm{mod}}\; n),
+    (x_{j-1}(t) +  x_{j+1}(t-\tau)) = 0 \;
+    (j\; {\rm{mod}}\; n).
 \end{equation}
 В уравнении \eqref{mainCampbell} реакция нейрона на собственный сигнал
 (selfconnection) разделена на две части: мгновенная реакция с интенсивностью 1 и
@@ -21,8 +21,8 @@
 одинаковые интенсивности $\beta$. 
 Если положить $\alpha=0$, то система \eqref{mainCampbell} совпадет с частным
 случаем нашей системы \eqref{main2}  с $a=b$. Как показывают Предложение
-\ref{prop:stab1} и  Теорема  \ref{th:stab_with_great_n}, а~также  рис.~\ref{fig:domain_yes_delayright}, 
-поведение таких систем   несложно: при
+\ref{prop:stab1} и  Теорема  \ref{th:stab_with_great_n}, а~также 
+рис.~\ref{fig:domain}, поведение таких систем   несложно: при
 $|\beta|<1/2$ система устойчива независимо от запаздывания, при   $|\beta|>1/2$
 система неустойчива независимо от запаздывания.  
 Сложность  динамики в модели  Юан-Кэмпбелл \eqref{mainCampbell}

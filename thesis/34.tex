@@ -7,7 +7,7 @@
 
 
 В разделе \ref{sec25} мы строили область устойчивости модели
-линейной сети с неограниченным количеством нейронов, и эти  области не 
+линейной сети с~неограниченным количеством нейронов, и эти  области не 
 зависела от величины $n$ в системе уравнений  \eqref{matrixbrokenequ},  \eqref{matrixbroken}. 
 В настоящем разделе мы дадим полное описание области устойчивости для линейной системы из $n$
 нейронов. Эти области, естественно, зависят от $n$.
@@ -90,10 +90,10 @@ u_{21n}= 2\tau \sqrt{|ab|} \cos \frac{\pi }{n+1}=
 
 Теорему \ref{th:stab_linear_finite} иллюстрирует рис.~\ref{fig:linear_finite}.
 
-\begin{figure}[!ht]
+\begin{figure}
     \centering
-    \subfloat{\includegraphics[width=8.6cm]{finite_line_fix_tau}}
-    \subfloat{\includegraphics[width=8.6cm]{finite_line_fix_n}}\\
+    \subfloat{\includegraphics[width=8.5cm]{finite_line_fix_tau}}
+    \subfloat{\includegraphics[width=8.5cm]{finite_line_fix_n}}\\
        \caption{%
         Границы областей  устойчивости для линейной конфигурации нейронов
         (система  \eqref{matrixbrokenequ}, \eqref{matrixbroken}). На рисунке
@@ -114,27 +114,9 @@ u_{21n}= 2\tau \sqrt{|ab|} \cos \frac{\pi }{n+1}=
 показывают, что это же явление, за некоторыми исключениями, имеет место и при
 небольшом количестве нейронов. 
 
-\begin{figure}
-    \centering
-\vspace*{-4mm}
-    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n3}}
-    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n4}}\\
-    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n5}}
-    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n5_zoom}}\\
-    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n6}}
-    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n6_zoom}}\\
-    \caption{%
-      Границы областей  устойчивости для кольцевой  (система \eqref{matrixP},
-        \eqref{mainmatrix2}, границы очерчены кружочками) и линейной  (система 
-        \eqref{matrixbrokenequ}, \eqref{matrixbroken},  сплошные линии)
-        конфигураций  нейронов, $\tau=0,5$. Для $n=5, \, n=6$ дополнительно
-        парадоксальная область показана в увеличении}    
-    \label{fig:comparison_ring_and_linear_finite }
-\end{figure}
-
-Область тех значений параметров $(a,b)$, при которых
+Область тех значений параметров $(a,\,b)$, при которых
 кольцевая система нейронов устойчива, а линейная с теми же параметрами
-неустойчива, назовем парадоксальной областью  при данных $\tau, n$. Таким образом, парадоксальная
+неустойчива, назовем парадоксальной областью  при данных $\tau,\,n$. Таким образом, парадоксальная
 область это область значений параметров, в которых нарушается принцип <<разрыв
 кольца благоприятен для устойчивости>>. 
 На рис.~\ref{fig:comparison_ring_and_linear_finite} показано, что
@@ -151,3 +133,22 @@ $n=3$, отсутствует при $n=4$ и  весьма мала при $n=5, \, n=6$. Мы не приводим
 $\tau$ точки $M_j$ (см. \eqref{mjbroken}) перемещаются в верхние слои конуса
 устойчивости (см. Теорему \ref{th:stab_linear}), которые больше похожи на
 окружности, чем нижние. 
+
+
+\begin{figure}
+    \centering
+\vspace*{-4mm}
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n3}}
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n4}}\\
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n5}}
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n5_zoom}}\\
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n6}}
+    \subfloat{\includegraphics[width=6.5cm]{ringAndLine/finite_line_circle_n6_zoom}}\\
+    \caption{%
+      Границы областей  устойчивости для кольцевой  (система \eqref{matrixP},
+        \eqref{mainmatrix2}, границы очерчены кружочками) и линейной  (система 
+        \eqref{matrixbrokenequ}, \eqref{matrixbroken},  сплошные линии)
+        конфигураций  нейронов, $\tau=0,5$. Для $n=5, \, n=6$ дополнительно
+        парадоксальная область показана в~увеличении}    
+    \label{fig:comparison_ring_and_linear_finite}
+\end{figure}
