@@ -77,6 +77,8 @@
 \usepackage[russian, english]{babel}
 %Пакет для вставки рисунков
 \usepackage{graphics,graphicx}
+%\usepackage{caption}
+%\usepackage{subcaption}
 %\usepackage{pgf}
 
 % выравнивание по ширине
@@ -128,7 +130,7 @@
 
 
 
-\title[Исследование устойчивости]{Исследование устойчивости
+\title[Исследование устойчивости]{Устойчивость
 нейронных сетей кольцевой и линейной конфигураций с запаздывающими взаимодействиями}
 \author{Хохлова Татьяна Наилевна}
 \institute{
@@ -160,15 +162,21 @@
     
     Целью работы является изучение проблемы устойчивости кольцевых и линейных нейронных сетей, 
     взаимодействие в~которых описывается матричным дифферениальным урав\-не\-нием с запаздыванием $\tau$:
-    
+    \vskip-7pt
     \begin{equation}\label{maineqmatrix}
         \dot{x}(t)+A x(t)+B x(t-\tau)=0,
     \end{equation}
     где матрицы  $A, B$ содержат интенсивности мгновенного взаи\-модействия между нейронами и взаимодействия, 
     происходя\-щего с запаздыванием, соответственно.
 
-  \vspace{0.3cm}
+  \vspace{0.2cm}
+  Рассматривая модель \eqref{maineqmatrix},  мы имеем в виду, что
+	она в общем виде описывает результат линеаризации известных
+	нелинейных моделей Хопфилда-Маркуса-Вестервельта (1984,
+1989) или Коэна-Гроссберга(1983) или 
+Чуа--Янга--Роска (1988, 2004) вокруг некоторого решения.
   
+    \vspace{0.2cm}
     Под устойчивостью уравнения мы понимаем устойчивость его нулевого решения.
 \end{frame}
 
@@ -176,11 +184,11 @@
 
 \begin{frame}
 
-    \frametitle{Задачи}
+    \frametitle{ \centering  Задачи}
     \begin{itemize}
     %%\justifying
-     \item    разработать методы анализа устойчивости систем \eqref{maineqmatrix}  
-     произвольного порядка с запаздыванием и применить их для построения
+     \item    разработать методы анализа устойчивости уравнения 
+     \eqref{maineqmatrix} произвольного порядка с запаздыванием и применить их для построения
      областей устойчивости  в пространстве параметров.
      \item выявить динамику областей устойчивости при изменении количества
      нейронов в сети и изменении запаздывания во взаимодействии нейронов;
@@ -270,7 +278,8 @@
 
 
 \begin{frame}
-    \frametitle{Основной результат главы 1: критерий устойчивости уравнения~\eqref{maineqmatrix}}
+    \frametitle{Основной результат главы 1:\\   критерий
+    устойчивости уравнения~\eqref{maineqmatrix}}
         
     \begin{theorem}[1]\label{common:th:stab1}
     Пусть $A, B, S\in \mathbb{R}^{m\times m}$ и $S^{-1}AS=A_{T}$ и $S^{-1}BS=B_{T}$,
@@ -356,19 +365,24 @@
         \item $\tau\in \theta$, то система \eqref{maineqmatrix} асимптотически устойчива,
         \item $\tau\notin  [\tau_k , \, \tau_{k+1}] \quad 
         \forall k  \quad(1\leqslant k \leqslant N)$, 
-        то \eqref{maineqmatrix} неустойчива.
+        то система \eqref{maineqmatrix} неустойчива.
     \end{itemize}
 
 %\justifying
     Полученный результат позволяет решать вопрос об устой\-чивости,
     когда значения запаздывания~$\tau$ не~являются фиксированной величиной,
     а также избежать гео\-ме\-три\-чес\-ких построений.
-    Алгоритм положен в основу программы <<Анализ устойчивости>>.
+    
+    \vspace{0.2cm}
+    
+    Данный алгоритм, сводящий задачу устойчивости
+   \eqref{maineqmatrix}  к проверке принадлежности значе\-ния $\tau$ некоторой
+   системе интервалов, положен в основу программы <<Анализ устойчивости>>.
 \end{frame}
 
 
 \begin{frame}
-    \frametitle{Главное окно программы <<Анализ устойчивости>>}
+    \frametitle{ Главное окно программы <<Анализ устойчивости>>}
     \begin{figure}[ht]
     \centering
 	%\vskip -6pt
@@ -381,54 +395,76 @@
 
 \end{frame}
 
+
 \begin{frame}
-    \frametitle{Графическая интерпретация результатов в программе <<Анализ устойчивости>>}
+
+    \frametitle{ Графическая интерпретация результатов\\ в
+    программе <<Анализ устойчивости>>} 
+    
+    \vskip-8pt
+    \begin{tabular}[c]{@{}p{5.5cm}@{}@{}p{6.6cm}@{}}
     \begin{figure}[ht]
-    \centering
-    %\vskip -6pt
-    \includegraphics[scale=0.5]{conus_intersection}
-\end{figure}
+        \centering
+        \includegraphics<1>[width=5cm]{conus_intersection}
+        %\caption{Области устойчивости системы \eqref{main3}}
+        %\label{fig:circle_of_neurons}
+    \end{figure}
+   & 
+    \begin{itemize}
+      %\justifying
+      \item Винтовые линии {\textit 1, 2} образованы точками $M_1$, $M_2$
+      при переменном  $\tau$ и находятся внутри конуса устойчивости при $\tau\in(0,
+      0.44345)\cup(2.3348, 3.9385)\cup(6.6798, 7.4336)$.
+      \item Точки $M_3$ при переменном $\tau$ образуют прямую $3$ (так как
+      $\Im \lambda_{33}=0$), которая находится внутри конуса устойчивости при
+      $\tau\in(0, 19.3784)$.
+    \end{itemize}
+    
+\end{tabular}
+\vskip-10pt
+Вывод программы основан на теореме 1, согласно которой при
+фиксированном запаздывании для устойчивости требуется принадлежность всех точек
+$M_1, M_2, M_3$ конусу устойчивости.
+      
 \end{frame}
 
 
 
+  \begin{comment}
+
+
+\item   
+ В работах С.\,Кэмпбелл с~соавторами ~\cite{Campbell&Ruan&Wei_1999}
+   (1999),~\cite{Yuan&Campbell_2004} (2004) также изучена устойчивость
+   дифференциальных уравнений с запаздыванием со специальными матрицами. 
+Мы даем
+   решение задачи устойчивости более широкого класса уравнений вида \eqref{maineqmatrix},
+   обладающее при этом ясностью и геометрической наглядностью.
+   \item . Наши результаты
+   также перекрывают результаты Х.\,Мацунаги, который в~2007\,г. исследовал устойчивость частного случая основного уравнения~\eqref{maineqmatrix} с~некоторыми специальными $2\times 2$ матрицами~$A,B$, 
+\end{comment}
+
+
 \begin{frame}
 %\justifying 
-    \frametitle{Сравнение с известными результатами}
+ \frametitle{Сравнение с известными результатами}
    \begin{itemize}
-        \item  Результаты первой главы диссертации
-сильнее результатов статьи Б.\,Калона и Д.\,Шмидта~
-%\cite{CahlonSchmidt_2000} (2000), 
-
-в~которой рассматривалась задача об~устойчивости  узкого класса уравнений вида
+     \item  Результаты первой главы диссертации
+сильнее результатов Б.\,Калона и Д.\,Шмидта~(2000), 
+исследовавших~устойчивость узкого класса уравнений вида
 $
     \dot{x}(t)=\alpha A x(t) +(1-\alpha ) Ax(t-\tau), \, 0\leqslant \alpha\leqslant 1
 $
-с~$n\times n$ матрицей~$A$. 
+с~$2\times 2$ матрицей~$A$. 
+   \item Метод конусов устойчивости применим к значительно большему классу
+   уравнений, чем рассматриваемые в работе S. Sacata (1998) уравнения вида $
+    \dot{x}(t)=\alpha x(t) +Bx(t-\tau), \, 0\leqslant \alpha\leqslant 1
+$  с~$2\times 2$ матрицей~$B$ и действительным  $\alpha$, а
+   также изученный Х.\,Мацунага~(2007\,г.)
+   частный случая основного уравнения~\eqref{maineqmatrix} с~некоторыми
+   специальными $2\times 2$ матрицами~$A,B$. 
 
-\item 
-Наши результаты также перекрывают результаты Х.\,Мацунаги~
-%\cite{Matsunaga_2007}, 
-который в~2007\,г. исследовал устойчивость частного случая основного 
-уравнения~\eqref{maineqmatrix} с~некоторыми специальными $2\times 2$ матрицами~$A,B$, 
-и  S. Sacata %\cite{Sacata_1998} (1998).
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-%\justifying 
-   \begin{itemize}
-   \item В работах С.\,Кэмпбелл с~соавторами ~\cite{Campbell&Ruan&Wei_1999}
-   (1999),~\cite{Yuan&Campbell_2004} (2004)  изучена устойчивость круговых
-   нейронных сетей, взаимодействие в которых также описывается дифференциальным
-   уравнением с запаздыванием со специальными матрицами. Мы даем решение задачи
-   устойчивости более широкого класса уравнений вида \eqref{maineqmatrix},
-   обладающее при этом ясностью и геометрической наглядностью.
-
-   \item Впервые разработаны алгоритм, сводящий задачу устойчивости
-   \eqref{maineqmatrix}  к проверке принадлежности значе\-ния $\tau$ некоторой
-   системе интервалов, а также программа, сочетающая в себе возможность
+   \item Впервые разработаны алгоритм и программа, сочетающие в себе возможность
    аналитической оценки запаса устойчивости исследуемого уравнения и понятную
    интерпретацию результатов в терминах конуса устойчивости.
   \end{itemize}
@@ -439,14 +475,14 @@ $
 
 \begin{frame}
 %\justifying 
-    \frametitle{Глава 2. Численный и теоретический анализ устойчивости нейронных
-сетей с неограниченным количеством нейронов
-}
+    \frametitle{Глава 2. Численный и теоретический анализ устойчивости
+    моделей нейронных сетей кольцевой и линейной конфигураций с неограниченным
+    количеством нейронов }
  \begin{itemize}
    \item
 	В данной главе методы первой главы применены для исследования устойчивости
-	нейронных сетей круговой и линейной архитектуры, для работы с ними разработана
-	отдельная программа.
+	нейронных сетей кольцевой и линейной архитектуры, для работы с ними разработана
+	отдельная программа. 
 	\item Получены теоретические результаты, позволяющие строить области
 	устойчивости исследуемых моделей в плоскости параметров в случае большого
 	количества нейронов в сети.
@@ -457,7 +493,7 @@ $
 
    
 \begin{frame}
-    \frametitle{Круговые нейронные сети}
+    \frametitle{Кольцевые нейронные сети}
 Общим уравнением~\eqref{maineqmatrix} с совместно триангулируемыми матрицами
 могут быть описаны следующие нейронные сети с несимметричным взаимодействием
 нейронов с соседями
@@ -490,44 +526,23 @@ $
 
 
 \begin{frame}
-    \frametitle{Модификация алгоритма для систем\\ 
+    \frametitle{Модификация алгоритма для систем~\eqref{main1},~\eqref{main2}\\
     с большим количеством нейронов}
-    Собственные числа матриц $A$ и $B$ для системы~\eqref{main1} 
-    \begin{equation}
-    \label{lambdamu1}
-    \lambda_{j}^{'} = 1+a\,\exp(i\frac{2\pi j}{n}), \,  
-    \mu_{j}^{'}= b\,\exp(-i\frac{2\pi j}{n}), \, 1\leqslant j \leqslant n.
-    \end{equation}
-
-    Собственные числа матриц $A$ и $B$ для системы~\eqref{main2} 
-
-    \begin{equation}
-    \label{lambdamu2}
-    \lambda_{j}^{''} = 1, \,   \mu_{j}^{''}=a\, \exp(i\frac{2\pi j}{n}) + b\, 
-    \exp(-i\frac{2\pi j}{n}), \, 1\leqslant j \leqslant n.
-    \end{equation}
-\end{frame}
-
-
-
-\begin{frame}
-    \frametitle{Модификация алгоритма для систем\\ 
-    с большим количеством нейронов}
-    Согласно вышеуказанному алгоритму найдём $M_j^{'}$ для \eqref{main1} и 
-    $M_j^{''}$ для \eqref{main2} и, положив  $t=\frac{2\pi j}{n}$, введём
-    непрерывные кривые $M^{'}(t)=(u_1^{'}(t), u_2^{'}(t), u_3^{'}(t))$:
+    Собственные числа матриц $A$ и $B$ для исследуемых моделей могут быть
+    найдены в явном виде, что позволило найти точки $M_j^{'}$ для
+    системы~\eqref{main1} и $M_j^{''}$ для системы~\eqref{main2} согласно
+    вышеуказанному алгоритму и, положив $t=\frac{2\pi j}{n}$, ввести непрерывные кривые $M^{'}(t)=(u_1^{'}(t),
+    u_2^{'}(t), u_3^{'}(t))$:
   \vspace{0.3cm}
 
     \begin{equation}\label{curve1}
     \begin{array}{l}
      u_{1}^{'}(t)+iu_{2}^{'}(t)  = \tau b \,\exp(i(-t+a\, \tau\sin t)),  \\
-     u_{3}^{'}(t)             =\tau (1+a\cos t),  \quad 0\leqslant t \leqslant 2\pi.
+     u_{3}^{'}(t)             =\tau (1+a\cos t),  \quad 0\leqslant t \leqslant 2\pi
     \end{array}
     \end{equation}
-
-  \vspace{0.3cm}
-
-    и $M^{''}(t)=(u_1^{''}(t), u_2^{''}(t), u_3^{''}(t))$:
+    
+     и $M^{''}(t)=(u_1^{''}(t), u_2^{''}(t), u_3^{''}(t))$:
 
     \begin{equation}\label{curve2}
     \begin{array}{l}
@@ -537,15 +552,14 @@ $
     \end{equation}
 \end{frame}
 
-
 \begin{frame}
 %\justifying
     \frametitle{Критерий диагностирования устойчивости \\
     для сетей с большим количеством нейронов}
 Если все точки кривой $M^{'}(t)$ лежат внутри конуса устой\-чи\-вости, 
-то уравнение \eqref{main1} \alert{асимптотически устойчиво} при любом~$n$,  
+то уравнение \eqref{main1}  \bluetext{асимптотически устойчиво} при любом~$n$,  
 а если хотя~бы одна точка $M^{'}(t)$ кривой лежит вне конуса устойчивости,  
-то уравнение \eqref{main1} \alert{неустойчиво} при всех достаточно больших
+то уравнение \eqref{main1}  \bluetext{неустойчиво} при всех достаточно больших
 значениях $n$.
 Аналогично изучается уравнение \eqref{main2}.
 \vskip-20pt
@@ -570,8 +584,8 @@ $
 
 
 \begin{frame}
-  \frametitle{\Large Пример 1 работы программы <<Устойчивость нейронных сетей>>}
-  \begin{figure}[ht]
+  \frametitle{\Large Пример 1 работы программы\\ <<Устойчивость нейронных
+  сетей>>} \begin{figure}[ht]
     \centering
     \includegraphics[width=8.5cm]{ex1}
     %\caption{Области устойчивости системы \eqref{main3}}
@@ -603,7 +617,7 @@ $
 
 
 \begin{frame}
-  \frametitle{Пример 2 работы программы <<Устойчивость нейронных сетей>>}
+  \frametitle{Пример 2 работы программы\\ <<Устойчивость нейронных сетей>>}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=8.5cm]{ex2}
@@ -617,7 +631,7 @@ $
   \frametitle{Геометрическая иллюстрация для примера 2}
   \begin{figure}[ht]
     \centering
-    \includegraphics<1>[width=7cm]{ex2_unstab}
+    \includegraphics<1>[width=6.5cm]{ex2_unstab}
     \caption{Кривая $M^{''}(t)$ соответствует неустойчивости при всех $\tau$}
   \end{figure}
 \end{frame}
@@ -625,7 +639,7 @@ $
 
 
 \begin{frame}
-    \frametitle{Исследование границ областей устойчивости моделей 
+    \frametitle{Исследование границ областей устойчивости \\моделей 
     \eqref{main1}, \eqref{main2}  в плоскости параметров}
       %\justifying
 
@@ -650,6 +664,7 @@ $
     \frametitle{Области устойчивости $D_{\tau}$ уравнений \eqref{main1}, 
     \eqref{main2} \\с неограниченным числом нейронов}
 
+ \vskip-14pt
 \begin{columns}[t]
 	\begin{column}{0.5\textwidth}
 		\begin{figure}[ht]
@@ -675,28 +690,30 @@ $
 
 
 \begin{frame}
-    \frametitle{Линейная система нейронов}
+    \frametitle{Нейронная сеть линейной конфигурации}
 %\justifying
     \begin{figure}[htp]
         \centering
         \includegraphics[width=6cm]{line_of_neurons}
     \end{figure}
-    \begin{equation}\label{main3}
-        \left\{
-        \begin{array}{l}
-            \dot{x}_{1}(t) +  x_{1}(t) +   b\, x_{2}(t-\tau) = 0,  \\ \\
-            \dot{x}_{j}(t) +  x_{j}(t) +  a\, x_{j-1}(t-\tau) + b\, x_{j+1}(t-\tau) = 0, \\  
-            2\leqslant j\leqslant (n-1), \\ \\
-            \dot{x}_{n}(t) +  x_{n}(t) +  a\, x_{n-1}(t-\tau)  = 0, \qquad n>2.
-        \end{array}
-        \right.
-    \end{equation}
-
+  \begin{equation}\label{matrixbrokenequ}
+\dot{x}(t) +I\,x(t)+ D\,x(t-\tau)=0,    
+\end{equation}
+ где  $I$ есть единичная $n\times n$ матрица, а $n\times n$ матрица $D$ имеет вид
+\begin{equation}\label{matrixbroken}
+D=
+\begin{pmatrix}  
+  0  &  b & 0 &   \ldots &  0 &  0\\
+  a  &  0 & b &   \ldots &  0 &  0\\
+  0  &  a & 0 &   \ldots &  0 &  0\\
+  \vdots  & \vdots & \vdots  &   \ddots &  \vdots &  \vdots \\
+  0  &  0 & 0 &   \ldots &  0 &  b\\
+  0  &  0 & 0 &   \ldots &  a &  0   \\
+\end{pmatrix}.
+\end{equation}
     Введём функцию
-    \begin{equation}
-        \label{Ftau}
-        F(\tau)= \frac{1}{4\sin^2\omega(\tau)}, \qquad \tau\in (0,\infty),
-    \end{equation}
+$        F(\tau)= \dfrac{1}{4\sin^2\omega(\tau)}, \; \tau\in (0,\infty),
+$
     где $\omega(\tau)$ есть наименьший положительный корень уравнения
     \begin{equation}
         \label{omegaboundary}
@@ -709,65 +726,84 @@ $
 \begin{frame}
     \frametitle{Теоретические результаты}
 
-    \begin{theorem}[3] \label{th2}
+    \begin{theorem}[3] \label{th:stab_linear}
+     \vskip-8pt
     \begin{enumerate}
 
-        \item Если  $|ab|<\frac {1}{4} $, то система  \eqref{main3} 
+        \item Если  $|ab|<\frac {1}{4} $, то система \eqref{matrixbrokenequ},
+\eqref{matrixbroken}
         \bluetext{асимптотически ус\-той\-чива} \\при любом $n$ и любом $\tau\geqslant 0$.
         \vspace{0.1cm}
-        \item Если $ab> \frac {1}{4}$, то  система  \eqref{main3} \bluetext{неустойчива} 
+        \item Если $ab> \frac {1}{4}$, то  система \eqref{matrixbrokenequ},
+\eqref{matrixbroken} \bluetext{неустойчива} 
         при любом $\tau\geqslant 0$, \\
         если $n$ достаточно велико.
                \vspace{0.1cm}
-        \item Если  $ab<0$ и $|ab|<F(\tau)$, то система \eqref{main3} 
+        \item Если  $ab<0$ и $|ab|<F(\tau)$, то система \eqref{matrixbrokenequ},
+\eqref{matrixbroken} 
         \bluetext{асимп\-тотически устойчива}  при лю\-бом $n$.
                \vspace{0.1cm}
-        \item Если $ab<0$ и  $|ab|>F(\tau)$, то система \eqref{main3} 
+        \item Если $ab<0$ и  $|ab|>F(\tau)$, то система \eqref{matrixbrokenequ},
+\eqref{matrixbroken}
         \bluetext{неус\-той\-чива}, \\
         если $n$ достаточно велико.
     \end{enumerate}
     \end{theorem}
     Теорема 3 позволяет полностью описать области устой\-чи\-вости и неустойчивости
-   системы  \eqref{main3} в плоскости параметров. 
+   системы \eqref{matrixbrokenequ},
+\eqref{matrixbroken} в плоскости параметров. 
 \end{frame}
 
 
 \begin{frame}
-    \frametitle{Области устойчивости уравнения \eqref{main3} \\с неограниченным числом нейронов}
-    \begin{figure}[htp]
+    \frametitle{Области устойчивости системы \eqref{matrixbrokenequ},
+\eqref{matrixbroken} \\с неограниченным
+    числом нейронов}
+    
+    \begin{tabular}[c]{@{}p{6.5cm}@{}@{}p{6cm}@{}}
+\begin{figure}[htp]
         \centering
-        \includegraphics[width=7cm]{domain_for_line_of_neurons}
+        \includegraphics[width=6cm]{domain_for_line_of_neurons}
     \end{figure}
+    &
+    \begin{itemize}
+      %\justifying
+      \item Устойчивость, независимая от запаздывания, наблюдается во внутренней
+      области, ограниченной гиперболами $ab=1/4$ и $ab=-1/4$ .
+      \item Уменьшение запаздывания во взаимодействии нейронов расширяет область
+      устойчивости в плоскости параметров.
+    \end{itemize}
+
+
+        \end{tabular}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Сравнение областей устойчивости кольцевой ~\eqref{main2} и линейной 
-	\eqref{main3} сетей нейронов с неограниченным числом нейронов}
+	\frametitle{Сравнение областей устойчивости кольцевой~\eqref{main2} и линейной 
+	\eqref{matrixbrokenequ},
+\eqref{matrixbroken} сетей нейронов с неограниченным числом нейронов}
 	
-	\begin{theorem}[4]\label{common:th:comparison_ring_and_linear} 
-%\justifying 
-		Фиксируем значения параметров $a,b, \tau$ для системы~\eqref{main2}, 
-		 для кольца нейронов и  системы ~\eqref{main3}  для сети с линейной
-		 конфигурацией нейронов.
-		Если система~\eqref{main2}  асимптотически устойчива при любом количестве
-		нейронов $n$, то система~\eqref{main3} также асимптотически устойчива при
-		любом   количестве нейронов $n$.
-	\end{theorem}
-	
-	\vspace{5mm}
-	Теорема \ref{common:th:comparison_ring_and_linear} дает твердые основания к
-	заключению, что разрыв кольца нейронов расширяет область устойчивости сети при
-	большом количестве нейронов в сети.
+	\begin{theorem}[4] \label{common:th:comparison_ring_and_linear}
+Для любых действительных значений  параметров $a,b, \tau>0$ найдется такое
+$n_0$, что для всех $n>n_0$ верно утверждение: либо система~\eqref{main2} для кольца нейронов неустойчива, либо  система 
+\eqref{matrixbrokenequ},
+\eqref{matrixbroken}   для сети с линейной конфигурацией
+нейронов асимптотически устойчива. 
+\end{theorem}
+	\vspace{3mm}
+	Из Теоремы \ref{common:th:comparison_ring_and_linear} следует, что устойчивость 
+кольца с большим количеством нейронов влечет устойчивость линейной конфигурации,
+полученной при его разрыве, если параметры систем не меняются и количество
+нейронов достаточно велико. 
 \end{frame}
 
 \begin{frame}
 %\justifying 
     \frametitle{Новизна результатов главы 2}
 	\begin{itemize}
-   		\item Насколько известно автору, модели кольцевых нейронных сетей с
-		неопре­деленно большим количеством нейронов не рассматривались в литературе
-   		до работы автора диссертации совместно с научным руководителем.
+   		\item Впервые изучены модели кольцевых и линейных нейронных сетей с
+		неопре­деленно большим количеством нейронов.
 
   		\item  Предпринятое в настоящей главе теоретическое изучение устойчивости
  		моделей линей­ных конфигураций нейронов и сравнительный анализ областей
@@ -776,12 +812,305 @@ $
 
   		\item Алгоритмы и программы для анализа устойчивости данных моделей в
   		известной автору литературе отсутствуют.
+  		
+\item Утверждение о том, что разрыв кольца нейронов расширяет
+область устойчивости сети при большом количестве нейронов в сети, также
+является новым.
 	\end{itemize}
 \end{frame}
 
 \section{Глава 3}
+
+\begin{frame}
+%\justifying 
+    \frametitle{Глава 3. Численное и качественное исследование устойчивости
+    моделей нейронных сетей кольцевой и линейной конфигураций с ограниченным
+    количеством нейронов }
+
+Глава посвящена нахождению границ областей
+уравнения кольцевых нейронных сетей~\eqref{main1} и~\eqref{main2}
+и линейных нейронных сетей \eqref{matrixbrokenequ}, \eqref{matrixbroken} в
+плоскости параметров.
+
+  \vspace{0.2cm}
+  
+Для этого автором разработана специальная программа <<Построение  областей устойчивости круговых нейронных
+ сетей>>, основанная на многократной проверке точек плоскости $(a,b)$ на
+ устойчивость при различных значениях запаздывания и получении
+ кривой, состоящей из равномерного массива граничных точек и соответствующей
+ границе области устойчивости.
+		
+		
+\end{frame}
+
+		\begin{comment}
+
+\begin{frame}
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.3\textwidth}
+                \centering
+                \includegraphics[width=2.7cm]{ring_bounds/asym-0_5-3}%\caption{A
+                % gull}
+                \label{fig:gull}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}[b]{0.3\textwidth}
+                \centering
+                \includegraphics[width=2.7cm]{ring_bounds/asym-0_5-3}%\caption{A
+                % tiger}
+                \label{fig:tiger}
+        \end{subfigure}
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}[b]{0.3\textwidth}
+                \centering
+                \includegraphics[width=2.7cm]{ring_bounds/asym-0_5-3}%\caption{A
+                % mouse}
+                \label{fig:mouse}
+        \end{subfigure}
+        \caption{Pictures of animals}\label{fig:animals}
+\end{figure}
+\end{frame}
+		
+		\end{comment}
+
+
+\begin{frame}
+%\justifying 
+    \frametitle{Области устойчивости системы~\eqref{main1}}
+    \begin{figure}[pH]
+    \centering
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/asym-0_5-3}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/asym-0_5-4}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/asym-0_5-5}}\\
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/asym-0_5-6}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/asym-0_5-7}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/asym-0_5-8}}
+    \vskip-8pt\caption{%
+       Полученные с помощью программы <<Построение  областей устойчивости
+       круговых нейронных сетей>> границы областей  устойчивости для
+       системы~\eqref{main1} для $\tau=0.5$ и значений $n$ от 3 до 8 показаны кружками.  Сплошная линия~--- 
+         граница области устойчивости, гарантированной для любого $n$.}
+    \label{common:fig:asym-0_5}
+\end{figure}
+    \end{frame}
+    
+    
+    \begin{frame}
+%\justifying 
+    \frametitle{Области устойчивости системы~\eqref{main2}}
+    \begin{figure}[pH]
+    \centering
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/sym_tau01_n3}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/sym_tau01_n4}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/sym_tau01_n5}}\\
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/sym_tau01_n6}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/sym_tau01_n7}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/sym_tau01_n8}}
+    \vskip-8pt\caption{%
+       Полученные с помощью программы <<Построение  областей устойчивости
+       круговых нейронных сетей>> границы областей  устойчивости для
+       системы~\eqref{main2} для $\tau=0.5$ и значений $n$ от 3 до 8 показаны кружками.  Сплошная линия~--- 
+         граница области устойчивости, гарантированной для любого $n$.}
+    \label{common:fig:sym-0_5}
+\end{figure}
+    \end{frame}
+    
+    
+    
+    \begin{frame}
+%\justifying 
+    \frametitle{Линейная сеть \eqref{matrixbrokenequ},
+\eqref{matrixbroken}  из $n$ нейронов}
+    Определим функцию $F1(\tau,n)$ от
+запаздывания $\tau\in (0,\infty)$ и $n\in \mathbb{N}$: 
+\begin{equation}
+\label{F1taun} 
+F1(\tau,n)= \frac{1}{4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} },
+\end{equation}
+где $\omega(\tau)$ есть наименьший положительный корень уравнения \eqref{omegaboundary}. 
+
+    \vskip-3pt
+\begin{theorem}[5]\label{common:th:stab_linear_finite}
+1. Если $0\leqslant ab <\frac {1}{4\cos^2\frac{\pi}{n+1}} $, то система 
+\eqref{matrixbrokenequ}, \eqref{matrixbroken} асимптотически
+устойчива при любом $\tau\geqslant 0$.\\
+2. Если $ab>\frac {1}{4\cos^2\frac{\pi}{n+1}} $,  то  система  \eqref{matrixbrokenequ},
+\eqref{matrixbroken} неустойчива при любом $\tau\geqslant 0$. \\  
+3. Если  $ab<0$ и   $|ab|<F1(\tau,n)$,     то система \eqref{matrixbrokenequ},
+\eqref{matrixbroken} асимптотически устойчива.\\ 
+4. Если $ab<0$ и  $|ab|>F1(\tau,n)$, то система \eqref{matrixbrokenequ},
+\eqref{matrixbroken} неустойчива.  
+\end{theorem}
+    \vskip-3pt
+Теорема 5 (ср. с Теоремой  \ref{th:stab_linear}) 
+дает полное описание области устойчивости модели
+линейной конфигурации  $n$ нейронов.
+       \end{frame}
+       
+        \begin{frame}
+%\justifying 
+  		\frametitle{Иллюстрация к Теореме 5: границы областей  устойчивости для
+  		линейной сети нейронов \eqref{matrixbrokenequ},
+  		\eqref{matrixbroken}}
+ \vskip-18pt
+\begin{columns}[t]
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[ht]
+			\centering
+		    \includegraphics<1>[width=5.8cm]{finite_line_fix_tau}
+		    \caption{\centering запаздывание фиксировано, количество нейронов
+        меняется}
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{figure}[ht]
+			\centering
+		    \includegraphics<1>[width=5.8cm]{finite_line_fix_n}
+		    \caption{\centering количество нейронов фиксировано, запаздывание
+        меняется}
+		\end{figure}
+	\end{column}
+\end{columns}
+       
+      \end{frame}
+      
+      
+      
+      
+       \begin{frame}
+%\justifying 
+    \frametitle{Сравнение областей устойчивости \\
+    кольцевой и линейной нейронных сетей}
+    
+  Если количество нейронов в сети достаточно велико, то разрыв  кольцевой сети
+    может  только улучшить ее ус\-той\-чивость 
+(Теорема~\ref{common:th:comparison_ring_and_linear}).   
+Численные исследования с помощью программ показывают, что это же явление,
+за некоторыми исключениями, имеет место и при небольшом количестве нейронов.
+
+ \vskip 6pt
+ 
+Область тех значений параметров, при которых кольцевая система 
+нейронов устойчива, линейная с теми же параметрами неустойчива,   мы называем
+\bluetext{парадоксальной областью.} 
+
+\vskip 3pt
+
+В результате численных экспериментов выяснилось, что в моделях  сетей  с $n>6$ 
+парадоксальная область либо отсутствует, либо пренебрежимо мала, однако ее удалось обнаружить при
+$n<7$.
+
+      \end{frame}
+      
+      
+      
+      
+       \begin{frame}
+%\justifying 
+    \frametitle{Границы областей устойчивости кольцевой~\eqref{main2} и
+    линейной \eqref{matrixbrokenequ}, \eqref{matrixbroken} нейронных сетей}
+    
+    
+      \begin{tabular}[c]{@{}p{6.5cm}@{}@{}p{5.6cm}@{}}
+\begin{figure}[htp]
+        \centering
+         \vskip -18pt
+    \subfloat{\includegraphics[width=2.2cm]{ringAndLine/finite_line_circle_n3}}
+    \subfloat{\includegraphics[width=2.2cm]{ringAndLine/finite_line_circle_n4}}\\
+    \vskip -4pt
+
+    \subfloat{\includegraphics[width=2.2cm]{ringAndLine/finite_line_circle_n5}}
+    \subfloat{\includegraphics[width=2.2cm]{ringAndLine/finite_line_circle_n5_zoom}}\\
+    \vskip -4pt
+
+    \subfloat{\includegraphics[width=2.2cm]{ringAndLine/finite_line_circle_n6}}
+    \subfloat{\includegraphics[width=2.2cm]{ringAndLine/finite_line_circle_n6_zoom}}
+    \end{figure}
+    &
+    \justifying
+     Границы областей устойчивости для кольцевой сети (очерчены кружками) и
+     для линейной сети (показаны сплошными линиями) построены при
+     $\tau=0.5$ и значений $n$ от 3 до 6. Для $n=5,\,n=6$ парадоксальная область
+     дополнительно показана в увеличении.
+        
+ \vskip 3pt
+ 
+Парадоксальная область заметна в модели сети с  количеством нейронов
+$n=3$, отсутствует при $n=4$ и  весьма мала при $n=5,\,n=6$.
+    \end{tabular}
+      \end{frame}
+      
+      
+      
+   \begin{frame}
+%\j
+    \frametitle{Моделирование разрыва кольцевой сети нейронов}
+    
+Пусть в модели кольцевой сети
+из шести нейронов интенсивности взаимодействия между всеми нейронами, кроме
+первого и шестого, равны $a$ и $b$ (как в модели~\eqref{main2}), а  интенсивности воздействия 
+шестого нейрона на первый и первого нейрона на шестой равны соответственно 
+$ac$ и $bc$, где $c\geq 0$ -- некоторый параметр.
+
+
+Тогда взаимодействие нейронов в описанной модели  задается
+уравнением~\eqref{maineqmatrix} с~матрицами
+\begin{equation}\label{common:matrixbroken_c}
+A=I, \quad
+B=
+\begin{pmatrix}  
+  0  &  b & 0 &   0 &  0 &  ac\\[-1mm]
+  a  &  0 & b &  0 &  0 &  0\\[-1mm]
+  0  &  a & 0 &   b &  0 &  0\\[-1mm]
+  0  & 0 & a  &   0 &  b &  0 \\[-1mm]
+  0  &  0 & 0 &   a &  0 &  b\\[-1mm]
+  bc  &  0 & 0 &   0 &  a &  0   \\
+\end{pmatrix}.
+\end{equation}
+При $c=1$ система~\eqref{maineqmatrix},~\eqref{common:matrixbroken_c}
+описывает кольцевую сеть~\eqref{main2}.
+С изменением $c$ от единицы до нуля интенсивность взаимодействия между первым 
+и шестым нейронами в системе~\eqref{maineqmatrix},~\eqref{common:matrixbroken_c} 
+постепенно ослабевает, и при $c=0$ кольцо нейронов размыкается. 
+      \end{frame}
+      
+        \begin{frame}
+%\justifying 
+    \frametitle{Динамика области устойчивости в процессе\\ разрыва нейронного
+    кольца} \begin{figure}[h!]
+    \centering
+    \subfloat{\includegraphics[width=2.7cm]{breakingRing/tau01_n6_c1}}
+    \subfloat{\includegraphics[width=2.7cm]{breakingRing/tau01_n6_c05}}
+    \subfloat{\includegraphics[width=2.7cm]{breakingRing/tau01_n6_c01}}\\
+    \subfloat{\includegraphics[width=2.7cm]{breakingRing/tau01_n6_c001}}
+    \subfloat{\includegraphics[width=2.7cm]{breakingRing/tau01_n6_c0001}}
+    \subfloat{\includegraphics[width=2.7cm]{breakingRing/tau01_n6_c00001}}
+    \caption{
+       \centering Границы областей  устойчивости для системы
+       \eqref{maineqmatrix},~\eqref{common:matrixbroken_c} для $\tau=0.1$ и \\ \centering $c=1$, $c=0.5$,
+       $c=0.1$, $c=0.01$, $c=0.001$, $c=0$.
+     }
+    \label{common:fig:sym-0_1-6-0_1}
+\end{figure}
+      \end{frame}
+   
+      
+      
+       \begin{frame}
+       
+      
+       \frametitle{Сравнение с известными результатами}
+       текст
+      \end{frame}
+       
+       
+      
 \section{Заключение}
 
+\end{document}
 
 \section{Литература}
 \begin{frame}[allowframebreaks]
@@ -806,10 +1135,7 @@ $
     \newblock Stability cone for linear delay differential matrix equation
     \newblock {\em Appl. Math. Letters} (2011) V. 24, p.742--745.
 
-    \bibitem{Ivanov-Kipnis-Malygina}
-    Ivanov~S.\,A.,  Kipnis~M.\,M., Malygina~V.\,V.
-    \newblock The stability cone for a difference matrix equation  with two delays
-    \newblock {\em ISRN Appl. Math.} (2011) p.1--19.
+  
 
     \bibitem{ofernio}
     Хохлова~Т.\,Н.
@@ -824,18 +1150,12 @@ $
     \newblock URL: https://sites.google.com/site/stabilityanalysis/stability\_networks.
 
 
-\bibitem{CahlonSchmidt_2000}
-	B. Cahlon and D. Schmidt
-	\newblock On stability of systems of delay differential equations
-	\newblock {\em Journal of Computational and Applied Mathematics} 2000. Vol.
-	117(2). Pp. 137–158.
-
   \end{thebibliography}
 \end{frame}
 
 
 
-\end{document}
+
 
 \begin{frame}[allowframebreaks]
   \frametitle{Список цитированной литературы}
@@ -846,6 +1166,13 @@ $
     \newblock The stability cone for a matrix delay  difference Equation
     \newblock {\em Int. J. of Math. and Mathematical Scences} (2011) p.1--18.
 
+
+  \bibitem{Ivanov-Kipnis-Malygina}
+    Ivanov~S.\,A.,  Kipnis~M.\,M., Malygina~V.\,V.
+    \newblock The stability cone for a difference matrix equation  with two delays
+    \newblock {\em ISRN Appl. Math.} (2011) p.1--19.
+    
+    
 	\bibitem{CahlonSchmidt_2000}
 	B. Cahlon and D. Schmidt
 	\newblock On stability of systems of delay differential equations
