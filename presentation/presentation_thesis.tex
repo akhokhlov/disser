@@ -1099,13 +1099,46 @@ B=
    
       
       
-       \begin{frame}
-       
-      
-       \frametitle{Сравнение с известными результатами}
-       текст
-      \end{frame}
-       
+\begin{frame}
+	\frametitle{Сравнение с известными результатами}
+	\begin{figure}
+        \centering
+        \begin{subfigure}{}
+        	\centering
+            \includegraphics[width=4cm]{Campbell1}
+            %\caption{A tiger}
+        \end{subfigure}
+        \qquad %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{}
+            \centering
+            \includegraphics[width=4cm]{Campbell2}%\caption{A
+            % mouse}
+        \end{subfigure}
+        
+        \begin{subfigure}{}
+        	\centering
+            \includegraphics[width=4cm]{Campbell2}
+            %\caption{Campbell}
+        \end{subfigure}
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{}
+            \centering
+            \includegraphics[width=4cm]{Campbell2}
+            %\caption{% mouse}
+        \end{subfigure}
+        \caption{Pictures of animals}\label{fig:animals}
+\end{figure}
+\end{frame}
+		
+
+
+
+
+
+
+
        
       
 \section{Заключение}
