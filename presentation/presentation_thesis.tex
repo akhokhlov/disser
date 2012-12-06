@@ -92,7 +92,6 @@
 \setbeamercolor{bluetext_color}{fg=blue}
 \newcommand{\bluetext}[1]{{\usebeamercolor[fg]{bluetext_color}#1}}
 
-\newtheorem{my}{ }
 \newtheorem{theorem}{Теорема}
 \newtheorem{example}{Пример}
 \newtheorem{definition}{Определение}
@@ -644,10 +643,10 @@ $$
         
         \vskip-8pt     
         
-    \begin{prop}[T.Mori et al.]
+    \begin{block} {Предложение (T.Mori et al.)}
         Системы \eqref{main1}, \eqref{main2} \bluetext{асимптотически устойчивы}
         при любом $n$ и любом $\tau\geqslant 0$ при  $|a|+|b|<1$.
-    \end{prop}
+    \end{block}
     \begin{theorem}
     %\justifying
         Если $|a+b|>1$, то  системы \eqref{main1}, \eqref{main2} \bluetext{неустойчивы} 
@@ -802,10 +801,10 @@ $n_0$, что для всех $n>n_0$ верно утверждение: либо система~\eqref{main2} для ко
 	
  Мы впервые вводим принцип в теорию нейронных
 сетей: 
-\begin{my}
+\begin{block}{}
 Разрыв нейронного кольца благоприятен для
 устойчивости сети.
-\end{my}
+\end{block}
 
 Теорема \ref{common:th:comparison_ring_and_linear} подтверждает этот принцип для достаточно больших нейронных колец.
 
@@ -814,10 +813,11 @@ $n_0$, что для всех $n>n_0$ верно утверждение: либо система~\eqref{main2} для ко
 \begin{frame}
 %\justifying 
     \frametitle{Новизна результатов главы 2}
+    \small\vskip -7pt
 	\begin{itemize}
    		\item Исследование моделей кольцевых и линейных нейронных сетей с
-		неопре­деленно большим количеством нейронов не было проведено до работы
-		автора диссертации.
+		неопре­деленно большим количеством нейронов, а также алгоритмы и программы для анализа устойчивости данных моделей в
+  		известной автору литературе отсутствуют.
 
   		\item  Впервые введен принцип:
 <<Разрыв нейронного кольца благоприятен для
@@ -825,9 +825,14 @@ $n_0$, что для всех $n>n_0$ верно утверждение: либо система~\eqref{main2} для ко
 Впервые он
 подтвержден для достаточно больших кольцевых сетей.
 
-  		\item Алгоритмы и программы для анализа устойчивости данных моделей в
-  		известной автору литературе отсутствуют.
-  		
+\item Получены  результаты для исследования
+устойчивости кольцевых нейронных сетей  при значениях параметров, не
+охватываемых результатами T.~Mori с соавторами. Область устойчивости,
+независимой от запаздывания, очерченная пунктами 1,3 Теоремы 3 для
+линейных сетей, также шире области $|a| +|b|<1$,
+гарантированной достаточным условием, вытекающим из результатов этих авторов.
+
+
 \item Эффект увеличения области устойчивости больших
 кольцевых нейронных сетей при разрыве кольца, отмеченный в диссертации, 
 согласуется с известным явлением стабилизации психики человека при лоботомии.
@@ -848,11 +853,13 @@ $n_0$, что для всех $n>n_0$ верно утверждение: либо система~\eqref{main2} для ко
  
    \vspace{0.2cm}
    В отличие от конкурирующих работ S.~Campbell , S.~Ruan, J.~Wei (1999) и  
-   Y.~Yuan, S.~Campbell (2004), в которых рассматриваются сети из $n=3, 4,
-   6$ нейронов, методы и программы, описанные в диссертации, позволяют строить
-   области устойчивости для произвольного $n$.
+   Y.~Yuan, S.~Campbell (2004), в которых построены графические иллюстрации для 
+   сетей из $n=4, \,n=6$ нейронов, методы и программы, описанные в диссертации,
+   позволяют строить области устойчивости для произвольного $n$.
 		
-		
+		%В качестве основных параметров рассматриваются силы
+%взаимодействия соседних нейронов, что позволило построить ясные графические
+%иллюстрации влияния свойств кольца и линии нейронов на устойчивость системы. 
 \end{frame}
 
 
@@ -908,7 +915,8 @@ $n_0$, что для всех $n>n_0$ верно утверждение: либо система~\eqref{main2} для ко
 %\justifying 
     \frametitle{Линейная сеть \eqref{matrixbrokenequ},
 \eqref{matrixbroken}  из $n$ нейронов}
-    Определим функцию $F1(\tau,n)$ от
+      \vskip-10pt
+      Определим функцию $F1(\tau,n)$ от
 запаздывания $\tau\in (0,\infty)$ и $n\in \mathbb{N}$: 
   \vskip-6pt
 \begin{equation*}
@@ -918,9 +926,9 @@ F1(\tau,n)= \left(4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} \right)^{-1},
     \vskip-6pt
 где $\omega(\tau)$ есть наименьший положительный корень уравнения
   \vskip-10pt
-  $$\tau= \omega \tg \omega$$.
+  $$\tau= \omega \tg \omega.$$
 
-    \vskip-24pt
+    \vskip-10pt
 \begin{theorem}\label{common:th:stab_linear_finite}
   \begin{enumerate}
 \item Если $0\leqslant ab <\frac {1}{4\cos^2\frac{\pi}{n+1}} $, то система 
@@ -978,10 +986,11 @@ F1(\tau,n)= \left(4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} \right)^{-1},
     \vskip -3pt
     Из Теоремы~\ref{common:th:comparison_ring_and_linear} (глава 2) следует, что
     \bluetext{для больших нейронных сетей}
- \begin{my}
+ \begin{block}
+ 
 Разрыв нейронного кольца благоприятен для
 устойчивости сети.
-\end{my}
+\end{block}
 Численные исследования с помощью программ показывают, что это же явление,
 за некоторыми исключениями, имеет место и при \bluetext{небольшом количестве
 нейронов.}
@@ -1036,16 +1045,16 @@ $\tau$, если  система (3) для кольцевой конфигурации нейронов
     \subfloat{\includegraphics[width=2.2cm]{ringAndLine/finite_line_circle_n6_zoom}}
     \end{figure}
     &
-    \justifying
+ \vskip 1pt
      Границы областей устойчивости для кольцевой сети (очерчены кружками) и
      для линейной сети (показаны сплошными линиями) построены при
-     $\tau=0.5$ и значений $n$ от 3 до 6. Для $n=5,\,n=6$ парадоксальная область
-     дополнительно показана в увеличении.
-        
+     $\tau=0.5$ и значений $n$ от 3 до 6. 
  \vskip 3pt
  
 Парадоксальная область заметна в модели сети с  количеством нейронов
-$n=3$, отсутствует при $n=4$ и  весьма мала при $n=5,\,n=6$.
+$n=3$, отсутствует при $n=4$ и  весьма мала при $n=5,\,n=6$ (дополнительно
+показана в увеличении).
+ 
     \end{tabular}
       \end{frame}
       
@@ -1109,58 +1118,73 @@ B=
 \begin{frame}
 	\frametitle{Сравнение с известными результатами}
 	
-\hspace{0.3cm}  	Подход S.~Campbell (1999, 2004): \hspace{1.3cm}  Наш подход:\\
-	\hspace{0.5cm} 	области в плоскости $(b, \tau)$ \hspace{1.4cm} области в
-	плоскости $(a, b)$\\
-	\hspace{2cm} $n=4, n=6$  \hspace{1.2cm} 
-	\begin{figure}
-        \centering
-   \begin{subfigure}{}
-        	\centering
-            \includegraphics[width=3cm]{Campbell3}
-            %\caption{A tiger}
-        \end{subfigure}
-        \qquad %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
-          %(or a blank line to force the subfigure onto a new line)
-       \hspace{1cm}
-        \begin{subfigure}{}
-            \centering
-            \includegraphics[width=3cm]{{ring_bounds/asym-0_5-4}}%\caption{A
-            % mouse}
-        \end{subfigure}
+\bluetext{Кольцевая сеть, рассмотренная Y. Yuan, S.~Campbell (2004):}
+	\vskip -10pt
+	$$\label{mainCampbell}
+    \dot{x}_{j}(t) + x_{j}(t) + \alpha\,  x_{j}(t-\tau_s) +  \beta\, 
+    (x_{j-1}(t-\tau) +  x_{j+1}(t-\tau)) = 0 \quad
+    (j\; {\rm{mod}}\; n).
+$$
+
+Реакции нейрона на сигнал правого и левого соседа обладают  одинаковыми
+интенсивностями $\beta$ и запаздыванием $\tau$. Сложность  динамики
+происходит из-за искусственного разделения реакции нейрона на собственный сигнал на две составляющие:
+мгновенную с интенсивностью 1 и запаздывающую на время $\tau_s$ с интенсивностью $\alpha$,
+что свидетельствует о недостаточной адекватности модели.
+
+%именно из-за запаздывания в реакции нейрона на собственный сигнал.
+
+\vskip 2pt
+
+\bluetext{Кольцевая сеть, рассмотренная в диссертации:}
+	\vskip -10pt	
+$$\dot{x}_{j}(t)& + x_{j}(t) +  a\, x_{j-1}(t-\tau) + b\, x_{j+1}(t-\tau) = 0
+\quad (j\; {\rm{mod}}\; n).
+        $$
+  
+В нашей модели источником сложности поведения модели является несимметричность
+(когда $a\neq b$) и даже антисимметричность (когда $a=-b$) реакции нейрона на сигналы правого и левого
+соседа, что соответствует традиционному разделению сигналов на возбуждающие и
+тормозящие.        
         
-        \begin{subfigure}{}
-        	\centering
-            \includegraphics[width=3.2cm]{Campbell5}
-            %\caption{Campbell}
-        \end{subfigure}
-        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
-          %(or a blank line to force the subfigure onto a new line)
-        \hspace{1.5cm}
-         \begin{subfigure}{}
-            \centering
-            \includegraphics[width=3cm]{{ring_bounds/asym-0_5-6}}
-           
-        \end{subfigure}
-       
-\end{figure}
 \end{frame}
 		
-\begin{frame}\frametitle{Преимущества}
+\begin{frame} \frametitle{Преимущества результатов диссертации}
 
 \begin{itemize}
 
-     \item В качестве основных параметров рассматриваются силы
-взаимодействия соседних нейронов, что позволило построить ясные графические
-иллюстрации влияния свойств кольца и линии нейронов на устойчивость системы. 
-     \item 
-    \end{itemize}
+  \item Подход, реализованный в диссертации, выигрывает в  ясности
+  количественного анализа и качественных выводов, в частности позволяет
+  исследовать поведение достаточно больших колец, что невозможно при
+подходе Y. Yuan, S.~Campbell.
+
+\item Наш подход позволяет проводить сравнение с сетью линейной
+конфигурации, что также невозможно на  основе результатов данных авторов. 
+
+\end{itemize}
+       \begin{figure}[h!]
+    \centering
+    \subfloat{\includegraphics[width=2.7cm]{cambell1}}
+    \subfloat{\includegraphics[width=2.7cm]{cambell2}}
+    \hspace{0.5cm}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/asym-0_5-4}}
+    \subfloat{\includegraphics[width=2.7cm]{ring_bounds/asym-0_5-6}}
+    \caption{\small \hspace{0.6cm} подход  Y. Yuan, S.~Campbell: \hspace{1.4cm}
+    области в плоскости $(a, b)$,\\ 
+   \hspace{0.8cm} области в плоскости $(\beta, \tau)$ \hspace{1.7cm} полученные
+   в диссертации \\
+   \hspace{0.7cm}  $\alpha, \tau_s$ фиксированы, $n=4, n=6$   \hspace{1.4cm} }
+    \label{common:fig:sym-0_1-6-0_1}
+\end{figure}
+
+ 
 \end{frame}
 
 \section{Заключение}
 
 \begin{frame}\frametitle
 {Основные результаты диссертационной работы}
+ \vskip -6pt
 На защиту выносятся следующие новые научные результаты.
 \begin{itemize}
    \small
@@ -1179,7 +1203,7 @@ B=
 нейронов, когда количество нейронов неограничено и запаздывание стремится к нулю или к бесконечности. 
  
 \item Для моделей  кольцевых и линейных нейронных сетей найдены условия устойчивости,
- независимой от запаздывания (delay-independent stability).
+ независимой от запаздывания. %(delay-independent stability).
 
 \item Дано полное описание областей  устойчивости в пространстве параметров линейных  конфигураций
 нейронных сетей с неограниченным количеством нейронов.
@@ -1224,49 +1248,51 @@ B=
 конфигураций нейронных сетей, поскольку метод конуса устойчивости, алгоритмы  и
 программы обладают  потенциалом значительно более широким, чем использованный в диссертации.
 
+
+
+   
 \end{frame}
 
 
 \begin{frame}%[allowframebreaks]
   \frametitle{Список цитированной литературы}
-   \small
+  \vskip -9pt \small
   \begin{thebibliography}{10}
-  
+   \vskip -8pt
   \bibitem{CahlonSchmidt_2000}
 	Cahlon B., Schmidt D.  {\color{black}On stability of systems of delay
 	differential equations}// J. of Computational and Applied
-	Mathematics. 2000. Vol.~117(2). Pp. 137–158.
-	    \vskip-17pt
+	Mathematics. {\color{black}2000. Vol.~117(2). Pp. 137–158.}
 	    
-  \bibitem{Matsunaga}
+  \bibitem{Matsunaga}{\small
   Matsunaga H.
   {\color{black}  Exact stability criteria for delay differential and difference
-  equa­ tions}// Applied Mathematics Letters. 2007. Vol.~20. Pp.~183–188.
-\vskip-7pt
-
-  \bibitem{Mori} Mori T., Fukuma N.
-{\color{black}  Simple stability criteria for single and composite linear systems
-    with time delay}// Int. J. Control. 1981. Vol.~34. Pp.~1175–1184.
-\vskip-7pt
+  equa­tions}// Applied Mathematics Letters. {\color{black}2007. Vol.~20.
+  Pp.~183–188.}}
 
  \bibitem{Sacata}
 Sakata S.  {\color{black}  Asymptotic stability for a linear system of
-differential-difference equations} //Funkcialaj Eqvacioj. 1998.
+differential-difference equations} //Funkcialaj Eqvacioj. {\color{black}1998.
 Vol. 41. Pp.
-435–449.
-\vskip-7pt
+435–449.}
+
+\bibitem{Mori} Mori T., Fukuma N., Kuwahara M.
+{\color{black}  Simple stability criteria for single and composite linear systems
+    with time delay}// Int. J. Control. {\color{black}1981. Vol.~34.
+    Pp.~1175–1184.}
+
 
 \bibitem{Yuan_Campbell}
     Yuan Y., Campbell S. {\color{black} Stability and
 sinchronization ring of identical cells with delayed coupling} // J.
 of Dynamics and differential equations.  {\color{black}2004. Vol. 16. Pp.
 709--744.}
-    \vskip-7pt
+  
     
-\bibitem{Campbell_Ruan}	
+\bibitem{Campbell_Ruan}
 Campbell S. A., Ruan S., Wei J.   {\color{black}  Qualitative analysis of a
 neural Network model with multiple time delays} // Int. J. of Bifurcation and
-Chaos. 1999. Vol. 9(8). Pp. 1585--1595.
+Chaos. {\color{black}1999. Vol. 9(8). Pp. 1585--1595.}
 	
 	
   \end{thebibliography}
@@ -1297,26 +1323,29 @@ Chaos. 1999. Vol. 9(8). Pp. 1585--1595.
     \bibitem{Khokhlova_2010}
     Хохлова Т. Н. {\color{black} Конус устойчивости для линейного
     матричного дифференциального уравнения с запаздываниями}
-    // {\em Вестник ЮУрГУ. Математика. Механика. Физика.}  2010. Т. 30. С. 33--37. 
+    // Вестник ЮУрГУ. Математика. Механика. Физика.  {\color{black} 2010. Т. 30.
+    С. 33--37. }
     
 
     \bibitem{Khokhlova-Kipnis-Malygina}
     Khokhlova~T.\,N., Kipnis~M.\,M., Malygina~V.\,V.
     {\color{black} Stability cone for linear delay differential matrix equation}
-    // {\em Applied Mathematics Letters.} 2011. Vol. 24. Pp. 742--745.
+    // {\em Applied Mathematics Letters.} {\color{black} 2011. Vol. 24. Pp.
+    742--745.}
 
     \bibitem{Khokhlova-Kipnis}
     Khokhlova T., Kipnis M.
     {\color{black} Numerical and qualitative stability analysis of ring
 and linear neural networks with a large number of neurons}
-    // {\em International J. of Pure and Applied Mathematics.} 2012.  Vol. 76
-    (3). Pp.~403--419.
+    // {\em International J. of Pure and Applied Mathematics.} {\color{black}
+    2012.  Vol. 76 (3). Pp.~403--419.}
 
     \bibitem{Khokhlova_2012}
     Хохлова~Т.\,Н.
     {\color{black} Устойчивость полносвязной и звездной структур нейронных
     сетей} 
-    // {\em Вестник ЮУрГУ. Математика. Механика. Физика.}  2012. Т. 34. С. 195--198.
+    // {\em Вестник ЮУрГУ. Математика. Механика. Физика.}  {\color{black} 2012.
+    Т. 34. С. 195--198.}
 
   \end{thebibliography}
 \end{frame}
@@ -1328,23 +1357,67 @@ and linear neural networks with a large number of neurons}
 
   \begin{thebibliography}{10}
   
-  \item 
-Хохлова Т. Н. Анализ устойчивости // Хроники ОФЭРНиО. 2011. Т.~2~(21). С. 22–23.
-Номер свид. о регистрации 16759 от 28.02.2011.
+  \bibitem{pr1}
+Хохлова Т. Н. {\color{black} Анализ устойчивости} // Хроники ОФЭРНиО.
+{\color{black} 2011.
+Т.~2~(21). С. 22–23.
+Номер свид. о регистрации 16759 от 28.02.2011.}
 
-\item 
-Хохлова Т. Н. Устойчивость нейронных сетей // Хроники ОФЭРНиО.
-2011. Т. 7 (26). С. 35–36. Номер свид. о регистрации 17346 от
-01.08.2011.
-\item 
+\bibitem {pr2}
+Хохлова Т. Н. {\color{black} Устойчивость нейронных сетей} // Хроники ОФЭРНиО.
+{\color{black} 2011. Т. 7 (26). С. 35–36. Номер свид. о регистрации 17346 от
+01.08.2011.}
 
-Хохлова Т. Н. Построение областей устойчивости круговых нейронных
-сетей // Хроники ОФЭРНиО. 2012. Т. 1 (32). С. 4–5. Номер свид.
-о регистрации 17779 от 10.01.2012.
+\bibitem {pr3}
+Хохлова Т. Н. {\color{black} Построение областей устойчивости круговых нейронных
+сетей} // Хроники ОФЭРНиО. {\color{black} 2012. Т. 1 (32). С. 4–5. Номер свид.
+о регистрации 17779 от 10.01.2012.}
   
   \end{thebibliography}
+  
+  \vskip 1.2cm
+  
+  \begin{centering}
+  \Large \hspace{3.5cm} \bluetext{Спасибо за внимание!}
+  \end{centering}
   \end{frame}
 \end{document}
+
+\begin{figure}\centering
+   \begin{subfigure}{}
+        	\centering
+            \includegraphics[width=2cm]{ring_bounds/asym-0_5-4}
+            %\caption{A tiger}
+        \end{subfigure}
+        \qquad %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+       %\hspace{1cm}
+        \begin{subfigure}{}
+            \centering
+            \includegraphics[width=2cm]{{ring_bounds/asym-0_5-4}}%\caption{A
+            % mouse}
+        \end{subfigure}
+        
+        \begin{subfigure}{}
+        	\centering
+            \includegraphics[width=2cm]{ring_bounds/asym-0_5-4}
+            %\caption{Campbell}
+        \end{subfigure}
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+        %\hspace{1.5cm}
+         \begin{subfigure}{}
+            \centering
+            \includegraphics[width=2cm]{{ring_bounds/asym-0_5-6}}
+           
+        \end{subfigure}
+       
+\end{figure}
+
+
+
+
+
 В диссертации решена задача исследования устойчивости общего
 уравнения $\dot{x}(t)+Ax(t)+B x(t-\tau)=0$ и его частных случаев в зависимости от
 коэффициентов моделей, величины запаздывания и количества нейронов в сети.
@@ -1414,4 +1487,3 @@ and linear neural networks with a large number of neurons}
 кольца с большим количеством нейронов влечет устойчивость линейной конфигурации,
 полученной при его разрыве, если параметры систем не меняются и количество
 нейронов достаточно велико. 
-, Kuwahara M.
