@@ -11,7 +11,7 @@
  кольцевой нейронной  сети:
 \begin{equation}\label{mainCampbell}
     \dot{x}_{j}(t) + x_{j}(t) + \alpha\,  x_{j}(t-\tau_s) +  \beta\, 
-    (x_{j-1}(t) +  x_{j+1}(t-\tau)) = 0 \;
+    (x_{j-1}(t-\tau) +  x_{j+1}(t-\tau)) = 0 \;
     (j\; {\rm{mod}}\; n).
 \end{equation}
 В уравнении \eqref{mainCampbell} реакция нейрона на собственный сигнал
