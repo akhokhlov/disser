@@ -737,7 +737,8 @@ $n=3$, отсутствует при $n=4$ и  весьма мала при $n=5, \,n=6$. В результате
 шестого нейрона на первый и первого нейрона на шестой равны соответственно 
 $ac$ и $bc$, где $c$ -- некоторый неотрицательный параметр.
 Тогда взаимодействие нейронов в описанной модели  задается
-уравнением~\eqref{common:maineqmatrix} с~матрицами
+уравнением~\eqref{common:maineqmatrix} с~матрицами\\
+
 \begin{equation}\label{common:matrixbroken_c}
 A=I, \quad
 B=
@@ -758,7 +759,7 @@ B=
     \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c01}}\\
     \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c001}}
     \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c0001}}
-    \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c00001}}
+    \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c1e-10}}
     \caption{%
        Динамика области устойчивости в процессе разрыва нейронного кольца.
        Границы областей  устойчивости для системы \eqref{common:maineqmatrix}, 
@@ -824,9 +825,21 @@ B=
 На защиту выносятся следующие новые научные результаты.
 %\begin{enumerate}
 %  \item 
-
-
 \newcounter{count}
+Результаты, относящиеся к математическому моделированию.
+
+
+\begin{list}{\arabic{count}.}{\itemsep -0.10in}
+\usecounter{count}
+
+
+  \item Для исследования устойчивости математических моделей, описывающих
+  взаимодействие элементов в нейронных сетях посредством матричных дифференциальных уравнений с
+  запаздываниями, разработан метод конуса устойчивости 
+
+
+\end{list}
+
 \begin{list}{\arabic{count}.}{\itemsep -0.10in}
 \usecounter{count}
 
