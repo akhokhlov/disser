@@ -177,7 +177,7 @@ $\lambda_{j\,s}, \mu_{j\,s}\,(1 \leqslant  j,$ $s \leqslant  m)$.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.52]{products/app1-main2}
+    \includegraphics[width=18cm]{products/app1-main2}
     \caption{
         Главное окно программы <<Анализ устойчивости>> при~задании 
         собственных чисел матриц вручную
@@ -227,6 +227,8 @@ S.\,A.~Ivanov, M.\,M.~Kipnis, V.\,V.~Malygina (2011), S.\,A.~Ivanov, M.\,M.~Kip\
 в которой рассмат\-ри\-ва\-лась задача об~устойчивости класса уравнений вида 
 $
     \dot{x}(t)=\alpha A x(t) +(1-\alpha ) Ax(t-\tau), \quad 
+$
+$
     0\leqslant \alpha\leqslant 1
 $
 с~$2\times 2$ матрицей~$A$.   
@@ -340,8 +342,8 @@ $n>n_0$ система \eqref{common:main1} (система \eqref{common:main2}) неустойчива.
 неограниченного количества нейронов в~сети. Суть изменений заключается в
 явном нахождении собственных чисел входящих в~уравнение матриц и введении вместо
 дискретной системы точек~$M_j$ (\ref{common:pointsM})  непре\-рыв\-ной 
-замкнутой кривой $M^{'}(t)=(u_1^{'}(t), u_2^{'}(t), u_3^{'}(t))$ для уравнения
-~\eqref{common:main1}:
+замкнутой кривой $M^{'}(t) \hm{=} (u_1^{'}(t), u_2^{'}(t), u_3^{'}(t))$ для
+уравнения ~\eqref{common:main1}:
 \begin{equation}\label{common:curvemain1}
     u_{1}^{'}(t)+iu_{2}^{'}(t) = \tau b \,\exp(i(-t+a\, \tau\sin t)),  \quad 
     u_{3}^{'}(t) = \tau (1+a\cos t),  \quad 0\leqslant t \leqslant 2\pi
@@ -360,9 +362,9 @@ $n>n_0$ система \eqref{common:main1} (система \eqref{common:main2}) неустойчива.
 устойчивости, то уравнение~\eqref{common:main1} неустойчиво при всех достаточно
 больших значениях $n$. Аналогично изучается поведение системы
 ~\eqref{common:main2}. Идея критерия проиллюстрирована рисунком \ref{common:fig:stabcone}.
-\begin{figure}[ht]
+\begin{figure}[!h]
     \begin{center}
-    \includegraphics[scale=0.8]{cone_nice2}
+    \includegraphics[width=7cm]{cone_nice2}
     %{\hspace*{15mm} 
     \end{center}
     \caption{Конус устойчивости и две кривые~\eqref{common:curvemain1}. Одна кривая 
@@ -403,10 +405,11 @@ $n>n_0$ система \eqref{common:main1} (система \eqref{common:main2}) неустойчива.
 $n\geqslant3$ и любого $\tau\geqslant 0$. 
 Полученные результаты для системы  \eqref{common:main1}  отражены на  рис.
 \ref{common:fig:domain_no_delayright}.  
-Аналогичные графические иллюстрации даны для системы  \eqref{common:main2}.
+Аналогичные графические иллюстрации даны для системы~\eqref{common:main2}.
+\vskip -0.8cm
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=1]{graph1}
+    \includegraphics[width=11cm]{graph1}
     \caption{
         Области устойчивости  для системы~\eqref{common:main1} с~неограниченным
         числом нейронов
@@ -635,12 +638,12 @@ $n$, что позволяет проследить асимптотику найденных кривых с~увеличением
 рис.~\ref{common:fig:asym-0_5}.
 \begin{figure}[ht!]
     \centering
-    \subfloat{\includegraphics[width=5.6cm]{ring_bounds/asym_tau05_n3_autoref}}
-    \subfloat{\includegraphics[width=5.6cm]{ring_bounds/asym_tau05_n4_autoref}}
-    \subfloat{\includegraphics[width=5.6cm]{ring_bounds/asym_tau05_n5_autoref}}\\
-    \subfloat{\includegraphics[width=5.6cm]{ring_bounds/asym_tau05_n6_autoref}}
-    \subfloat{\includegraphics[width=5.6cm]{ring_bounds/asym_tau05_n7_autoref}}
-    \subfloat{\includegraphics[width=5.6cm]{ring_bounds/asym_tau05_n8_autoref}}
+    \subfloat{\includegraphics[width=6cm]{ring_bounds/asym_tau05_n3_autoref}}
+    \subfloat{\includegraphics[width=6cm]{ring_bounds/asym_tau05_n4_autoref}}
+    \subfloat{\includegraphics[width=6cm]{ring_bounds/asym_tau05_n5_autoref}}\\
+    \subfloat{\includegraphics[width=6cm]{ring_bounds/asym_tau05_n6_autoref}}
+    \subfloat{\includegraphics[width=6cm]{ring_bounds/asym_tau05_n7_autoref}}
+    \subfloat{\includegraphics[width=6cm]{ring_bounds/asym_tau05_n8_autoref}}
     \caption{%
         Границы областей  устойчивости для системы~\eqref{common:main1} для $\tau=0.5$ и 
          значений $n$ от 3 до 8 показаны кружками.  Сплошная линия~--- 
@@ -685,8 +688,8 @@ F1(\tau,n)= \frac{1}{4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} },
 
 \begin{figure}[!ht]
     \centering
-    \subfloat{\includegraphics[width=8.5cm]{finite_line_fix_tau}}
-    \subfloat{\includegraphics[width=8.5cm]{finite_line_fix_n}}\\
+    \subfloat{\includegraphics[width=9cm]{finite_line_fix_tau}}
+    \subfloat{\includegraphics[width=9cm]{finite_line_fix_n}}\\
        \caption{%
         Границы областей  устойчивости для линейной конфигурации нейронов
         (система  \eqref{common:matrixbrokenequ}, \eqref{common:matrixbroken}).
@@ -706,25 +709,6 @@ F1(\tau,n)= \frac{1}{4\sin^2\omega(\tau)\cos^2 \frac{\pi}{n+1} },
 за некоторыми исключениями, имеет место и при небольшом количестве нейронов
 (рис.~\ref{common:fig:comparison_ring_and_linear_finite}).
 
-\begin{figure}[h!]
-    \centering
-\vspace*{-4mm}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n3_large}}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n4_large}}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n5_large}}\\
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n5_zoom_large}}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n6_large}}
-    \subfloat{\includegraphics[width=5.6cm]{ringAndLine/finite_line_circle_n6_zoom_large}}
-    \caption{%
-        Границы областей  устойчивости для кольцевой 
-        (система~\eqref{common:main2}, границы очерчены кружочками) и линейной 
-        (система  \eqref{common:matrixbrokenequ}, \eqref{common:matrixbroken}, 
-        сплошные линии) конфигураций  нейронов, $\tau=0.5$. Для $n=5, \,n=6$
-        дополнительно парадоксальная область показана в~увеличении
-        }    
-    \label{common:fig:comparison_ring_and_linear_finite}
-\end{figure}
-
 
 Область тех значений параметров $(a,b)$, при которых кольцевая система 
 нейронов устой\-чи\-ва,  а линейная с~теми же параметрами неустойчива,   мы называем
@@ -737,7 +721,24 @@ $n=3$, отсутствует при $n=4$ и  весьма мала при $n=5, \,n=6$. В~результате
 численных экспериментов выяснилось, что в~моделях  сетей  с~$n>6$ 
 парадоксальная область либо отсутствует, либо пренебрежимо мала.
 
-
+\begin{figure}[h!]
+    \centering
+\vspace*{-4mm}
+    \subfloat{\includegraphics[width=6cm]{ringAndLine/finite_line_circle_n3_large}}
+    \subfloat{\includegraphics[width=6cm]{ringAndLine/finite_line_circle_n4_large}}
+    \subfloat{\includegraphics[width=6cm]{ringAndLine/finite_line_circle_n5_large}}\\
+    \subfloat{\includegraphics[width=6cm]{ringAndLine/finite_line_circle_n5_zoom_large}}
+    \subfloat{\includegraphics[width=6cm]{ringAndLine/finite_line_circle_n6_large}}
+    \subfloat{\includegraphics[width=6cm]{ringAndLine/finite_line_circle_n6_zoom_large}}
+    \caption{%
+        Границы областей  устойчивости для кольцевой 
+        (система~\eqref{common:main2}, границы очерчены кружочками) и линейной 
+        (система  \eqref{common:matrixbrokenequ}, \eqref{common:matrixbroken}, 
+        сплошные линии) конфигураций  нейронов, $\tau=0.5$. Для $n=5, \,n=6$
+        дополнительно парадоксальная область показана в~увеличении
+        }    
+    \label{common:fig:comparison_ring_and_linear_finite}
+\end{figure}
 
 
 
@@ -780,14 +781,14 @@ B=
 между нейронами в~кольцевой сети из 6 нейронов расширяет область устойчивости
 всей системы.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
-    \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c1}}
-    \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c05}}
-    \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c01}}\\
-    \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c001}}
-    \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c0001}}
-    \subfloat{\includegraphics[width=5.6cm]{breakingRing/tau01_n6_c1e-10}}
+    \subfloat{\includegraphics[width=6cm]{breakingRing/tau01_n6_c1}}
+    \subfloat{\includegraphics[width=6cm]{breakingRing/tau01_n6_c05}}
+    \subfloat{\includegraphics[width=6cm]{breakingRing/tau01_n6_c01}}\\
+    \subfloat{\includegraphics[width=6cm]{breakingRing/tau01_n6_c001}}
+    \subfloat{\includegraphics[width=6cm]{breakingRing/tau01_n6_c0001}}
+    \subfloat{\includegraphics[width=6cm]{breakingRing/tau01_n6_c1e-10}}
     \caption{%
        Динамика области устойчивости в~процессе разрыва нейронного кольца.
        Границы областей  устойчивости для системы \eqref{common:maineqmatrix}, 
@@ -796,6 +797,7 @@ B=
      }
     \label{common:fig:sym-0_1-6-0_1}
 \end{figure}
+
 
 В разделе\,3.6 результаты главы 3 сравниваются с~известными в~литературе. 
 Конста\-ти\-ру\-ется, что в~большинстве  работ по устойчивости кольцевых нейронных
@@ -845,8 +847,6 @@ B=
 %\hspace*{-11mm} 
 {\it Результаты, относящиеся к математическому моделированию:}
 \end{flushleft}
-
-
 
 \begin{list}{\arabic{count}.}{\itemsep -0.10in}
 \usecounter{count}
@@ -958,7 +958,6 @@ B=
 \end{list}
 \end{comment}
 Работа поддержана грантом Минобразования 1.1711.2011.
-
 
 
 
