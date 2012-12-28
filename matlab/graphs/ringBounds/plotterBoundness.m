@@ -12,8 +12,16 @@
 
 function [minX, maxX, figure1] = plotterBoundness(...
     type, tau, number, epsilon, dir, ext, bounds, suffix)
-fontsize=24;
-ticksize=22;
+
+large = false;
+    fontsize=18;
+    ticksize=16;
+    fileExt = '';
+if large
+    fontsize=24;
+    ticksize=22;
+    fileExt = '_large';
+end
 
     % Создание окна для графика
     figure1 = figure('InvertHardcopy','off','Color',[1 1 1], ...
@@ -41,7 +49,7 @@ ticksize=22;
     
     % Вычисление области устойчивости для ограниченного числа нейронов.
     [phi, r] = solverBoundnessSmart(type, tau, number, epsilon);
-    finiteBound = polar(phi, r, 'ok');
+    finiteBound = polar(phi, r, 'ob');
     set(finiteBound, 'LineWidth', 2);
     
     title(['$\tau = ' num2str(tau) ', n = ' num2str(number) '$' ],...
@@ -71,8 +79,8 @@ ticksize=22;
 
  % axes
 %set(gca, 'FontSize',ticksize);
-set(gca, 'XTick',[ -2 -1 0 1 2 ], 'YTick',[-2 -1 0 1 2], 'FontSize',ticksize);
-% set(gca, 'XTick',[-4 -2 0 2 4], 'YTick',[-4 -2 0 2 4], 'FontSize',ticksize);
+%set(gca, 'XTick',[ -2 -1 0 1 2 ], 'YTick',[-2 -1 0 1 2], 'FontSize',ticksize);
+ set(gca, 'XTick',[-4 -2 0 2 4], 'YTick',[-4 -2 0 2 4], 'FontSize',ticksize);
  
     % Масштабирование
 %     ax=axis;
