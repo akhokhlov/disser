@@ -44,7 +44,7 @@ if "%psnupflags%"==""    set psnupflags=-2 -pA4
 if "%pdflatexflags%"=="" set pdflatexflags=--shell-escape
 
 if "%clext%"==""    set clext=*.bbl *.bak *.aux *.blg *.out *.toc *.log ^
-	*.dvi *.tmp *.ps
+	*.dvi *.tmp *.ps *.pdf
 if "%clfiles%"==""  set clfiles=!clext! %archive%
 if "%srcfiles%"=="" set srcfiles=*
 if "%prereq%"=="" set prereq=*.tex *.bib

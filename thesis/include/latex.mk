@@ -32,7 +32,7 @@ PSNUPFLAGS ?= -2 -pA4
 PDFLATEXFLAGS ?= --shell-escape
 
 CLEXT ?= *.aux *.toc *.idx *.ind *.ilg *.log *.out *.lof *.lot *.lol \
-  *.bbl *.blg *.bak *.dvi *.ps #*.pdf
+  *.bbl *.blg *.bak *.dvi *.ps *.pdf
 CLFILES ?= $(CLEXT) $(ARCHIVE)
 SRCFILES ?= *
 
