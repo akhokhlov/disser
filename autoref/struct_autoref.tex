@@ -18,9 +18,9 @@
 с запаздыванием $\tau>0$. Данная модель в~общем виде описывает результат
  линеаризации известных нелинейных моделей
  Хопфилда-Маркуса-Вестервельта \footnote{Hopfield J. J. Neuron with graded response have collective computational properties like those of two-stage
-neurons // Proc. Nat. Acad. Sci. USA. 1984. Vol. 81. Pp.
+neurons // Proc. Nat. Acad. Sci. USA. --- 1984. --- Vol. 81. --- Pp.
 3088–3092.}~\footnote{Marcus C. M., Westervelt R. M. Stability of analog neural networks with delay // 
-Phys. Rev. A. 1989. Vol.~39. Pp. 347–359.}  
+Phys. Rev. A. --- 1989. --- Vol.~39. --- Pp. 347–359.}  
 \begin{equation*}\label{delayednonlinearmodel}
     C_j\dot{x}_j(t)+\frac{1}{R_j}x_j(t)+\sum_{k=1}^n T_{jk}g_k (x_k(t-\tau))=0
     \quad j=1,2,\ldots,n   
@@ -28,11 +28,11 @@ Phys. Rev. A. 1989. Vol.~39. Pp. 347–359.}
 с постоянными $R_j, C_j, T_{jk}$ и гладкими функциями $g_k$,
 или модели Коэна-Гроссбер\-га\footnote{Cohen M., Grossberg S. Absolute stability
 and global formation and parallel memory storage by competitive neural networks // IEEE
-Trans. on Systems, Man, and Cybernetics, SMC. 1983. Vol. 13(5). Pp. 815--825.},  
-или модели Чуа--Янга--Роска\footnote{Chua L., Yang L. Cellular neural networks:
-Theory // IEEE Trans. Circuits and Systems I. 1988. Vol. 35. Pp.~1257--1272.} 
-\footnote{Chua L., Roska T. Cellular neural networks and visual computing,
-Foundation and applications. Cambridge University Press, 2004.}  
+Trans. on Systems, Man, and Cybernetics, SMC. --- 1983. --- Vol. 13(5). --- Pp.
+815--825.}, или модели Чуа--Янга--Роска\footnote{Chua L., Yang L. Cellular neural networks:
+Theory // IEEE Trans. Circuits and Systems I. --- 1988. --- Vol. 35. ---
+Pp.~1257--1272.} \footnote{Chua L., Roska T. Cellular neural networks and visual computing,
+Foundation and applications. --- Cambridge University Press, 2004.}  
 вокруг некоторого решения.
 Метод конуса устойчивости разработан автором
 диссертации под руководством  научного  ру\-ко\-во\-ди\-те\-ля по замыслу В. Малыгиной. 
@@ -50,11 +50,13 @@ Foundation and applications. Cambridge University Press, 2004.}
 уравнение матриц $A, B$. Элементы $A$ суть интенсивности
 мгновенных  взаимодействий  нейронов в~сети, а элементы $B$ суть интенсивности  взаимодействий, происходящих  с
 запаздыванием. Введены  овалы
-устойчивости для~скалярного уравнения %вида~\eqref{common:maineqmatrix}
-\begin{equation}\label{common:scalar} 
-    \dot x\left(t\right) + a\, x(t) +  b\, x(t-\tau) = 0,\quad t > 0
-\end{equation} 
-с~действительным коэффициентом~$a$ и комплексным~$b$. % и запаздыванием $\tau>0$. 
+устойчивости для~скалярного уравнения
+%вида~\eqref{common:maineqmatrix}\label{common:scalar} 
+$
+    \dot x\left(t\right) + a\, x(t) +  b\, x(t-\tau) = 0
+$
+с~$t > 0$ и действительным коэффициентом~$a$ и комплексным~$b$. % и
+% запаздыванием $\tau>0$.
 С помощью метода ${D}$-раз\-биений
 %~\cite{Gryazina&Polyak_2006} 
 доказывается теорема об устойчивости такого уравнения в~терминах овала
@@ -64,7 +66,7 @@ Foundation and applications. Cambridge University Press, 2004.}
 %уравнения~\eqref{common:maineqmatrix}.
 \setcounter{chapter}{1}
 \begin{determine}\label{common:defin_cone}
-Конусом устойчивости для уравнений \eqref{common:scalar},
+Конусом устойчивости для уравнения % \eqref{common:scalar},
 \eqref{common:maineqmatrix} назовём мно\-же\-с\-тво точек $M=(u_1,u_2,u_3)\in \mathbb{R}^3$, 
 таких, что
 %\begin{equation}\label{common:cone}
@@ -89,10 +91,10 @@ Foundation and applications. Cambridge University Press, 2004.}
     %        -\pi<\omega<\pi .\\
      %   \end{array}
     %\right.
-%\end{equation}
+%\end{equation}-\dfrac{\omega}{\tg{\omega}}
 %\end{determine}
 \begin{equation}\label{common:preimage}\nonumber
-     h\geqslant -\dfrac{\omega}{\tg{\omega}}, \quad -\pi<\omega<\pi .
+     h\geqslant \omega / \tg{\omega}, \quad -\pi<\omega<\pi .
  \end{equation}
 \end{determine}
 \noindent
@@ -150,9 +152,9 @@ $\lambda_{j\,s}, \mu_{j\,s}\,(1\leqslant  j,~s \leqslant  m)$ соответственно.
 \end{theorem}
 %В разделах\,1.3, 1.4 также 
 Даны примеры применения
-полученных кри\-те\-ри\-ев для анализа устойчивости уравнений \eqref{common:scalar},
-\eqref{common:maineqmatrix},  снабженные  графическим представлением конуса
-устойчивости и точек $M_j$, фигурирующих в~формулировке основной Теоремы
+полученных кри\-те\-ри\-ев для анализа устойчивости
+уравнения%\eqref{common:scalar}, 
+\eqref{common:maineqmatrix},  снабженные  графическим представлением конуса устойчивости и точек $M_j$, фигурирующих в~формулировке основной Теоремы
 \ref{common:th:stab1}.
 Описан %Раздел\,1.5 посвящён 
 алго\-ритм для
@@ -181,7 +183,7 @@ $\lambda_{j\,s}, \mu_{j\,s}\,(1\leqslant  j,~s \leqslant  m)$ соответственно.
 программы.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=16cm]{products/app1-main2}
+    \includegraphics[width=14cm]{products/app1-main2}
     \caption{
         Главное окно программы <<Анализ устойчивости>>
         }
@@ -192,7 +194,7 @@ $\lambda_{j\,s}, \mu_{j\,s}\,(1\leqslant  j,~s \leqslant  m)$ соответственно.
 является давняя работа 
 З.~Рехлицкого\footnote{Рехлицкий З. И. Об устойчивости решений некоторых
 линейных дифференциальных уравнений в~банаховом пространстве // Изв. АН СССР.
-1956. Т. 111. С. 29–32.}. 
+--- 1956. --- Т. 111. --- С. 29–32.}. 
 Упомянуты работы 
 I.~Levit\-skaya (2006) о~дифференциальных  уравнениях  с~двумя запаздываниями,
 %\footnote{Levitskaya I. S. Stability domain of a linear differential equation with two delays // Computers \& Mathematics with
@@ -216,7 +218,8 @@ S.\,A.~Ivanov, M.\,M.~Kipnis, V.\,V.~Malygina (2011), S.\,A.~Ivanov, M.\,M.~Kip\
 %уравнений, а также 
 Указано, что А.\,И.~Кирьянен и  К.\,В.~Галунова\footnote{Кирьянен А. И., Галунова К. В.
 Устойчивость уравнения $dx/dt \hm{=} \alpha x(t-h)+\beta x(t)$ с~комплексными
-коэффициентами // Уравнения в~ частных производных. ЛГПИ им. А.И.~Герцена. 1989.
+коэффициентами // Уравнения в~ частных производных. ЛГПИ им. А.И.~Герцена.
+--- 1989. ---
 С. 65–72.} изучали устойчивость  скалярных диф\-фе\-рен\-ци\-аль\-ных уравнений с~запаздываниями с
 комплексными коэффициентами, но овалы или конусы устойчивости в~их работе не появлялись.  
 Далее %в~разделе\,1.7 
@@ -234,8 +237,9 @@ $
 $
 с~$2\times 2$ матрицей~$A$.   
 Годом позднее те же авторы\footnote{Cahlon B., Schmidt D. Asymptotic stability
-of linear delay differential equations // Dynam. Systems Appl. 2001. Vol. 10.
-Pp. 63–87.} 
+of linear delay differential equations // Dynam. Systems Appl. --- 2001. ---
+Vol.
+10. --- Pp. 63–87.} 
 усилили свой результат, рассматривая уравнение 
 $ 
     \dot{x}(t)=\alpha A x(t) +\beta Ax(t-\tau)
@@ -270,8 +274,9 @@ $
 с~$2\times 2$ матрицей~$B$ и действительным  $\alpha$.  
 Далее %В этом же  разделе 
 обсуждены  условия Чена-Латчмена\footnote{Chen J., Latchman H. Frequency sweeping tests
-for stability independent of delay // IEEE Trans. Autom. Control. 1995. Vol.
-40 (9). Pp. 1640–1645.}, 
+for stability independent of delay // IEEE Trans. Autom. Control. --- 1995.
+--- Vol.
+40 (9). --- Pp. 1640–1645.}, 
 гарантирующие устойчивость ура\-в\-не\-ния ~\eqref{common:maineqmatrix} независимо 
 от запаздывания \Eng(delay"=independent stability). \Russian   
 В~терминах Теоремы \ref{common:th:delayindependentstab}
@@ -369,7 +374,7 @@ $n>n_0$ система \eqref{common:main1} (система \eqref{common:main2}) неустойчива.
 ~\eqref{common:main2}. Идея критерия про\-иллю\-стр\-иро\-вана рисунком \ref{common:fig:stabcone}.
 \begin{figure}[!h]
     \begin{center}
-    \includegraphics[width=7cm]{cone_nice2}
+    \includegraphics[width=6cm]{cone_nice2}
     %{\hspace*{15mm} 
     \end{center}
     \caption{Конус устойчивости и две кривые~\eqref{common:curvemain1}. Одна кривая 
@@ -529,28 +534,30 @@ $\tau= \omega \tg \omega.$
 нейронов~\eqref{common:main2} с~достаточно большим количеством нейронов
  и образованной при её разрыве нейронной сети
 линейной конфигурации \eqref{common:matrixbrokenequ},\eqref{common:matrixbroken}.  
-Предварительно заметим, что система~\eqref{common:main2} в~матричном виде имеет вид    
-\begin{equation}\label{common:matrixeqforring}
-    \dot{x}(t) + I\, x(t) +  B\,x(t-\tau) = 0,\quad t>0,
-\end{equation}
-где циркулянтная матрица $B$ такова:
-\begin{equation}\label{common:circullantmatrixB}
-B=
-\begin{pmatrix}  
-  0  &  b & 0 &   \ldots &  0 & a\\
-  a  &  0 & b &   \ldots &  0 &  0\\
-  0  &  a & 0 &   \ldots &  0 &  0\\
-  \vdots  & \vdots & \vdots  &   \ddots &  \vdots &  \vdots \\
-  0  &  0 & 0 &   \ldots &  0 &  b\\
-  b  &  0 & 0 &   \ldots &  a &  0   \\
-\end{pmatrix}.
-\end{equation}
+%Предварительно заметим, что система~\eqref{common:main2} в~матричном виде имеет
+% вид
+%\begin{equation}\label{common:matrixeqforring}
+ %   \dot{x}(t) + I\, x(t) +  B\,x(t-\tau) = 0,\quad t>0,
+%\end{equation}
+%где циркулянтная матрица $B$ такова:
+%\begin{equation}\label{common:circullantmatrixB}
+%B=
+%\begin{pmatrix}  
+ % 0  &  b & 0 &   \ldots &  0 & a\\
+ % a  &  0 & b &   \ldots &  0 &  0\\
+ % 0  &  a & 0 &   \ldots &  0 &  0\\
+  %\vdots  & \vdots & \vdots  &   \ddots &  \vdots &  \vdots \\
+  %0  &  0 & 0 &   \ldots &  0 &  b\\
+  %b  &  0 & 0 &   \ldots &  a &  0   \\
+%\end{pmatrix}.
+%\end{equation}
 
 
 \begin{theorem}\label{common:th:comparison_ring_and_linear}   
 Для любых действительных значений  параметров $a,b, \tau>0$ найдётся такое
-$n_0$, что для всех $n>n_0$ верно утверждение: либо система  \eqref{common:matrixeqforring},
-\eqref{common:circullantmatrixB} для кольца нейронов неустойчива, либо  система 
+$n_0$, что для всех $n>n_0$ верно утверждение: либо система%
+% \eqref{common:matrixeqforring}, \eqref{common:circullantmatrixB} 
+~\eqref{common:main2} для кольца нейронов неустойчива, либо  система 
 \eqref{common:matrixbrokenequ},  \eqref{common:matrixbroken} для сети с~линейной конфигурацией
 нейронов асимп\-то\-тически устойчива. 
 \end{theorem}
@@ -598,7 +605,7 @@ Y.~Yuan, S.~Campbell  (см. сноску~${}^{12}$)
 Теоремы \ref{common:th:stab_linear}, шире области, гарантированной
 результатом Мори с~соавторами\footnote{Mori T., Fukuma N., Kuwahara M. Simple
 stability criteria for single and composite linear systems with time delay //
-Int. J. Control. 1981. Vol. 34. Pp. 1175–1184.}.
+Int. J. Control. --- 1981. --- Vol. 34. --- Pp. 1175–1184.}.
 %\cite{Mori&Fukuma&Kuwahara_1981}.
 Указано, что алгоритмы и программы для анализа устойчивости моделей кольцевых и
 линейных сетей с~неограниченным количеством нейронов  в~известной автору
@@ -726,9 +733,9 @@ $n=3$ и  весьма мала при $n=5$. В~результате
     \caption{
       Области  устойчивости и неустойчивости кольцевой  (система~\eqref{common:main2}) и линейной  (система 
          \eqref{common:matrixbrokenequ}, \eqref{common:matrixbroken})
-        конфигураций  нейронов в плоскости $(a, b)$, $\tau=0,5$. 1~--~кольцо и
-        линия устойчивы, 2~--~кольцо неустойчиво, линия устойчива, 3~--~кольцо
-        и линия неустойчивы, 4~--~парадоксальная область: кольцо устойчиво, а
+        конфигураций  нейронов в плоскости $(a, b)$, $\tau=0,5$.
+        Область 1~--~кольцо и линия устойчивы, 2~--~кольцо неустойчиво, линия
+        устойчива, 3~--~кольцо и линия неустойчивы, 4~--~парадоксальная область: кольцо устойчиво, а
         линия неустойчива. Для $n=5$ дополнительно парадоксальная
         область показана в~увеличении}
     \label{common:fig:comparison_ring_and_linear_finite}
@@ -797,7 +804,9 @@ $ac$ и $bc$, где $0\leqslant  c\leqslant 1$. % -- некоторый неотрицательный пара
 \begin{center}
 {\bfseries Основные результаты диссертационной работы}
 \end{center}
+\vspace{-2mm}
 На защиту выносятся следующие новые научные результаты.
+\vspace{-2mm}
 \newcounter{count}
 %\begin{enumerate}
 %  \item 
@@ -805,7 +814,7 @@ $ac$ и $bc$, где $0\leqslant  c\leqslant 1$. % -- некоторый неотрицательный пара
 \begin{list}{\arabic{count}.}{\itemsep -0.10in}
 \usecounter{count}
 
-\item Разработан метод конуса устойчивости  для исследования устойчивости
+\item Разработан метод конуса устойчивости  для анализа устойчивости
   математических моделей, описывающих взаимодействие элементов в~нейронных 
   сетях посредством матричных дифференциальных уравнений с~запаздываниями.
 \item Построены алгоритмы для анализа   устойчивости исследуемых
@@ -895,7 +904,25 @@ $ac$ и $bc$, где $0\leqslant  c\leqslant 1$. % -- некоторый неотрицательный пара
 %\end{enumerate}
 \end{list}
 \end{comment}
+\vspace{-1mm}
 Работа поддержана грантом Минобразования 1.1711.2011.
+\vspace{-1mm}
 
+\begin{center}
+{\bfseries Заключение}
+\end{center}
 
+В соответствии с целями настоящего диссертационного исследования автором
+разработаны методы анализа устойчивости широкого класса математических
+моделей нейронных сетей.
+Обоснованные теоретические выводы, а также созданные алгоритмы и программы 
+позволили построить ясные графические иллюстрации влияния свойств кольца и линии нейронов на устойчивость системы.
+Подход, реализованный в диссертации, позволил рассмотреть задачи, которые ранее
+в научной литературе не затрагивались, а именно задачу об устойчивости 
+нейронных сетей с неограниченным количеством нейронов и задачу об изменении  области устойчивости кольцевой сети при её разрыве и переходе в линейную сеть. 
+
+Направление  дальнейших исследований связано с изучением  устойчивости других
+конфигураций нейронных сетей, поскольку  разработанный автором 
+метод конуса устойчивости, алгоритмы  и программы обладают  потенциалом
+значительно более широким, чем использованный в диссертации. 
 
